@@ -1,4 +1,4 @@
-/* Bo'Cocon — intro d'ouverture, en-tête, menu mobile et apparitions au défilement */
+/* Bo'Cocon — intro d'ouverture, en-tête, menu mobile, formulaires et apparitions au défilement */
 (function () {
   "use strict";
 
@@ -166,6 +166,73 @@
     });
     render();
   });
+
+  /* ---------- Réserver : récapitulatif en direct et e-mail prérempli ---------- */
+  var bookForm = document.getElementById("booking-form");
+  if (bookForm) {
+    var bookSend = document.getElementById("booking-send");
+    var recap = {};
+    document.querySelectorAll("[data-book]").forEach(function (el) {
+      recap[el.getAttribute("data-book")] = { el: el, fallback: el.textContent };
+    });
+    var euros = function (n) { return String(n).replace(".", ",") + " €"; };
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    var now = new Date();
+    bookForm.elements["book-date"].min = now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());
+    var longDate = function (iso) {
+      var p = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+      if (!p) return "";
+      return new Date(+p[1], p[2] - 1, +p[3]).toLocaleDateString("fr-FR",
+        { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    };
+    var bookUpdate = function () {
+      var checked = bookForm.querySelector('input[name="book-formule"]:checked');
+      var price = checked ? +checked.getAttribute("data-price") : 0;
+      var v = {
+        formule: checked ? checked.value : "",
+        name: bookForm.elements["book-name"].value.trim(),
+        tel: bookForm.elements["book-tel"].value.trim(),
+        town: bookForm.elements["book-town"].value.trim(),
+        date: longDate(bookForm.elements["book-date"].value),
+        msg: bookForm.elements["book-msg"].value.trim()
+      };
+      var shown = {
+        formule: v.formule,
+        price: price ? "À partir de " + euros(price) + ", soit" : "",
+        net: price ? euros(price / 2) : "",
+        "net-label": price ? "après crédit d’impôt" : "",
+        date: v.date ? "À partir du " + v.date : "",
+        town: v.town ? "Chez vous, à " + v.town : ""
+      };
+      Object.keys(recap).forEach(function (key) {
+        recap[key].el.textContent = shown[key] || recap[key].fallback;
+        if (key === "formule" || key === "date" || key === "town") {
+          recap[key].el.classList.toggle("is-empty", !shown[key]);
+        }
+      });
+      var body = [
+        "Bonjour,",
+        "",
+        "Je souhaite réserver une formule Bo’Cocon.",
+        "",
+        "Formule : " + (v.formule ? v.formule + " (à partir de " + euros(price) + ")" : "à définir ensemble"),
+        "Date souhaitée : " + (v.date || "à définir ensemble"),
+        "Commune : " + (v.town || "…"),
+        "Nom : " + (v.name || "…"),
+        "Téléphone : " + (v.tel || "…"),
+        "Message : " + (v.msg || "…"),
+        "",
+        "Merci de me recontacter pour confirmer la réservation."
+      ].join("\n");
+      bookSend.href = "mailto:bococon.contact@gmail.com?subject=" +
+        encodeURIComponent("Réservation Bo’Cocon" + (v.formule ? " – " + v.formule : "")) +
+        "&body=" + encodeURIComponent(body);
+    };
+    bookForm.addEventListener("input", bookUpdate);
+    bookForm.addEventListener("change", bookUpdate);
+    bookForm.addEventListener("submit", function (e) { e.preventDefault(); });
+    bookUpdate();
+  }
 
   /* ---------- Offrir : aperçu de la carte cadeau et e-mail prérempli ---------- */
   var giftForm = document.getElementById("gift-form");

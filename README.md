@@ -66,6 +66,20 @@ Vaunage, avant l’arrivée sur la page d’accueil (environ 7 s).
 Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
 lorsque l’on revient sur l’accueil depuis une autre page du site.
 
+## Page d’accueil : ordre des sections
+
+Accueil → L’approche (suivie du déroulé « Comment ça se passe ? », sur le même fond) →
+Formules → bandeau crédit d’impôt → Réserver → Offrir → Contact.
+Menu du haut et pied de page : L’approche, Formules, Réserver, Offrir, Contact
+(le déroulé n’a pas de lien dans le menu).
+
+## Réserver
+
+La section « Réserver » permet de demander une réservation : formule, nom, téléphone, commune,
+date souhaitée et message facultatif. Un récapitulatif en forme d’arche se met à jour en direct
+(prix de départ et prix après crédit d’impôt). Le bouton « Envoyer ma demande » ouvre la
+messagerie avec la demande déjà écrite, envoyée à bococon.contact@gmail.com.
+
 ## Offrir (carte cadeau)
 
 La section « Offrir » permet de composer une carte cadeau : on choisit la formule, le prénom

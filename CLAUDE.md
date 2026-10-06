@@ -38,7 +38,11 @@
 - Prix des formules (repris des maquettes du propriétaire) : Douces énergies 60 €,
   Première lueur 180 €, Semaine allégée 250 €, Cocon mois d’or 900 € — moitié prix après
   crédit d’impôt immédiat.
-- Section « Offrir » (carte cadeau) : aperçu en direct + e-mail prérempli vers
-  bococon.contact@gmail.com (`js/main.js`), pas de paiement en ligne.
+- Ordre des sections : accueil, L’approche + Déroulé (même fond, Déroulé absent du menu),
+  Formules, crédit d’impôt, Réserver, Offrir, Contact. Menu : L’approche, Formules,
+  Réserver, Offrir, Contact (choix du propriétaire).
+- Sections « Réserver » (demande de réservation) et « Offrir » (carte cadeau) : aperçu en
+  direct + e-mail prérempli vers bococon.contact@gmail.com (`js/main.js`), pas de paiement
+  en ligne. Styles de formulaire partagés : `.field`, `.field-row`, `.chips`, `.chip`.
 - Coordonnées : bococon.contact@gmail.com · 07 81 18 86 07 · du Pic Saint-Loup à la
   Vaunage.

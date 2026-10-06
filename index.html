@@ -112,9 +112,9 @@
       <nav class="nav" id="nav" aria-label="Navigation principale">
         <ul class="nav__list">
           <li><a class="nav__link" href="#approche">L’approche</a></li>
-          <li><a class="nav__link" href="#offrir">Offrir</a></li>
           <li><a class="nav__link" href="#formules">Formules</a></li>
-          <li><a class="nav__link" href="#deroule">Déroulé</a></li>
+          <li><a class="nav__link" href="#reserver">Réserver</a></li>
+          <li><a class="nav__link" href="#offrir">Offrir</a></li>
         </ul>
         <a class="btn btn--ghost" href="#contact">Contact</a>
       </nav>
@@ -221,82 +221,30 @@
       </div>
     </section>
 
-    <!-- ===================== Offrir : carte cadeau ===================== -->
-    <section class="section gift" id="offrir" aria-labelledby="offrir-title">
-      <div class="container gift__grid">
-        <div class="gift__intro reveal">
-          <p class="kicker">Offrir</p>
-          <h2 class="section-title" id="offrir-title">Offrez un <em>cocon de douceur</em></h2>
-          <p class="lead">
-            Une carte cadeau pour offrir à une future ou jeune maman, ou à toute une famille,
-            des repas sur mesure et faits maison, préparés chez elle.
-          </p>
-          <ol class="gift__steps">
-            <li><span>1</span>Choisissez la formule à offrir.</li>
-            <li><span>2</span>Ajoutez votre petit mot : il apparaît sur la carte.</li>
-            <li><span>3</span>Envoyez la demande : Bo’Cocon vous recontacte pour finaliser la carte cadeau.</li>
-          </ol>
+    <!-- ===================== Déroulé ===================== -->
+    <section class="section section--linen" id="deroule" aria-labelledby="deroule-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker kicker--center">Le déroulé</p>
+          <h2 class="section-title" id="deroule-title">Comment ça se passe&nbsp;?</h2>
         </div>
-
-        <div class="gift__preview reveal" style="--d:1" aria-hidden="true">
-          <div class="gift-card">
-            <span class="gift-card__arch"></span>
-            <div class="gift-card__body">
-              <p class="gift-card__kicker">Carte cadeau</p>
-              <p class="gift-card__to">Pour <span data-gift="to">vous</span></p>
-              <p class="gift-card__formula" data-gift="formule">La formule de votre choix</p>
-              <p class="gift-card__msg" data-gift="msg">Prends soin de toi, on s’occupe du reste.</p>
-              <p class="gift-card__from">De la part de <span data-gift="from">…</span></p>
-            </div>
-          </div>
-        </div>
-
-        <form class="gift__form reveal" style="--d:2" id="gift-form" novalidate>
-          <fieldset class="gift__field gift__field--chips">
-            <legend>La formule à offrir</legend>
-            <div class="gift-chips">
-                <label class="gift-chip">
-                  <input type="radio" name="gift-formule" value="Douces énergies">
-                  <span class="gift-chip__name">Douces énergies</span>
-                  <span class="gift-chip__price">à partir de 60&nbsp;€</span>
-                </label>
-                <label class="gift-chip">
-                  <input type="radio" name="gift-formule" value="Première lueur">
-                  <span class="gift-chip__name">Première lueur</span>
-                  <span class="gift-chip__price">à partir de 180&nbsp;€</span>
-                </label>
-                <label class="gift-chip">
-                  <input type="radio" name="gift-formule" value="Semaine allégée">
-                  <span class="gift-chip__name">Semaine allégée</span>
-                  <span class="gift-chip__price">à partir de 250&nbsp;€</span>
-                </label>
-                <label class="gift-chip">
-                  <input type="radio" name="gift-formule" value="Cocon mois d’or">
-                  <span class="gift-chip__name">Cocon mois d’or</span>
-                  <span class="gift-chip__price">à partir de 900&nbsp;€</span>
-                </label>
-            </div>
-          </fieldset>
-          <div class="gift__row">
-            <label class="gift__field">
-              <span>Pour qui&nbsp;?</span>
-              <input type="text" name="gift-to" maxlength="40" autocomplete="off" placeholder="Prénom">
-            </label>
-            <label class="gift__field">
-              <span>De la part de</span>
-              <input type="text" name="gift-from" maxlength="40" autocomplete="off" placeholder="Votre prénom">
-            </label>
-          </div>
-          <label class="gift__field">
-            <span>Votre petit mot</span>
-            <textarea name="gift-msg" rows="3" maxlength="140" placeholder="Prends soin de toi, on s’occupe du reste."></textarea>
-          </label>
-          <a class="btn btn--primary gift__submit" id="gift-order" href="mailto:bococon.contact@gmail.com?subject=Carte%20cadeau%20Bo%E2%80%99Cocon">
-            Commander la carte cadeau
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
-          </a>
-          <p class="gift__note">Votre messagerie s’ouvre avec la demande déjà écrite. Vous pouvez aussi appeler le <a href="tel:+33781188607">07&nbsp;81&nbsp;18&nbsp;86&nbsp;07</a>.</p>
-        </form>
+        <ol class="steps">
+          <li class="step reveal" style="--d:0">
+            <span class="step__num" aria-hidden="true">01</span>
+            <h3>On fait connaissance</h3>
+            <p>Un premier échange pour comprendre vos besoins, vos envies et le rythme de votre foyer.</p>
+          </li>
+          <li class="step reveal" style="--d:1">
+            <span class="step__num" aria-hidden="true">02</span>
+            <h3>Un menu sur-mesure</h3>
+            <p>Les menus sont composés pour vous, selon la formule choisie et vos préférences.</p>
+          </li>
+          <li class="step reveal" style="--d:2">
+            <span class="step__num" aria-hidden="true">03</span>
+            <h3>On cuisine chez vous</h3>
+            <p>Les plats sont préparés chez vous. Il ne vous reste plus qu’à vous mettre à table.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -485,30 +433,167 @@
       </div>
     </section>
 
-    <!-- ===================== Déroulé ===================== -->
-    <section class="section section--linen" id="deroule" aria-labelledby="deroule-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker kicker--center">Le déroulé</p>
-          <h2 class="section-title" id="deroule-title">Comment ça se passe&nbsp;?</h2>
+    <!-- ===================== Réserver ===================== -->
+    <section class="section section--linen booking" id="reserver" aria-labelledby="reserver-title">
+      <div class="container booking__grid">
+        <div class="booking__intro reveal">
+          <p class="kicker">Réserver</p>
+          <h2 class="section-title" id="reserver-title">Réservez <em>votre formule</em></h2>
+          <p class="lead">
+            Choisissez votre formule et la date à laquelle vous aimeriez commencer&nbsp;:
+            Bo’Cocon vous recontacte pour confirmer et préparer avec vous le premier échange.
+          </p>
         </div>
-        <ol class="steps">
-          <li class="step reveal" style="--d:0">
-            <span class="step__num" aria-hidden="true">01</span>
-            <h3>On fait connaissance</h3>
-            <p>Un premier échange pour comprendre vos besoins, vos envies et le rythme de votre foyer.</p>
-          </li>
-          <li class="step reveal" style="--d:1">
-            <span class="step__num" aria-hidden="true">02</span>
-            <h3>Un menu sur-mesure</h3>
-            <p>Les menus sont composés pour vous, selon la formule choisie et vos préférences.</p>
-          </li>
-          <li class="step reveal" style="--d:2">
-            <span class="step__num" aria-hidden="true">03</span>
-            <h3>On cuisine chez vous</h3>
-            <p>Les plats sont préparés chez vous. Il ne vous reste plus qu’à vous mettre à table.</p>
-          </li>
-        </ol>
+
+        <div class="booking__recap reveal" style="--d:1" aria-hidden="true">
+          <div class="booking-recap">
+            <svg class="booking-recap__sprig"><use href="#bco-sprig"/></svg>
+            <p class="booking-recap__kicker">Votre demande</p>
+            <p class="booking-recap__formula" data-book="formule">La formule de votre choix</p>
+            <p class="booking-recap__price" data-book="price">Toutes les formules</p>
+            <p class="booking-recap__net"><strong data-book="net">50&nbsp;%</strong><span data-book="net-label">de crédit d’impôt immédiat</span></p>
+            <dl class="booking-recap__list">
+              <div><dt>Quand</dt><dd data-book="date">À définir ensemble</dd></div>
+              <div><dt>Où</dt><dd data-book="town">Chez vous, du Pic Saint-Loup à la Vaunage</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <form class="booking__form reveal" style="--d:2" id="booking-form" novalidate>
+          <fieldset class="field">
+            <legend>Votre formule</legend>
+            <div class="chips">
+                <label class="chip">
+                  <input type="radio" name="book-formule" value="Douces énergies" data-price="60">
+                  <span class="chip__name">Douces énergies</span>
+                  <span class="chip__price">à partir de 60&nbsp;€</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="book-formule" value="Première lueur" data-price="180">
+                  <span class="chip__name">Première lueur</span>
+                  <span class="chip__price">à partir de 180&nbsp;€</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="book-formule" value="Semaine allégée" data-price="250">
+                  <span class="chip__name">Semaine allégée</span>
+                  <span class="chip__price">à partir de 250&nbsp;€</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="book-formule" value="Cocon mois d’or" data-price="900">
+                  <span class="chip__name">Cocon mois d’or</span>
+                  <span class="chip__price">à partir de 900&nbsp;€</span>
+                </label>
+            </div>
+          </fieldset>
+          <div class="field-row">
+            <label class="field">
+              <span>Votre nom</span>
+              <input type="text" name="book-name" maxlength="60" autocomplete="name" placeholder="Prénom et nom">
+            </label>
+            <label class="field">
+              <span>Téléphone</span>
+              <input type="tel" name="book-tel" maxlength="20" autocomplete="tel" placeholder="Votre numéro">
+            </label>
+          </div>
+          <div class="field-row">
+            <label class="field">
+              <span>Votre commune</span>
+              <input type="text" name="book-town" maxlength="60" autocomplete="address-level2" placeholder="Ex.&nbsp;: Calvisson">
+            </label>
+            <label class="field">
+              <span>Date souhaitée</span>
+              <input type="date" name="book-date">
+            </label>
+          </div>
+          <label class="field">
+            <span>Votre message <small>(facultatif)</small></span>
+            <textarea name="book-msg" rows="3" maxlength="400" placeholder="Date du terme, nombre de personnes, allergies…"></textarea>
+          </label>
+          <a class="btn btn--primary form-submit" id="booking-send" href="mailto:bococon.contact@gmail.com?subject=R%C3%A9servation%20Bo%E2%80%99Cocon">
+            Envoyer ma demande
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+          <p class="form-note">Votre messagerie s’ouvre avec la demande déjà écrite. Vous pouvez aussi appeler le <a href="tel:+33781188607">07&nbsp;81&nbsp;18&nbsp;86&nbsp;07</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== Offrir : carte cadeau ===================== -->
+    <section class="section gift" id="offrir" aria-labelledby="offrir-title">
+      <div class="container gift__grid">
+        <div class="gift__intro reveal">
+          <p class="kicker">Offrir</p>
+          <h2 class="section-title" id="offrir-title">Offrez un <em>cocon de douceur</em></h2>
+          <p class="lead">
+            Une carte cadeau pour offrir à une future ou jeune maman, ou à toute une famille,
+            des repas sur mesure et faits maison, préparés chez elle.
+          </p>
+          <ol class="gift__steps">
+            <li><span>1</span>Choisissez la formule à offrir.</li>
+            <li><span>2</span>Ajoutez votre petit mot : il apparaît sur la carte.</li>
+            <li><span>3</span>Envoyez la demande : Bo’Cocon vous recontacte pour finaliser la carte cadeau.</li>
+          </ol>
+        </div>
+
+        <div class="gift__preview reveal" style="--d:1" aria-hidden="true">
+          <div class="gift-card">
+            <span class="gift-card__arch"></span>
+            <div class="gift-card__body">
+              <p class="gift-card__kicker">Carte cadeau</p>
+              <p class="gift-card__to">Pour <span data-gift="to">vous</span></p>
+              <p class="gift-card__formula" data-gift="formule">La formule de votre choix</p>
+              <p class="gift-card__msg" data-gift="msg">Prends soin de toi, on s’occupe du reste.</p>
+              <p class="gift-card__from">De la part de <span data-gift="from">…</span></p>
+            </div>
+          </div>
+        </div>
+
+        <form class="gift__form reveal" style="--d:2" id="gift-form" novalidate>
+          <fieldset class="field">
+            <legend>La formule à offrir</legend>
+            <div class="chips">
+                <label class="chip">
+                  <input type="radio" name="gift-formule" value="Douces énergies">
+                  <span class="chip__name">Douces énergies</span>
+                  <span class="chip__price">à partir de 60&nbsp;€</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="gift-formule" value="Première lueur">
+                  <span class="chip__name">Première lueur</span>
+                  <span class="chip__price">à partir de 180&nbsp;€</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="gift-formule" value="Semaine allégée">
+                  <span class="chip__name">Semaine allégée</span>
+                  <span class="chip__price">à partir de 250&nbsp;€</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="gift-formule" value="Cocon mois d’or">
+                  <span class="chip__name">Cocon mois d’or</span>
+                  <span class="chip__price">à partir de 900&nbsp;€</span>
+                </label>
+            </div>
+          </fieldset>
+          <div class="field-row">
+            <label class="field">
+              <span>Pour qui&nbsp;?</span>
+              <input type="text" name="gift-to" maxlength="40" autocomplete="off" placeholder="Prénom">
+            </label>
+            <label class="field">
+              <span>De la part de</span>
+              <input type="text" name="gift-from" maxlength="40" autocomplete="off" placeholder="Votre prénom">
+            </label>
+          </div>
+          <label class="field">
+            <span>Votre petit mot</span>
+            <textarea name="gift-msg" rows="3" maxlength="140" placeholder="Prends soin de toi, on s’occupe du reste."></textarea>
+          </label>
+          <a class="btn btn--primary form-submit" id="gift-order" href="mailto:bococon.contact@gmail.com?subject=Carte%20cadeau%20Bo%E2%80%99Cocon">
+            Commander la carte cadeau
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+          <p class="form-note">Votre messagerie s’ouvre avec la demande déjà écrite. Vous pouvez aussi appeler le <a href="tel:+33781188607">07&nbsp;81&nbsp;18&nbsp;86&nbsp;07</a>.</p>
+        </form>
       </div>
     </section>
 
@@ -548,9 +633,9 @@
           <h2 class="footer__title">Navigation</h2>
           <ul class="footer__list">
             <li><a href="#approche">L’approche</a></li>
-            <li><a href="#offrir">Offrir</a></li>
             <li><a href="#formules">Formules</a></li>
-            <li><a href="#deroule">Déroulé</a></li>
+            <li><a href="#reserver">Réserver</a></li>
+            <li><a href="#offrir">Offrir</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
