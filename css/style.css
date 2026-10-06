@@ -531,7 +531,7 @@ main:focus { outline: none; }
 .hero__visual {
   position: relative;
   justify-self: center;
-  width: min(100%, 330px);
+  width: min(100%, 280px);
 }
 .hero__arch {
   position: relative;
@@ -541,10 +541,10 @@ main:focus { outline: none; }
 .arch-mono--plain { background-image: var(--img-arch-plain); }
 .badge {
   position: absolute;
-  left: -52px;
+  left: -44px;
   top: 16%;
-  width: 132px;
-  height: 132px;
+  width: 114px;
+  height: 114px;
   border-radius: 50%;
   background: var(--cream);
   box-shadow: 0 10px 30px rgba(81, 40, 20, .1);
@@ -1119,8 +1119,8 @@ main:focus { outline: none; }
   .hero__text { margin-inline: auto; }
   .hero__actions { justify-content: center; }
   .hero__note { justify-content: center; text-align: left; }
-  .hero__visual { width: min(66%, 270px); margin-top: 8px; }
-  .badge { width: 104px; height: 104px; left: -30px; }
+  .hero__visual { width: min(58%, 230px); margin-top: 8px; }
+  .badge { width: 92px; height: 92px; left: -26px; }
   .hero__deco { display: none; }
 
   .pillars, .steps { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; }
