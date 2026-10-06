@@ -218,39 +218,52 @@ main:focus { outline: none; }
   animation: stageOut .9s ease 5.7s forwards;
 }
 
-/* Paysage au trait : le Pic Saint-Loup puis la Vaunage se dessinent de gauche à droite */
+/* Deux dessins au trait, séparés : la silhouette du Pic Saint-Loup puis le contour de la Vaunage */
 .intro-scene {
-  width: min(920px, 92vw);
-  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(32px, 6vw, 96px);
+  width: min(1000px, 92vw);
   animation: logoIn 1.6s var(--ease-out) 1.45s both;
 }
-.intro-scene svg { display: block; width: 100%; height: auto; overflow: visible; }
-/* épaisseur des traits (plus épais sur petit écran pour rester bien visible) */
-.intro-scene .ln,
-.intro-scene .fd { stroke-width: calc(var(--sw, 2) * var(--sw-k, 1)); }
-@media (max-width: 700px) { .intro-scene { --sw-k: 1.9; } }
+.intro-scene__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+.intro-scene svg { display: block; height: auto; overflow: visible; }
+.intro-scene__item--pic svg { width: min(560px, 54vw); }
+.intro-scene__item--vaunage svg { width: min(230px, 24vw); }
 .intro-scene .ln {
+  stroke-width: calc(1.7px * var(--sw-k, 1));
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: draw 1.3s cubic-bezier(.45, 0, .25, 1) forwards;
-  animation-delay: calc(1.6s + var(--d) * 85ms);
+  animation: draw 1.6s cubic-bezier(.45, 0, .25, 1) forwards;
+  animation-delay: calc(1.7s + var(--d, 0) * 250ms);
 }
-.intro-scene .fd {
-  opacity: 0;
-  animation: fadeIn .9s ease forwards;
-  animation-delay: calc(1.6s + var(--d) * 85ms);
+.intro-scene .ln--vaunage {
+  stroke-width: calc(2.4px * var(--sw-k, 1));
+  animation-duration: 2.2s;
+  animation-delay: 2.7s;
 }
 .intro-scene figcaption {
-  margin-top: clamp(10px, 2vw, 22px);
-  text-align: center;
+  margin-top: clamp(10px, 1.6vw, 18px);
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
   line-height: 1.2;
   color: var(--brown);
   opacity: 0;
-  animation: fadeIn 1s ease 4.1s forwards;
+  animation: fadeIn 1s ease 3.7s forwards;
+}
+.intro-scene__item--vaunage figcaption { animation-delay: 4.5s; }
+@media (max-width: 700px) {
+  .intro-scene { flex-direction: column; align-items: center; gap: 26px; --sw-k: 1.25; }
+  .intro-scene__item--pic svg { width: 86vw; }
+  .intro-scene__item--vaunage svg { width: 46vw; }
 }
 
 /* Les deux battants */
