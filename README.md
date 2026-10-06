@@ -48,7 +48,7 @@ Chaque modification poussée sur la branche est ensuite mise en ligne automatiqu
 ## Intro d’ouverture
 
 À l’ouverture du site, deux battants s’écartent de chaque côté, l’ovale du logo se dessine,
-puis « Bo’Cocon » et l’accroche apparaissent avant l’arrivée sur la page d’accueil (environ 5 s).
+puis « Bo’Cocon » et l’accroche apparaissent avant l’arrivée sur la page d’accueil (environ 6 s).
 Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
 lorsque l’on revient sur l’accueil depuis une autre page du site.
 
