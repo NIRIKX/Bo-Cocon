@@ -178,12 +178,20 @@
     var euros = function (n) { return String(n).replace(".", ",") + " €"; };
     var pad = function (n) { return (n < 10 ? "0" : "") + n; };
     var now = new Date();
-    bookForm.elements["book-date"].min = now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());
+    var minIso = now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());
+    bookForm.elements["book-date"].min = minIso;
+    /* date en toutes lettres ; une date passée (ou une année incomplète) est ignorée */
     var longDate = function (iso) {
       var p = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
-      if (!p) return "";
-      return new Date(+p[1], p[2] - 1, +p[3]).toLocaleDateString("fr-FR",
-        { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+      if (!p || iso < minIso) return "";
+      var d = new Date(+p[1], p[2] - 1, +p[3]);
+      var s = d.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+      return d.getDate() === 1 ? s.replace(" 1 ", " 1er ") : s;
+    };
+    /* « à Calvisson », mais « aux Matelles », « au Triadou » */
+    var inTown = function (t) {
+      var m = /^(les|le)\s+(.+)$/i.exec(t);
+      return m ? (m[1].toLowerCase() === "les" ? "aux " : "au ") + m[2] : "à " + t;
     };
     var bookUpdate = function () {
       var checked = bookForm.querySelector('input[name="book-formule"]:checked');
@@ -202,7 +210,7 @@
         net: price ? euros(price / 2) : "",
         "net-label": price ? "après crédit d’impôt" : "",
         date: v.date ? "À partir du " + v.date : "",
-        town: v.town ? "Chez vous, à " + v.town : ""
+        town: v.town ? "Chez vous, " + inTown(v.town) : ""
       };
       Object.keys(recap).forEach(function (key) {
         recap[key].el.textContent = shown[key] || recap[key].fallback;

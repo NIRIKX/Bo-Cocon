@@ -10,7 +10,7 @@ dans un navigateur ou de publier le dossier tel quel (GitHub Pages, Netlify, OVH
 ```
 index.html            Page d’accueil (intro animée + sections)
 css/style.css         Styles : palette, typographies, animations, responsive
-js/main.js            Intro, en-tête, menu mobile, apparitions au défilement
+js/main.js            Intro, en-tête, menu mobile, formulaires, apparitions au défilement
 assets/               Logo d’origine détouré (fond transparent)
   logo-bococon.png    Logo ovale complet
   logo-wordmark.png   « Bo’Cocon » seul (en-tête, pied de page, intro)
