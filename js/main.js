@@ -51,7 +51,7 @@
     });
 
     // filet de sécurité si les animations ne se déclenchent pas
-    window.setTimeout(finish, 8000);
+    window.setTimeout(finish, 8500);
   }
 
   if (intro && root.classList.contains("intro-on")) {

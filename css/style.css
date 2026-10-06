@@ -204,7 +204,7 @@ main:focus { outline: none; }
   display: block;
   background: var(--linen);
   cursor: pointer;
-  animation: introOut .9s ease 5.7s forwards;
+  animation: introOut .9s ease 6.3s forwards;
 }
 .intro-lock,
 .intro-lock body { overflow: hidden; }
@@ -215,7 +215,7 @@ main:focus { outline: none; }
   display: grid;
   place-items: center;
   padding: 24px;
-  animation: stageOut .9s ease 5.7s forwards;
+  animation: stageOut .9s ease 6.3s forwards;
 }
 
 /* Deux dessins au trait, séparés : la silhouette du Pic Saint-Loup puis le contour de la Vaunage */
@@ -260,6 +260,24 @@ main:focus { outline: none; }
   animation: fadeIn 1s ease 3.7s forwards;
 }
 .intro-scene__item--vaunage figcaption { animation-delay: 4.5s; }
+/* soleil qui se lève derrière le Pic */
+.intro-sun {
+  opacity: 0;
+  transform: translateY(46px);
+  animation: sunRise 2.6s cubic-bezier(.2, .7, .2, 1) 2.1s forwards;
+}
+/* les 9 villages qui s'allument un à un */
+.intro-villages circle {
+  fill: var(--caramel-deep);
+  opacity: 0;
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: villageIn .6s cubic-bezier(.3, 1.6, .5, 1) forwards;
+  animation-delay: calc(4.5s + var(--v) * 110ms);
+}
+@keyframes sunRise { to { opacity: 1; transform: none; } }
+@keyframes villageIn { to { opacity: 1; transform: none; } }
 @media (max-width: 700px) {
   .intro-scene { flex-direction: column; align-items: center; gap: 26px; --sw-k: 1.25; }
   .intro-scene__item--pic svg { width: 86vw; }

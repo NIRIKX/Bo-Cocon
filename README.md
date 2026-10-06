@@ -61,7 +61,8 @@ contenu de chaque formule au dos des bocaux.
 dessins au trait se tracent, séparés : la silhouette du Pic Saint-Loup (« Du Pic Saint-Loup »), puis
 le contour du territoire de la Vaunage (« à la Vaunage » — contour réel des 9 communes : Boissières,
 Calvisson, Caveirac, Clarensac, Congénies, Langlade, Nages-et-Solorgues, Saint-Côme-et-Maruéjols,
-Saint-Dionisy), avant l’arrivée sur la page d’accueil (environ 6,5 s).
+Saint-Dionisy). Un soleil se lève derrière le Pic et les 9 villages s’allument un à un dans la
+Vaunage, avant l’arrivée sur la page d’accueil (environ 7 s).
 Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
 lorsque l’on revient sur l’accueil depuis une autre page du site.
 
