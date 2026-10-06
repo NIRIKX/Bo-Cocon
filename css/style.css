@@ -686,7 +686,15 @@ main:focus { outline: none; }
 
 .jar__art { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .ol { fill: none; stroke: var(--brown); stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-.ol--4 { stroke-width: 4px; }
+.ol--jar { stroke-width: 3.5px; }
+
+/* contenu du bocal : se remplit à l'arrivée sur la section, la surface ondule doucement */
+.jar__fill { transition: transform 1.8s cubic-bezier(.2, .7, .2, 1) .25s; }
+.js .jar__fill { transform: translateY(360px); }
+.js .is-visible .jar__fill,
+.reveal-all .jar__fill { transform: none; }
+.jar__wave { animation: jarWave 7s linear infinite; }
+@keyframes jarWave { to { transform: translateX(-150px); } }
 
 /* prix en arc sous l'ovale, comme l'accroche du logo */
 .jar__arc {
@@ -700,11 +708,11 @@ main:focus { outline: none; }
 .jar__icon {
   position: absolute;
   left: 50%;
-  top: 27%;
-  width: 12%;
+  top: 26%;
+  width: 15%;
   aspect-ratio: 1;
   transform: translateX(-50%);
-  color: var(--caramel);
+  color: var(--caramel-deep);
 }
 .jar__icon svg { width: 100%; height: 100%; }
 
@@ -726,14 +734,24 @@ main:focus { outline: none; }
   color: var(--espresso);
   text-wrap: balance;
 }
+/* le prix après crédit d'impôt, mis en avant */
 .jar__net {
   position: absolute;
   left: 15%; width: 70%;
-  top: 74%;
+  top: 72.5%;
   text-align: center;
-  font-size: clamp(12px, 4.6cqw, 13.5px);
-  line-height: 1.35;
+  font-size: clamp(12px, 4.4cqw, 13px);
+  line-height: 1.3;
   color: var(--ink);
+}
+.jar__net strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(26px, 11cqw, 34px);
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: lining-nums;
+  color: var(--brown);
 }
 
 /* verso */
@@ -858,6 +876,8 @@ main:focus { outline: none; }
   .jar.is-flipped .jar__face--back { opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s; }
   .jar.is-flipped .jar__face--front { opacity: 0; visibility: hidden; }
   .jar__toggle svg { transition: none; }
+  .jar__wave { animation: none; }
+  .js .jar__fill { transform: none; transition: none; }
 }
 
 .formulas-note {
