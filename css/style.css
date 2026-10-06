@@ -708,7 +708,7 @@ main:focus { outline: none; }
 .jar__icon {
   position: absolute;
   left: 50%;
-  top: 26%;
+  top: 21%;
   width: 15%;
   aspect-ratio: 1;
   transform: translateX(-50%);
@@ -720,7 +720,7 @@ main:focus { outline: none; }
 .jar__label {
   position: absolute;
   left: 22%; width: 56%;
-  top: 44%; height: 21.7%;
+  top: 36.7%; height: 21.7%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -738,7 +738,7 @@ main:focus { outline: none; }
 .jar__net {
   position: absolute;
   left: 15%; width: 70%;
-  top: 72.5%;
+  top: 65.5%;
   text-align: center;
   font-size: clamp(12px, 4.4cqw, 13px);
   line-height: 1.3;
@@ -758,7 +758,7 @@ main:focus { outline: none; }
 .jar__sheet {
   position: absolute;
   left: 15%; width: 70%;
-  top: 25%; height: 60%;
+  top: 22%; height: 62%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -878,6 +878,18 @@ main:focus { outline: none; }
   .jar__toggle svg { transition: none; }
   .jar__wave { animation: none; }
   .js .jar__fill { transform: none; transition: none; }
+}
+
+#formules .section-head { margin-bottom: clamp(32px, 4.5vw, 52px); }
+#formules .lead {
+  max-width: 46ch;
+  text-wrap: balance;
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
 }
 
 .formulas-note {
