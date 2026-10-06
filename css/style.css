@@ -545,7 +545,9 @@ main:focus { outline: none; }
   position: absolute;
   inset: 0;
   background: var(--img-arch-tag) center / contain no-repeat;
-  transform: var(--arch-shift);
+  /* placée et légèrement inclinée pour garder le même écart avec l'arche et le cadre */
+  transform-origin: 49.7% 63.9%;
+  transform: translate(3.55cqw, -.12cqw) rotate(-11deg) scale(1.04);
   pointer-events: none;
 }
 
