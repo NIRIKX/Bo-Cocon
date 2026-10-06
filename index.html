@@ -18,13 +18,15 @@
   <link rel="stylesheet" href="css/style.css">
 
   <script>
-    /* Avant le premier affichage : active l'intro sauf si l'on arrive d'une autre page du site */
+    /* Avant le premier affichage : active l'intro sauf si l'on arrive d'une autre page du site
+       (toujours jouée quand le site est intégré, par exemple dans Streamlit) */
     (function () {
       var d = document.documentElement, internal = false;
       d.classList.remove("no-js");
       d.classList.add("js");
       try {
-        internal = !!document.referrer && new URL(document.referrer).origin === location.origin;
+        internal = location.protocol !== "about:" && !!document.referrer &&
+          new URL(document.referrer).origin === location.origin;
       } catch (e) {}
       if (!internal) d.classList.add("intro-on");
       setTimeout(function () {
@@ -73,7 +75,7 @@
     </div>
   </header>
 
-  <main id="contenu">
+  <main id="contenu" tabindex="-1">
     <!-- ===================== Héros ===================== -->
     <section class="hero" aria-labelledby="hero-title">
       <svg class="hero__deco" aria-hidden="true"><use href="#bco-sprig"/></svg>

@@ -95,6 +95,27 @@
     });
   }
 
+  /* ---------- Liens internes quand le site est intégré (iframe Streamlit) ----------
+     Dans une iframe « srcdoc », un lien « #section » rechargerait la page parente :
+     on fait défiler la page nous-mêmes. */
+  if (location.protocol === "about:") {
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest('a[href^="#"], a[href="./"]');
+      if (!link) return;
+      var href = link.getAttribute("href");
+      var target = href === "./" || href === "#" ? null : document.querySelector(href);
+      if (href !== "./" && href !== "#" && !target) return;
+      e.preventDefault();
+      var smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (target) {
+        target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+        if (target.tabIndex === -1) target.focus({ preventScroll: true });
+      } else {
+        window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+      }
+    });
+  }
+
   /* ---------- Apparitions au défilement ---------- */
   var items = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
