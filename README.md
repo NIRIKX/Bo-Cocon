@@ -1,0 +1,45 @@
+# Bo’Cocon — site internet
+
+Cuisine à domicile post-partum & familiale.
+
+Site statique (HTML / CSS / JavaScript, sans outil de build) : il suffit d’ouvrir `index.html`
+dans un navigateur ou de publier le dossier tel quel (GitHub Pages, Netlify, OVH…).
+
+## Structure
+
+```
+index.html            Page d’accueil (intro animée + sections)
+css/style.css         Styles : palette, typographies, animations, responsive
+js/main.js            Intro, en-tête, menu mobile, apparitions au défilement
+assets/
+  logo-bococon.svg    Logo ovale « Bo’Cocon » avec l’accroche en arc
+  monogramme-b.svg    Monogramme « B » dans son arche
+  favicon.svg         Icône d’onglet
+```
+
+## Intro d’ouverture
+
+À l’ouverture du site, deux battants s’écartent de chaque côté, l’ovale du logo se dessine,
+puis « Bo’Cocon » et l’accroche apparaissent avant l’arrivée sur la page d’accueil (environ 5 s).
+Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
+lorsque l’on revient sur l’accueil depuis une autre page du site.
+
+## Palette
+
+| Rôle            | Couleur   |
+|-----------------|-----------|
+| Crème (fond)    | `#fef9f0` |
+| Lin             | `#ede8e2` |
+| Taupe           | `#c6b6a9` |
+| Caramel         | `#be9a80` |
+| Brun            | `#744537` |
+| Expresso        | `#512814` |
+| Texte           | `#63584d` |
+
+Typographies : Cormorant Garamond (titres) et Jost (textes), via Google Fonts.
+
+## À compléter
+
+- L’adresse e-mail de contact (`contact@bococon.fr` est provisoire) dans `index.html`.
+- Le logo est une recréation vectorielle fidèle à l’original ; il peut être remplacé
+  par le fichier source si besoin.
