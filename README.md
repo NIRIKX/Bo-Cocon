@@ -11,10 +11,13 @@ dans un navigateur ou de publier le dossier tel quel (GitHub Pages, Netlify, OVH
 index.html            Page d’accueil (intro animée + sections)
 css/style.css         Styles : palette, typographies, animations, responsive
 js/main.js            Intro, en-tête, menu mobile, apparitions au défilement
-assets/
-  logo-bococon.svg    Logo ovale « Bo’Cocon » avec l’accroche en arc
-  monogramme-b.svg    Monogramme « B » dans son arche
-  favicon.svg / .png  Icône d’onglet
+assets/               Logo d’origine détouré (fond transparent)
+  logo-bococon.png    Logo ovale complet
+  logo-wordmark.png   « Bo’Cocon » seul (en-tête, pied de page, intro)
+  logo-tagline.png    Accroche en arc (intro)
+  monogramme-b.png    Monogramme « B » dans son arche
+  b-seul.png          « B » seul (décor)
+  favicon.png         Icône d’onglet
 app.py                Affichage du site sur Streamlit
 requirements.txt      Dépendances Streamlit
 .streamlit/config.toml  Thème Streamlit aux couleurs du site
@@ -63,8 +66,7 @@ lorsque l’on revient sur l’accueil depuis une autre page du site.
 
 Typographies : Cormorant Garamond (titres) et Jost (textes), via Google Fonts.
 
-## À compléter
+## Coordonnées affichées
 
-- L’adresse e-mail de contact (`contact@bococon.fr` est provisoire) dans `index.html`.
-- Le logo est une recréation vectorielle fidèle à l’original ; il peut être remplacé
-  par le fichier source si besoin.
+bococon.contact@gmail.com · 07 81 18 86 07 · du Pic Saint-Loup à la Vaunage
+(dans `index.html`, sections Contact et pied de page).

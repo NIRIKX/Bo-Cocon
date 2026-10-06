@@ -22,6 +22,12 @@
   --radius-pill: 999px;
   --ease-out: cubic-bezier(.2, .7, .2, 1);
   --ease-door: cubic-bezier(.77, 0, .18, 1);
+
+  /* Logo d'origine (chaque image n'est déclarée qu'une fois) */
+  --img-arch: url("../assets/monogramme-b.png");
+  --img-word: url("../assets/logo-wordmark.png");
+  --img-tag: url("../assets/logo-tagline.png");
+  --img-b: url("../assets/b-seul.png");
 }
 
 /* ---------- Base ---------- */
@@ -53,6 +59,13 @@ p { margin: 0 0 1em; }
 h1, h2, h3 { margin: 0; font-weight: 500; }
 
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* Monogramme « B » dans son arche */
+.arch-mono {
+  display: block;
+  aspect-ratio: 760 / 1209;
+  background: var(--img-arch) center / contain no-repeat;
+}
 
 .container {
   width: 100%;
@@ -204,47 +217,55 @@ main:focus { outline: none; }
   animation: stageOut .9s ease 4.1s forwards;
 }
 
+/* Logo : ovale vectoriel qui se dessine + calques du logo d'origine */
 .intro-logo {
+  position: relative;
   width: min(640px, 88vw);
-  height: auto;
-  overflow: visible;
-  color: var(--espresso);
-  --logo-bg: var(--taupe);
+  aspect-ratio: 1296 / 747;
   animation: logoIn 1.8s var(--ease-out) .55s both;
 }
+.il-oval {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
 .il-fill {
-  fill: var(--taupe);
+  fill: #c7b7aa;
   opacity: 0;
   animation: fadeIn 1.1s ease 1s forwards;
 }
 .il-line {
   fill: none;
   stroke: var(--espresso);
-  stroke-width: 5;
+  stroke-width: 11.5;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   animation: draw 1.4s cubic-bezier(.65, 0, .35, 1) .75s forwards;
 }
-.il-b {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: riseIn 1s var(--ease-out) 1.3s forwards;
+.il-word,
+.il-tag {
+  position: absolute;
+  background: center / contain no-repeat;
+  clip-path: inset(0 100% 0 0);
 }
-.il-word path {
-  fill: currentColor;
-  stroke: currentColor;
-  stroke-width: .85;
-  stroke-linejoin: round;
-  opacity: 0;
-  transform: translateY(12px);
-  animation: riseIn .8s var(--ease-out) forwards;
-  animation-delay: calc(1.45s + var(--i) * 70ms);
+/* « Bo'Cocon » s'écrit de gauche à droite, puis l'accroche suit l'arc */
+.il-word {
+  left: 18.75%;
+  top: 30.25%;
+  width: 62.73%;
+  aspect-ratio: 813 / 239;
+  background-image: var(--img-word);
+  animation: wipe 1.25s cubic-bezier(.45, 0, .25, 1) 1.35s forwards;
 }
-.il-tag path {
-  fill: var(--caramel);
-  opacity: 0;
-  animation: fadeIn .6s ease forwards;
-  animation-delay: calc(2.05s + var(--i) * 22ms);
+.il-tag {
+  left: 9.49%;
+  top: 76.04%;
+  width: 80.79%;
+  aspect-ratio: 1047 / 175;
+  background-image: var(--img-tag);
+  animation: wipe 1.2s cubic-bezier(.45, 0, .25, 1) 2.15s forwards;
 }
 
 /* Les deux battants */
@@ -297,13 +318,7 @@ main:focus { outline: none; }
 }
 .intro__door--left .intro__door-face { left: 0; }
 .intro__door--right .intro__door-face { right: 0; }
-.intro__door-face .arch-mono {
-  height: min(58vh, 440px);
-  width: auto;
-  color: var(--espresso);
-  --taupe: #b9a798;
-  --logo-bg: #b9a798;
-}
+.intro__door-face .arch-mono { height: min(62vh, 470px); }
 
 .intro__skip {
   position: absolute;
@@ -334,6 +349,7 @@ main:focus { outline: none; }
 @keyframes fadeIn    { to { opacity: 1; } }
 @keyframes riseIn    { to { opacity: 1; transform: none; } }
 @keyframes draw      { to { stroke-dashoffset: 0; } }
+@keyframes wipe      { to { clip-path: inset(0 0 0 0); } }
 @keyframes stageOut  { to { transform: scale(1.04); } }
 @keyframes stageOutFast { to { transform: scale(1.04); } }
 @keyframes introOut     { to { opacity: 0; visibility: hidden; } }
@@ -366,11 +382,14 @@ main:focus { outline: none; }
 
 .brand {
   display: inline-flex;
-  color: var(--espresso);
   text-decoration: none;
-  --logo-bg: var(--cream);
 }
-.brand svg { height: 38px; width: auto; overflow: visible; }
+.brand__wordmark {
+  display: block;
+  height: 40px;
+  aspect-ratio: 813 / 239;
+  background: var(--img-word) center / contain no-repeat;
+}
 
 .nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); }
 .nav__list {
@@ -500,23 +519,21 @@ main:focus { outline: none; }
 }
 .hero__arch {
   position: relative;
-  aspect-ratio: 300 / 470;
+  aspect-ratio: 760 / 1209;
 }
+/* contour décalé calé sur l'arche du monogramme */
 .hero__arch::before {
   content: "";
   position: absolute;
-  inset: 0;
+  left: 4.8%;
+  top: .7%;
+  width: 89.9%;
+  height: 91.6%;
   border: 3px solid var(--brown);
   border-radius: var(--radius-pill);
   transform: translate(22px, 18px);
 }
-.hero__arch .arch-mono {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  color: var(--espresso);
-  --logo-bg: var(--taupe);
-}
+.hero__arch .arch-mono { position: relative; width: 100%; }
 
 .badge {
   position: absolute;
@@ -721,10 +738,12 @@ main:focus { outline: none; }
   position: absolute;
   right: -60px;
   bottom: -40px;
-  width: 320px;
-  color: rgba(254, 249, 240, .07);
-  --logo-bg: transparent;
-  transform: rotate(-18deg);
+  width: 300px;
+  aspect-ratio: 462 / 533;
+  background: rgba(254, 249, 240, .07);
+  -webkit-mask: var(--img-b) center / contain no-repeat;
+  mask: var(--img-b) center / contain no-repeat;
+  transform: rotate(-14deg);
   pointer-events: none;
 }
 
@@ -778,9 +797,21 @@ main:focus { outline: none; }
 .contact__arch {
   width: 112px;
   margin: 0 auto 30px;
-  color: var(--espresso);
-  --logo-bg: var(--taupe);
 }
+.contact__arch .arch-mono { width: 100%; }
+.contact__info {
+  margin: -12px auto 32px;
+  font-size: .95rem;
+  line-height: 1.8;
+}
+.contact__info a {
+  color: var(--brown);
+  font-weight: 400;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(116, 69, 55, .3);
+  transition: border-color .3s ease;
+}
+.contact__info a:hover { border-color: var(--brown); }
 .contact .section-title { max-width: 16ch; margin-inline: auto; }
 .contact .lead { margin: 22px auto 36px; }
 .contact__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
@@ -801,8 +832,14 @@ main:focus { outline: none; }
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(198, 182, 169, .2);
 }
-.footer__brand { color: var(--cream); --logo-bg: var(--espresso); }
-.footer__brand svg { height: 48px; width: auto; overflow: visible; }
+.footer__wordmark {
+  display: block;
+  height: 52px;
+  aspect-ratio: 813 / 239;
+  background: var(--cream);
+  -webkit-mask: var(--img-word) center / contain no-repeat;
+  mask: var(--img-word) center / contain no-repeat;
+}
 .footer__tagline {
   margin: 18px 0 0;
   font-size: .78rem;
@@ -866,7 +903,7 @@ main:focus { outline: none; }
     text-transform: none;
   }
   .brand { position: relative; z-index: 2; }
-  .brand svg { height: 32px; }
+  .brand__wordmark { height: 34px; }
 
   .hero__grid { grid-template-columns: 1fr; min-height: 0; text-align: center; }
   .hero__content { display: flex; flex-direction: column; align-items: center; }
@@ -917,6 +954,7 @@ main:focus { outline: none; }
     opacity: 1 !important;
     transform: none !important;
     stroke-dashoffset: 0 !important;
+    clip-path: none !important;
   }
   .intro__skip { animation: none; opacity: 1; }
   .badge__ring { animation: none; }
