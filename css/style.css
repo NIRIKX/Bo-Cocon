@@ -7,6 +7,7 @@
   --cream: #fef9f0;        /* fond principal (page Formules) */
   --linen: #ede8e2;        /* fond du logo */
   --taupe: #c6b6a9;        /* remplissage de l'ovale / de l'arche */
+  --taupe-light: #e0d4c8;  /* fond du déroulé */
   --caramel: #be9a80;      /* accroche du logo, prix (décoratif) */
   --caramel-deep: #8c6448; /* caramel lisible pour les petits textes */
   --brown: #744537;        /* titres, contours des formules */
@@ -610,6 +611,8 @@ main:focus { outline: none; }
    ========================================================================== */
 .section { padding: clamp(80px, 11vw, 140px) 0; }
 .section--linen { background: var(--linen); }
+.section--taupe { background: var(--taupe-light); }
+.section--taupe .kicker { color: var(--brown); }
 
 /* L'approche */
 .pillars {
@@ -641,9 +644,6 @@ main:focus { outline: none; }
   color: var(--brown);
 }
 .pillar p { max-width: 32ch; margin-inline: auto; }
-
-/* Le déroulé suit L'approche sur le même fond : un seul bloc, sans double espace */
-.section--linen + .section--linen { padding-top: 0; }
 
 /* Réserver : demande de réservation avec récapitulatif en direct */
 .booking__grid {
@@ -1272,7 +1272,7 @@ main:focus { outline: none; }
   margin: 0 auto 24px;
   border: 1px solid var(--caramel);
   border-radius: 50%;
-  background: var(--linen);
+  background: var(--cream);
   font-family: var(--font-display);
   font-size: 2.2rem;
   font-style: italic;
