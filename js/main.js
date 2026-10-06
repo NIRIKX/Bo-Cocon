@@ -97,7 +97,8 @@
 
   /* ---------- Liens internes quand le site est intégré (iframe Streamlit) ----------
      Dans une iframe « srcdoc », un lien « #section » rechargerait la page parente :
-     on fait défiler la page nous-mêmes. */
+     on fait défiler la page nous-mêmes. On n'utilise pas scrollIntoView(), qui
+     ferait aussi défiler la page Streamlit autour du site et cacherait l'en-tête. */
   if (location.protocol === "about:") {
     document.addEventListener("click", function (e) {
       var link = e.target.closest('a[href^="#"], a[href="./"]');
@@ -107,12 +108,13 @@
       if (href !== "./" && href !== "#" && !target) return;
       e.preventDefault();
       var smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var top = 0;
       if (target) {
-        target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
-        if (target.tabIndex === -1) target.focus({ preventScroll: true });
-      } else {
-        window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+        var offset = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+        top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset);
       }
+      window.scrollTo({ top: top, behavior: smooth ? "smooth" : "auto" });
+      if (target && target.tabIndex === -1) target.focus({ preventScroll: true });
     });
   }
 

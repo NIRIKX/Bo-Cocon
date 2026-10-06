@@ -50,8 +50,11 @@ st.markdown(
     <style>
       header[data-testid="stHeader"], [data-testid="stToolbar"], [data-testid="stDecoration"],
       [data-testid="stStatusWidget"], #MainMenu, footer { display: none !important; }
-      html, body, [data-testid="stApp"], [data-testid="stAppViewContainer"], [data-testid="stMain"] {
+      /* la page autour du site ne doit jamais défiler (ni à la souris, ni par programme) */
+      html, body, [data-testid="stApp"], [data-testid="stAppViewContainer"], [data-testid="stMain"],
+      [data-testid="stMainBlockContainer"], .block-container {
         overflow: hidden !important;
+        overflow: clip !important;
         background: #fef9f0;
       }
       [data-testid="stMainBlockContainer"], .block-container {
@@ -59,6 +62,11 @@ st.markdown(
         max-width: 100% !important;
       }
       [data-testid="stVerticalBlock"] { gap: 0 !important; }
+      /* le cadre prend exactement la hauteur de l'écran (sinon il reste 900 px fixes) */
+      [data-testid="stElementContainer"], .element-container {
+        flex: 0 0 auto !important;
+        height: auto !important;
+      }
       [data-testid="stElementContainer"]:has(> [data-testid="stMarkdown"] style) { display: none !important; }
       iframe[data-testid="stIFrame"], [data-testid="stIFrame"] iframe, .stIFrame {
         display: block;
