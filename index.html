@@ -40,89 +40,11 @@
   <script src="js/main.js" defer></script>
 </head>
 <body>
-  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><defs><!-- bocaux des formules --><linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0" stop-color="#f6f0e8"/>
-<stop offset=".55" stop-color="#f1eae1"/>
-<stop offset="1" stop-color="#e7ded3"/>
-</linearGradient>
-
-<!-- 1. vichy taupe -->
-<pattern id="cloth-vichy" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-7)">
-<rect width="14" height="14" fill="#fbf4ea"/>
-<rect width="7" height="14" fill="#c6b6a9" fill-opacity=".42"/>
-<rect width="14" height="7" fill="#c6b6a9" fill-opacity=".42"/>
-</pattern>
-<!-- 2. rayure tissée caramel -->
-<pattern id="cloth-ticking" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(6)">
-<rect width="12" height="12" fill="#fbf4ea"/>
-<rect width="4.5" height="12" fill="#be9a80" fill-opacity=".5"/>
-<rect x="8" width="1" height="12" fill="#744537" fill-opacity=".22"/>
-</pattern>
-<!-- 3. petits pois -->
-<pattern id="cloth-dots" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-4)">
-<rect width="12" height="12" fill="#f4ebe0"/>
-<circle cx="3" cy="3" r="1.7" fill="#8c6448" fill-opacity=".5"/>
-<circle cx="9" cy="9" r="1.7" fill="#8c6448" fill-opacity=".5"/>
-</pattern>
-<!-- 4. vichy fin caramel -->
-<pattern id="cloth-vichy-fin" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(5)">
-<rect width="9" height="9" fill="#fbf4ea"/>
-<rect width="4.5" height="9" fill="#be9a80" fill-opacity=".4"/>
-<rect width="9" height="4.5" fill="#be9a80" fill-opacity=".4"/>
-</pattern>
-
-<!-- le verre -->
-<g id="jar-glass">
-<path d="M76 104C46 108 24 128 22 166V428c0 24 16 40 42 40h172c26 0 42-16 42-40V166c-2-38-24-58-54-62z" fill="url(#glass)"/>
-<!-- reflets -->
-<path d="M40 196V318" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-opacity=".9"/>
-<path d="M40 340v10" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-opacity=".9"/>
-<path d="M262 214v44" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-opacity=".7"/>
-<!-- épaisseur du fond -->
-<path class="ol ol--15" d="M44 450c46 9 166 9 212 0" stroke-opacity=".35"/>
-<path class="ol ol--4" d="M76 104C46 108 24 128 22 166V428c0 24 16 40 42 40h172c26 0 42-16 42-40V166c-2-38-24-58-54-62"/>
-</g>
-
-<!-- le tissu (style="fill:var(--cloth)" : un motif par formule) -->
-<g id="jar-cloth">
-<!-- jupe crantée -->
-<path style="fill: var(--cloth, #fbf4ea)" d="M70 104C56 116 32 132 12 150 L 17.8 157.6 L 23.5 151.2 L 29.3 158.8 L 35.0 152.3 L 40.8 159.9 L 46.5 153.4 L 52.3 161.0 L 58.0 154.5 L 63.8 162.0 L 69.5 155.5 L 75.3 162.9 L 81.0 156.4 L 86.8 163.8 L 92.5 157.1 L 98.3 164.5 L 104.0 157.8 L 109.8 165.1 L 115.5 158.3 L 121.3 165.5 L 127.0 158.7 L 132.8 165.8 L 138.5 158.9 L 144.3 166.0 L 150.0 159.0 L 155.8 166.0 L 161.5 158.9 L 167.3 165.8 L 173.0 158.7 L 178.8 165.5 L 184.5 158.3 L 190.3 165.1 L 196.0 157.8 L 201.8 164.5 L 207.5 157.1 L 213.3 163.8 L 219.0 156.4 L 224.8 162.9 L 230.5 155.5 L 236.3 162.0 L 242.0 154.5 L 247.8 161.0 L 253.5 153.4 L 259.3 159.9 L 265.0 152.3 L 270.8 158.8 L 276.5 151.2 L 282.3 157.6 L 288 150C268 132 244 116 230 104z"/>
-<path class="ol ol--3" d="M70 104C56 116 32 132 12 150 L 17.8 157.6 L 23.5 151.2 L 29.3 158.8 L 35.0 152.3 L 40.8 159.9 L 46.5 153.4 L 52.3 161.0 L 58.0 154.5 L 63.8 162.0 L 69.5 155.5 L 75.3 162.9 L 81.0 156.4 L 86.8 163.8 L 92.5 157.1 L 98.3 164.5 L 104.0 157.8 L 109.8 165.1 L 115.5 158.3 L 121.3 165.5 L 127.0 158.7 L 132.8 165.8 L 138.5 158.9 L 144.3 166.0 L 150.0 159.0 L 155.8 166.0 L 161.5 158.9 L 167.3 165.8 L 173.0 158.7 L 178.8 165.5 L 184.5 158.3 L 190.3 165.1 L 196.0 157.8 L 201.8 164.5 L 207.5 157.1 L 213.3 163.8 L 219.0 156.4 L 224.8 162.9 L 230.5 155.5 L 236.3 162.0 L 242.0 154.5 L 247.8 161.0 L 253.5 153.4 L 259.3 159.9 L 265.0 152.3 L 270.8 158.8 L 276.5 151.2 L 282.3 157.6 L 288 150C268 132 244 116 230 104"/>
-<!-- plis de la jupe -->
-<path class="ol ol--15" d="M92 112c-10 12-22 26-30 40M150 116v34M208 112c10 12 22 26 30 40M120 114c-4 14-8 26-10 38M180 114c4 14 8 26 10 38" stroke-opacity=".38"/>
-<!-- dôme -->
-<path style="fill: var(--cloth, #fbf4ea)" d="M68 100C58 84 56 62 70 48 84 34 118 30 150 32s66 2 80 16c14 14 12 36 2 52z"/>
-<path class="ol ol--3" d="M68 100C58 84 56 62 70 48 84 34 118 30 150 32s66 2 80 16c14 14 12 36 2 52"/>
-<path class="ol ol--15" d="M98 96c-4-16-4-34 4-50M150 96c-2-18 0-38 6-56M200 96c4-16 6-32 0-48M124 94c-2-12-1-24 2-34" stroke-opacity=".38"/>
-<!-- ficelle (deux tours) -->
-<g fill="none" stroke-linecap="round">
-<path d="M64 97c46 10 126 10 172 0M66 106c44 10 124 10 168 0" stroke="#744537" stroke-width="7.5"/>
-<path d="M64 97c46 10 126 10 172 0M66 106c44 10 124 10 168 0" stroke="#be9a80" stroke-width="4.6"/>
-<path d="M64 97c46 10 126 10 172 0M66 106c44 10 124 10 168 0" stroke="#8c6448" stroke-width="4.6" stroke-dasharray="1.3 2.9" stroke-linecap="butt" stroke-opacity=".75"/>
-</g>
-</g>
-
-<!-- le nœud (recto seulement) -->
-<g id="jar-bow" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<path d="M96 108c-14-6-30-18-30-30 0-10 14-8 22 0 6 6 8 18 8 30zM96 108c4-12 12-28 26-30 10-1 10 12 2 20-6 6-16 10-28 10zM94 112c-6 14-12 26-20 40M99 112c2 14 6 28 4 44" stroke="#744537" stroke-width="7"/>
-<path d="M96 108c-14-6-30-18-30-30 0-10 14-8 22 0 6 6 8 18 8 30zM96 108c4-12 12-28 26-30 10-1 10 12 2 20-6 6-16 10-28 10zM94 112c-6 14-12 26-20 40M99 112c2 14 6 28 4 44" stroke="#be9a80" stroke-width="4.2"/>
-<path d="M96 108c-14-6-30-18-30-30 0-10 14-8 22 0 6 6 8 18 8 30zM96 108c4-12 12-28 26-30 10-1 10 12 2 20-6 6-16 10-28 10zM94 112c-6 14-12 26-20 40M99 112c2 14 6 28 4 44" stroke="#8c6448" stroke-width="4.2" stroke-dasharray="1.3 2.9" stroke-linecap="butt" stroke-opacity=".75"/>
-<!-- effilochés -->
-<path d="M74 152l-4 5M74 152l1 6M103 156l-3 5M103 156l3 5" stroke="#8c6448" stroke-width="1.4"/>
-<ellipse cx="96.5" cy="109" rx="6.5" ry="5.5" fill="#be9a80" stroke="#744537" stroke-width="2.4"/>
-</g>
-
-<!-- étiquettes -->
-<g id="label-front">
-<ellipse cx="150" cy="322" rx="122" ry="90" fill="#fef9f0"/>
-<ellipse class="ol ol--15" cx="150" cy="322" rx="122" ry="90"/>
-<ellipse cx="150" cy="322" rx="114" ry="82" fill="none" stroke="#be9a80" stroke-width="1" stroke-dasharray="3 3"/>
-</g>
-<g id="label-back">
-<rect x="36" y="176" width="228" height="276" rx="16" fill="#fef9f0"/>
-<rect class="ol ol--15" x="36" y="176" width="228" height="276" rx="16"/>
-<rect x="43" y="183" width="214" height="262" rx="11" fill="none" stroke="#be9a80" stroke-width="1"/>
-</g></defs><symbol id="bco-sprig" viewBox="0 0 172 40"><path d="M6,22 C46,17 98,16 154,20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M30.0,19.2 C23.6,22.9 16.9,17.4 15.3,10.7 C21.9,8.8 30.0,11.8 30.0,19.2Z M46.0,18.4 C45.4,11.0 53.2,7.3 59.9,8.6 C58.9,15.5 52.7,21.5 46.0,18.4Z M62.0,17.6 C61.3,25.0 53.0,27.3 46.6,24.8 C48.8,18.2 55.9,13.4 62.0,17.6Z M80.0,17.2 C80.3,9.8 88.5,7.0 95.0,9.2 C93.2,15.9 86.3,21.1 80.0,17.2Z M98.0,17.2 C98.0,24.6 89.9,27.6 83.3,25.7 C84.9,19.0 91.6,13.5 98.0,17.2Z M116.0,17.6 C116.8,10.2 125.2,8.1 131.5,10.7 C129.2,17.2 122.0,21.9 116.0,17.6Z M134.0,18.6 C134.2,26.0 126.3,29.3 119.6,27.6 C121.0,20.9 127.4,15.2 134.0,18.6Z M154.0,20.0 C156.7,13.6 164.8,13.8 169.8,17.8 C166.1,23.0 158.3,25.5 154.0,20.0Z" fill="currentColor"/></symbol></svg>
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><defs><!-- bocaux des formules -->
+<g id="jar-body"><path d="M76 92V100C76 114 36 118 36 154V420C36 446 54 462 80 462H220C246 462 264 446 264 420V154C264 118 224 114 224 100V92" style="fill: var(--jar-fill, transparent)"/><path class="ol ol--4" d="M76 92V100C76 114 36 118 36 154V420C36 446 54 462 80 462H220C246 462 264 446 264 420V154C264 118 224 114 224 100V92"/><rect x="64" y="48" width="172" height="44" rx="11" fill="#c7b7aa"/><rect class="ol ol--4" x="64" y="48" width="172" height="44" rx="11"/><path class="ol" d="M78 61h144" stroke-width="1.2px" stroke-opacity=".55"/></g>
+<g id="jar-oval"><ellipse cx="150" cy="262" rx="98" ry="52" fill="#c7b7aa"/><ellipse cx="150" cy="262" rx="98" ry="52" fill="none" stroke="#512814" stroke-width="3px" vector-effect="non-scaling-stroke"/></g>
+<path id="jar-arc" d="M30 262A120 77 0 0 0 270 262" fill="none"/>
+</defs><symbol id="bco-sprig" viewBox="0 0 172 40"><path d="M6,22 C46,17 98,16 154,20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M30.0,19.2 C23.6,22.9 16.9,17.4 15.3,10.7 C21.9,8.8 30.0,11.8 30.0,19.2Z M46.0,18.4 C45.4,11.0 53.2,7.3 59.9,8.6 C58.9,15.5 52.7,21.5 46.0,18.4Z M62.0,17.6 C61.3,25.0 53.0,27.3 46.6,24.8 C48.8,18.2 55.9,13.4 62.0,17.6Z M80.0,17.2 C80.3,9.8 88.5,7.0 95.0,9.2 C93.2,15.9 86.3,21.1 80.0,17.2Z M98.0,17.2 C98.0,24.6 89.9,27.6 83.3,25.7 C84.9,19.0 91.6,13.5 98.0,17.2Z M116.0,17.6 C116.8,10.2 125.2,8.1 131.5,10.7 C129.2,17.2 122.0,21.9 116.0,17.6Z M134.0,18.6 C134.2,26.0 126.3,29.3 119.6,27.6 C121.0,20.9 127.4,15.2 134.0,18.6Z M154.0,20.0 C156.7,13.6 164.8,13.8 169.8,17.8 C166.1,23.0 158.3,25.5 154.0,20.0Z" fill="currentColor"/></symbol></svg>
 
   <!-- ===================== Intro : ouverture + logo ===================== -->
   <div class="intro" id="intro">
@@ -278,24 +200,20 @@
 
         <ul class="formulas">
           <li class="reveal" style="--d:0">
-            <div class="jar" style="--cloth: url(#cloth-vichy)">
+            <div class="jar">
               <div class="jar__inner">
                 <div class="jar__face jar__face--front">
                   <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
-                    <use href="#jar-glass"/><use href="#label-front"/><use href="#jar-cloth"/><use href="#jar-bow"/>
+                    <use href="#jar-body"/><use href="#jar-oval"/>
+                    <text class="jar__arc"><textPath href="#jar-arc" startOffset="50%" text-anchor="middle">À PARTIR DE 60 €</textPath></text>
                   </svg>
                   <span class="jar__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 32h44c0 11-9.5 18-22 18S10 43 10 32z"/><path d="M24 53h16"/><path d="M24 25c-3-3 3-6 0-10M32 25c-3-3 3-6 0-10M40 25c-3-3 3-6 0-10"/></svg></span>
-                  <div class="jar__label">
-                    <h3 class="jar__name">Douces énergies</h3>
-                    <span class="jar__rule" aria-hidden="true"></span>
-                    <p class="jar__price">À partir de <strong>60&nbsp;€</strong>
-                      <span class="jar__net">soit 30&nbsp;€<br>après crédit d’impôt</span></p>
-                  </div>
+                  <div class="jar__label"><h3 class="jar__name">Douces énergies</h3></div>
+                  <p class="visually-hidden">À partir de 60&nbsp;€, soit 30&nbsp;€ après crédit d’impôt.</p>
+                  <p class="jar__net" aria-hidden="true">soit 30&nbsp;€<br>après crédit d’impôt</p>
                 </div>
                 <div class="jar__face jar__face--back" id="formule-1-detail">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
-                    <g transform="matrix(-1 0 0 1 300 0)"><use href="#jar-glass"/><use href="#jar-cloth"/></g><use href="#label-back"/>
-                  </svg>
+                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false"><use href="#jar-body"/></svg>
                   <div class="jar__sheet">
                     <p class="jar__kicker">Douces énergies</p>
                     <h4 class="jar__heading">Ce qui est compris</h4>
@@ -307,8 +225,8 @@
                     </ul>
                     -->
                     <p class="jar__soon">Le détail de cette formule arrive très bientôt.</p>
-                    <p class="jar__price jar__price--back">À partir de <strong>60&nbsp;€</strong>
-                      <span class="jar__net">soit 30&nbsp;€ après crédit d’impôt</span></p>
+                    <p class="jar__price">À partir de <strong>60&nbsp;€</strong>
+                      <span>soit 30&nbsp;€ après crédit d’impôt</span></p>
                     <a class="jar__cta" href="#contact">Me renseigner</a>
                   </div>
                 </div>
@@ -320,24 +238,20 @@
             </div>
           </li>
           <li class="reveal" style="--d:1">
-            <div class="jar" style="--cloth: url(#cloth-ticking)">
+            <div class="jar">
               <div class="jar__inner">
                 <div class="jar__face jar__face--front">
                   <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
-                    <use href="#jar-glass"/><use href="#label-front"/><use href="#jar-cloth"/><use href="#jar-bow"/>
+                    <use href="#jar-body"/><use href="#jar-oval"/>
+                    <text class="jar__arc"><textPath href="#jar-arc" startOffset="50%" text-anchor="middle">À PARTIR DE 180 €</textPath></text>
                   </svg>
                   <span class="jar__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 44h48M18 51h28"/><path d="M19 44a13 13 0 0 1 26 0"/><path d="M32 17v6M15 27l4 4M49 27l-4 4M8 38h5M51 38h5"/></svg></span>
-                  <div class="jar__label">
-                    <h3 class="jar__name">Première lueur</h3>
-                    <span class="jar__rule" aria-hidden="true"></span>
-                    <p class="jar__price">À partir de <strong>180&nbsp;€</strong>
-                      <span class="jar__net">soit 90&nbsp;€<br>après crédit d’impôt</span></p>
-                  </div>
+                  <div class="jar__label"><h3 class="jar__name">Première lueur</h3></div>
+                  <p class="visually-hidden">À partir de 180&nbsp;€, soit 90&nbsp;€ après crédit d’impôt.</p>
+                  <p class="jar__net" aria-hidden="true">soit 90&nbsp;€<br>après crédit d’impôt</p>
                 </div>
                 <div class="jar__face jar__face--back" id="formule-2-detail">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
-                    <g transform="matrix(-1 0 0 1 300 0)"><use href="#jar-glass"/><use href="#jar-cloth"/></g><use href="#label-back"/>
-                  </svg>
+                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false"><use href="#jar-body"/></svg>
                   <div class="jar__sheet">
                     <p class="jar__kicker">Première lueur</p>
                     <h4 class="jar__heading">Ce qui est compris</h4>
@@ -349,8 +263,8 @@
                     </ul>
                     -->
                     <p class="jar__soon">Le détail de cette formule arrive très bientôt.</p>
-                    <p class="jar__price jar__price--back">À partir de <strong>180&nbsp;€</strong>
-                      <span class="jar__net">soit 90&nbsp;€ après crédit d’impôt</span></p>
+                    <p class="jar__price">À partir de <strong>180&nbsp;€</strong>
+                      <span>soit 90&nbsp;€ après crédit d’impôt</span></p>
                     <a class="jar__cta" href="#contact">Me renseigner</a>
                   </div>
                 </div>
@@ -362,24 +276,20 @@
             </div>
           </li>
           <li class="reveal" style="--d:2">
-            <div class="jar" style="--cloth: url(#cloth-dots)">
+            <div class="jar">
               <div class="jar__inner">
                 <div class="jar__face jar__face--front">
                   <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
-                    <use href="#jar-glass"/><use href="#label-front"/><use href="#jar-cloth"/><use href="#jar-bow"/>
+                    <use href="#jar-body"/><use href="#jar-oval"/>
+                    <text class="jar__arc"><textPath href="#jar-arc" startOffset="50%" text-anchor="middle">À PARTIR DE 250 €</textPath></text>
                   </svg>
                   <span class="jar__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M49 11C32 13 20 25 19 42l-.4 5c14-1 26-9 29.4-22 1.2-4.6 1.6-9.4 1-14z"/><path d="M14 54c6-12 16-25 30-37"/><path d="M27 34l-6-2M33 27l-6-3M39 21l-5-3M30 38l6 .5M36 31l7 .2"/></svg></span>
-                  <div class="jar__label">
-                    <h3 class="jar__name">Semaine allégée</h3>
-                    <span class="jar__rule" aria-hidden="true"></span>
-                    <p class="jar__price">À partir de <strong>250&nbsp;€</strong>
-                      <span class="jar__net">soit 125&nbsp;€<br>après crédit d’impôt</span></p>
-                  </div>
+                  <div class="jar__label"><h3 class="jar__name">Semaine allégée</h3></div>
+                  <p class="visually-hidden">À partir de 250&nbsp;€, soit 125&nbsp;€ après crédit d’impôt.</p>
+                  <p class="jar__net" aria-hidden="true">soit 125&nbsp;€<br>après crédit d’impôt</p>
                 </div>
                 <div class="jar__face jar__face--back" id="formule-3-detail">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
-                    <g transform="matrix(-1 0 0 1 300 0)"><use href="#jar-glass"/><use href="#jar-cloth"/></g><use href="#label-back"/>
-                  </svg>
+                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false"><use href="#jar-body"/></svg>
                   <div class="jar__sheet">
                     <p class="jar__kicker">Semaine allégée</p>
                     <h4 class="jar__heading">Ce qui est compris</h4>
@@ -391,8 +301,8 @@
                     </ul>
                     -->
                     <p class="jar__soon">Le détail de cette formule arrive très bientôt.</p>
-                    <p class="jar__price jar__price--back">À partir de <strong>250&nbsp;€</strong>
-                      <span class="jar__net">soit 125&nbsp;€ après crédit d’impôt</span></p>
+                    <p class="jar__price">À partir de <strong>250&nbsp;€</strong>
+                      <span>soit 125&nbsp;€ après crédit d’impôt</span></p>
                     <a class="jar__cta" href="#contact">Me renseigner</a>
                   </div>
                 </div>
@@ -404,24 +314,20 @@
             </div>
           </li>
           <li class="reveal" style="--d:3">
-            <div class="jar" style="--cloth: url(#cloth-vichy-fin)">
+            <div class="jar">
               <div class="jar__inner">
                 <div class="jar__face jar__face--front">
                   <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
-                    <use href="#jar-glass"/><use href="#label-front"/><use href="#jar-cloth"/><use href="#jar-bow"/>
+                    <use href="#jar-body"/><use href="#jar-oval"/>
+                    <text class="jar__arc"><textPath href="#jar-arc" startOffset="50%" text-anchor="middle">À PARTIR DE 900 €</textPath></text>
                   </svg>
                   <span class="jar__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M38 12a20 20 0 1 0 15 31A17 17 0 0 1 38 12z"/><path d="M48 14v8M44 18h8M16 14v5M13.5 16.5h5"/></svg></span>
-                  <div class="jar__label">
-                    <h3 class="jar__name">Cocon mois d’or</h3>
-                    <span class="jar__rule" aria-hidden="true"></span>
-                    <p class="jar__price">À partir de <strong>900&nbsp;€</strong>
-                      <span class="jar__net">soit 450&nbsp;€<br>après crédit d’impôt</span></p>
-                  </div>
+                  <div class="jar__label"><h3 class="jar__name">Cocon mois d’or</h3></div>
+                  <p class="visually-hidden">À partir de 900&nbsp;€, soit 450&nbsp;€ après crédit d’impôt.</p>
+                  <p class="jar__net" aria-hidden="true">soit 450&nbsp;€<br>après crédit d’impôt</p>
                 </div>
                 <div class="jar__face jar__face--back" id="formule-4-detail">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
-                    <g transform="matrix(-1 0 0 1 300 0)"><use href="#jar-glass"/><use href="#jar-cloth"/></g><use href="#label-back"/>
-                  </svg>
+                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false"><use href="#jar-body"/></svg>
                   <div class="jar__sheet">
                     <p class="jar__kicker">Cocon mois d’or</p>
                     <h4 class="jar__heading">Ce qui est compris</h4>
@@ -433,8 +339,8 @@
                     </ul>
                     -->
                     <p class="jar__soon">Le détail de cette formule arrive très bientôt.</p>
-                    <p class="jar__price jar__price--back">À partir de <strong>900&nbsp;€</strong>
-                      <span class="jar__net">soit 450&nbsp;€ après crédit d’impôt</span></p>
+                    <p class="jar__price">À partir de <strong>900&nbsp;€</strong>
+                      <span>soit 450&nbsp;€ après crédit d’impôt</span></p>
                     <a class="jar__cta" href="#contact">Me renseigner</a>
                   </div>
                 </div>
