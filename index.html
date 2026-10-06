@@ -112,6 +112,7 @@
       <nav class="nav" id="nav" aria-label="Navigation principale">
         <ul class="nav__list">
           <li><a class="nav__link" href="#approche">L’approche</a></li>
+          <li><a class="nav__link" href="#offrir">Offrir</a></li>
           <li><a class="nav__link" href="#formules">Formules</a></li>
           <li><a class="nav__link" href="#deroule">Déroulé</a></li>
         </ul>
@@ -217,6 +218,85 @@
             <p>Des recettes simples et gourmandes, adaptées à vos goûts, vos allergies et vos habitudes.</p>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <!-- ===================== Offrir : carte cadeau ===================== -->
+    <section class="section gift" id="offrir" aria-labelledby="offrir-title">
+      <div class="container gift__grid">
+        <div class="gift__intro reveal">
+          <p class="kicker">Offrir</p>
+          <h2 class="section-title" id="offrir-title">Offrez un <em>cocon de douceur</em></h2>
+          <p class="lead">
+            Une carte cadeau pour offrir à une future ou jeune maman, ou à toute une famille,
+            des repas sur mesure et faits maison, préparés chez elle.
+          </p>
+          <ol class="gift__steps">
+            <li><span>1</span>Choisissez la formule à offrir.</li>
+            <li><span>2</span>Ajoutez votre petit mot : il apparaît sur la carte.</li>
+            <li><span>3</span>Envoyez la demande : Bo’Cocon vous recontacte pour finaliser la carte cadeau.</li>
+          </ol>
+        </div>
+
+        <div class="gift__preview reveal" style="--d:1" aria-hidden="true">
+          <div class="gift-card">
+            <span class="gift-card__arch"></span>
+            <div class="gift-card__body">
+              <p class="gift-card__kicker">Carte cadeau</p>
+              <p class="gift-card__to">Pour <span data-gift="to">vous</span></p>
+              <p class="gift-card__formula" data-gift="formule">La formule de votre choix</p>
+              <p class="gift-card__msg" data-gift="msg">Prends soin de toi, on s’occupe du reste.</p>
+              <p class="gift-card__from">De la part de <span data-gift="from">…</span></p>
+            </div>
+          </div>
+        </div>
+
+        <form class="gift__form reveal" style="--d:2" id="gift-form" novalidate>
+          <fieldset class="gift__field gift__field--chips">
+            <legend>La formule à offrir</legend>
+            <div class="gift-chips">
+                <label class="gift-chip">
+                  <input type="radio" name="gift-formule" value="Douces énergies">
+                  <span class="gift-chip__name">Douces énergies</span>
+                  <span class="gift-chip__price">à partir de 60&nbsp;€</span>
+                </label>
+                <label class="gift-chip">
+                  <input type="radio" name="gift-formule" value="Première lueur">
+                  <span class="gift-chip__name">Première lueur</span>
+                  <span class="gift-chip__price">à partir de 180&nbsp;€</span>
+                </label>
+                <label class="gift-chip">
+                  <input type="radio" name="gift-formule" value="Semaine allégée">
+                  <span class="gift-chip__name">Semaine allégée</span>
+                  <span class="gift-chip__price">à partir de 250&nbsp;€</span>
+                </label>
+                <label class="gift-chip">
+                  <input type="radio" name="gift-formule" value="Cocon mois d’or">
+                  <span class="gift-chip__name">Cocon mois d’or</span>
+                  <span class="gift-chip__price">à partir de 900&nbsp;€</span>
+                </label>
+            </div>
+          </fieldset>
+          <div class="gift__row">
+            <label class="gift__field">
+              <span>Pour qui&nbsp;?</span>
+              <input type="text" name="gift-to" maxlength="40" autocomplete="off" placeholder="Prénom">
+            </label>
+            <label class="gift__field">
+              <span>De la part de</span>
+              <input type="text" name="gift-from" maxlength="40" autocomplete="off" placeholder="Votre prénom">
+            </label>
+          </div>
+          <label class="gift__field">
+            <span>Votre petit mot</span>
+            <textarea name="gift-msg" rows="3" maxlength="140" placeholder="Prends soin de toi, on s’occupe du reste."></textarea>
+          </label>
+          <a class="btn btn--primary gift__submit" id="gift-order" href="mailto:bococon.contact@gmail.com?subject=Carte%20cadeau%20Bo%E2%80%99Cocon">
+            Commander la carte cadeau
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+          <p class="gift__note">Votre messagerie s’ouvre avec la demande déjà écrite. Vous pouvez aussi appeler le <a href="tel:+33781188607">07&nbsp;81&nbsp;18&nbsp;86&nbsp;07</a>.</p>
+        </form>
       </div>
     </section>
 
@@ -468,6 +548,7 @@
           <h2 class="footer__title">Navigation</h2>
           <ul class="footer__list">
             <li><a href="#approche">L’approche</a></li>
+            <li><a href="#offrir">Offrir</a></li>
             <li><a href="#formules">Formules</a></li>
             <li><a href="#deroule">Déroulé</a></li>
             <li><a href="#contact">Contact</a></li>

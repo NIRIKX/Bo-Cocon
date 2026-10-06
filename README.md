@@ -66,6 +66,14 @@ Vaunage, avant l’arrivée sur la page d’accueil (environ 7 s).
 Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
 lorsque l’on revient sur l’accueil depuis une autre page du site.
 
+## Offrir (carte cadeau)
+
+La section « Offrir » permet de composer une carte cadeau : on choisit la formule, le prénom
+de la personne, le sien et un petit mot. La carte s’affiche en direct, puis le bouton
+« Commander la carte cadeau » ouvre la messagerie avec la demande déjà écrite, envoyée à
+bococon.contact@gmail.com. Il n’y a pas de paiement en ligne : Bo’Cocon recontacte la
+personne pour finaliser.
+
 ## Palette
 
 | Rôle            | Couleur   |

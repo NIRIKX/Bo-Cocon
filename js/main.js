@@ -167,6 +167,48 @@
     render();
   });
 
+  /* ---------- Offrir : aperçu de la carte cadeau et e-mail prérempli ---------- */
+  var giftForm = document.getElementById("gift-form");
+  if (giftForm) {
+    var giftOrder = document.getElementById("gift-order");
+    var out = {};
+    document.querySelectorAll("[data-gift]").forEach(function (el) {
+      out[el.getAttribute("data-gift")] = { el: el, fallback: el.textContent };
+    });
+    var giftUpdate = function () {
+      var checked = giftForm.querySelector('input[name="gift-formule"]:checked');
+      var values = {
+        formule: checked ? checked.value : "",
+        to: giftForm.elements["gift-to"].value.trim(),
+        from: giftForm.elements["gift-from"].value.trim(),
+        msg: giftForm.elements["gift-msg"].value.trim()
+      };
+      Object.keys(out).forEach(function (key) {
+        out[key].el.textContent = values[key] || out[key].fallback;
+        out[key].el.classList.toggle("is-empty", !values[key]);
+      });
+      var body = [
+        "Bonjour,",
+        "",
+        "Je souhaite offrir une carte cadeau Bo’Cocon.",
+        "",
+        "Formule : " + (values.formule || "à définir ensemble"),
+        "Pour : " + (values.to || "…"),
+        "De la part de : " + (values.from || "…"),
+        "Petit mot : " + (values.msg || "…"),
+        "",
+        "Merci de me recontacter pour finaliser la commande."
+      ].join("\n");
+      giftOrder.href = "mailto:bococon.contact@gmail.com?subject=" +
+        encodeURIComponent("Carte cadeau Bo’Cocon" + (values.formule ? " – " + values.formule : "")) +
+        "&body=" + encodeURIComponent(body);
+    };
+    giftForm.addEventListener("input", giftUpdate);
+    giftForm.addEventListener("change", giftUpdate);
+    giftForm.addEventListener("submit", function (e) { e.preventDefault(); });
+    giftUpdate();
+  }
+
   /* ---------- Apparitions au défilement ---------- */
   var items = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
