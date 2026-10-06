@@ -25,7 +25,8 @@
 
   /* Logo d'origine (chaque image n'est déclarée qu'une fois) */
   --img-arch: url("../assets/monogramme-b.png");
-  --img-arch-accueil: url("../assets/arche-accueil.png");
+  --img-arch-plain: url("../assets/arche-b.png");
+  --img-arch-tag: url("../assets/arche-accroche.png");
   --img-word: url("../assets/logo-wordmark.png");
   --img-tag: url("../assets/logo-tagline.png");
   --img-b: url("../assets/b-seul.png");
@@ -521,6 +522,9 @@ main:focus { outline: none; }
 .hero__arch {
   position: relative;
   aspect-ratio: 760 / 1209;
+  container-type: inline-size;
+  /* décalage du cadre brun ; l'accroche courbée suit le même décalage */
+  --arch-shift: translate(5.5cqw, 4.5cqw);
 }
 /* contour décalé calé sur l'arche du monogramme */
 .hero__arch::before {
@@ -532,12 +536,18 @@ main:focus { outline: none; }
   height: 91.6%;
   border: 3px solid var(--brown);
   border-radius: var(--radius-pill);
-  transform: translate(22px, 18px);
+  transform: var(--arch-shift);
 }
 .hero__arch .arch-mono { position: relative; width: 100%; }
-/* même arche, avec un fond crème derrière l'accroche courbée : le trait du cadre décalé
-   passe derrière l'écriture au lieu de la traverser */
-.arch-mono--accueil { background-image: var(--img-arch-accueil); }
+.arch-mono--plain { background-image: var(--img-arch-plain); }
+/* l'accroche courbée, décalée avec le cadre : elle s'emboîte autour sans le toucher */
+.hero__arch-tag {
+  position: absolute;
+  inset: 0;
+  background: var(--img-arch-tag) center / contain no-repeat;
+  transform: var(--arch-shift);
+  pointer-events: none;
+}
 
 .badge {
   position: absolute;
