@@ -25,6 +25,7 @@
 
   /* Logo d'origine (chaque image n'est déclarée qu'une fois) */
   --img-arch: url("../assets/monogramme-b.png");
+  --img-arch-plain: url("../assets/arche-b.png");
   --img-word: url("../assets/logo-wordmark.png");
   --img-tag: url("../assets/logo-tagline.png");
   --img-b: url("../assets/b-seul.png");
@@ -519,21 +520,38 @@ main:focus { outline: none; }
 }
 .hero__arch {
   position: relative;
-  aspect-ratio: 760 / 1209;
+  aspect-ratio: 640 / 1030;
 }
 /* contour décalé calé sur l'arche du monogramme */
 .hero__arch::before {
   content: "";
   position: absolute;
-  left: 4.8%;
-  top: .7%;
-  width: 89.9%;
-  height: 91.6%;
+  left: .8%;
+  top: .5%;
+  width: 98.4%;
+  height: 99%;
   border: 3px solid var(--brown);
   border-radius: var(--radius-pill);
   transform: translate(22px, 18px);
 }
 .hero__arch .arch-mono { position: relative; width: 100%; }
+/* arche sans l'accroche en cercle : l'accroche est écrite droite, dessous */
+.arch-mono--plain { aspect-ratio: 640 / 1030; background-image: var(--img-arch-plain); }
+.hero__tagline {
+  width: max-content;
+  max-width: calc(100vw - 2 * var(--gutter));
+  margin: 46px 0 0 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(.85rem, 1.15vw, 1rem);
+  font-weight: 600;
+  letter-spacing: .2em;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--caramel-deep);
+}
 
 .badge {
   position: absolute;
