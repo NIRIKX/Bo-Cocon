@@ -202,7 +202,8 @@ main:focus { outline: none; }
   inset: 0;
   z-index: 1000;
   display: block;
-  background: var(--linen);
+  /* même taupe que les battants au « B » */
+  background: var(--taupe);
   cursor: pointer;
   animation: introOut .9s ease 6.3s forwards;
 }
@@ -268,7 +269,7 @@ main:focus { outline: none; }
 }
 /* les 9 villages qui s'allument un à un */
 .intro-villages circle {
-  fill: var(--caramel-deep);
+  fill: var(--brown);
   opacity: 0;
   transform: scale(0);
   transform-box: fill-box;
