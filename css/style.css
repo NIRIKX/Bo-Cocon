@@ -25,6 +25,7 @@
 
   /* Logo d'origine (chaque image n'est déclarée qu'une fois) */
   --img-arch: url("../assets/monogramme-b.png");
+  --img-arch-accueil: url("../assets/arche-accueil.png");
   --img-word: url("../assets/logo-wordmark.png");
   --img-tag: url("../assets/logo-tagline.png");
   --img-b: url("../assets/b-seul.png");
@@ -534,6 +535,9 @@ main:focus { outline: none; }
   transform: translate(22px, 18px);
 }
 .hero__arch .arch-mono { position: relative; width: 100%; }
+/* même arche, avec un fond crème derrière l'accroche courbée : le trait du cadre décalé
+   passe derrière l'écriture au lieu de la traverser */
+.arch-mono--accueil { background-image: var(--img-arch-accueil); }
 
 .badge {
   position: absolute;
