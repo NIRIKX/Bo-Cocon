@@ -45,6 +45,17 @@ En ligne (Streamlit Community Cloud, gratuit) :
 
 Chaque modification poussée sur la branche est ensuite mise en ligne automatiquement.
 
+## Feuille de route
+
+1. **Construction** : on termine le site en le regardant sur Streamlit
+   (https://bo-cocon.streamlit.app, branche `claude/great-cray-oy302g`).
+2. **Mise en ligne définitive** : quand le site est fini, tout est regroupé sur `main`
+   et le site est publié sur **Netlify**, relié uniquement à `main`.
+3. **Domaine** : relier bococon.fr au site Netlify.
+
+Restant à faire : menu sur téléphone (bug quand on l’ouvre après avoir défilé),
+contenu de chaque formule au dos des bocaux.
+
 ## Intro d’ouverture
 
 À l’ouverture du site, deux battants s’écartent de chaque côté, l’ovale du logo se dessine,
