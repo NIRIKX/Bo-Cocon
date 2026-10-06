@@ -14,7 +14,6 @@ js/main.js            Intro, en-tête, menu mobile, apparitions au défilement
 assets/               Logo d’origine détouré (fond transparent)
   logo-bococon.png    Logo ovale complet
   logo-wordmark.png   « Bo’Cocon » seul (en-tête, pied de page, intro)
-  logo-tagline.png    Accroche en arc (intro)
   monogramme-b.png    Monogramme « B » dans son arche
   b-seul.png          « B » seul (décor)
   favicon.png         Icône d’onglet
@@ -58,8 +57,10 @@ contenu de chaque formule au dos des bocaux.
 
 ## Intro d’ouverture
 
-À l’ouverture du site, deux battants s’écartent de chaque côté, l’ovale du logo se dessine,
-puis « Bo’Cocon » et l’accroche apparaissent avant l’arrivée sur la page d’accueil (environ 6 s).
+À l’ouverture du site, deux battants portant l’arche « B » s’écartent de chaque côté, puis un
+paysage au trait se dessine de gauche à droite — le Pic Saint-Loup, la garrigue, les vignes, une
+capitelle, les cyprès, un village et les collines de la Vaunage — avec « Du Pic Saint-Loup à la
+Vaunage », avant l’arrivée sur la page d’accueil (environ 6,5 s).
 Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
 lorsque l’on revient sur l’accueil depuis une autre page du site.
 
