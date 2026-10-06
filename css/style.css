@@ -26,7 +26,6 @@
   /* Logo d'origine (chaque image n'est déclarée qu'une fois) */
   --img-arch: url("../assets/monogramme-b.png");
   --img-arch-plain: url("../assets/arche-b.png");
-  --img-arch-tag: url("../assets/arche-accroche.png");
   --img-word: url("../assets/logo-wordmark.png");
   --img-b: url("../assets/b-seul.png");
 }
@@ -532,41 +531,14 @@ main:focus { outline: none; }
 .hero__visual {
   position: relative;
   justify-self: center;
-  width: min(100%, 400px);
+  width: min(100%, 330px);
 }
 .hero__arch {
   position: relative;
   aspect-ratio: 760 / 1209;
-  container-type: inline-size;
-  /* décalage du cadre brun ; l'accroche courbée suit le même décalage */
-  --arch-shift: translate(5.5cqw, 4.5cqw);
-}
-/* contour décalé calé sur l'arche du monogramme */
-.hero__arch::before {
-  content: "";
-  position: absolute;
-  left: 4.8%;
-  top: .7%;
-  width: 89.9%;
-  height: 91.6%;
-  border: 3px solid var(--brown);
-  border-radius: var(--radius-pill);
-  transform: var(--arch-shift);
 }
 .hero__arch .arch-mono { position: relative; width: 100%; }
 .arch-mono--plain { background-image: var(--img-arch-plain); }
-/* l'accroche courbée, décalée avec le cadre : elle s'emboîte autour sans le toucher */
-.hero__arch-tag {
-  position: absolute;
-  inset: 0;
-  background: var(--img-arch-tag) center / contain no-repeat;
-  /* centrée sur l'ensemble arche + cadre, les deux bouts à la même hauteur,
-     avec le même écart à gauche, en bas et à droite (calculé sur l'image d'origine) */
-  transform-origin: 49.7% 63.9%;
-  transform: translate(3.92cqw, -3.19cqw) rotate(.22deg) scale(1.09);
-  pointer-events: none;
-}
-
 .badge {
   position: absolute;
   left: -52px;
@@ -1147,7 +1119,7 @@ main:focus { outline: none; }
   .hero__text { margin-inline: auto; }
   .hero__actions { justify-content: center; }
   .hero__note { justify-content: center; text-align: left; }
-  .hero__visual { width: min(78%, 320px); margin-top: 8px; }
+  .hero__visual { width: min(66%, 270px); margin-top: 8px; }
   .badge { width: 104px; height: 104px; left: -30px; }
   .hero__deco { display: none; }
 
