@@ -638,54 +638,264 @@ main:focus { outline: none; }
 .pillar p { max-width: 32ch; margin-inline: auto; }
 
 /* Formules */
+/* ---------- Formules : grille de bocaux ---------- */
 .formulas {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(20px, 3vw, 44px);
+  gap: clamp(20px, 2.6vw, 30px);
   max-width: 1080px;
   margin: 0 auto;
   padding: 0;
   list-style: none;
 }
-.formula {
+@media (max-width: 1079.98px) {
+  .formulas { grid-template-columns: repeat(2, minmax(0, 300px)); justify-content: center; gap: 48px 40px; }
+}
+/* Téléphones : un bocal par ligne, sinon le verso deviendrait illisible */
+@media (max-width: 599.98px) {
+  .formulas { grid-template-columns: minmax(0, 300px); gap: 40px; }
+}
+
+/* ---------- Le bocal (se retourne pour montrer le contenu) ---------- */
+/* Repère : le dessin fait 300 × 480 unités ; tout est placé en % de ce repère. */
+.jar {
   position: relative;
+  aspect-ratio: 300 / 480;
+  container-type: inline-size;
+  perspective: 1200px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+/* ombre portée « posée sur l'étagère », fixe pendant la rotation */
+.jar::before {
+  content: "";
+  position: absolute;
+  left: 14%; right: 14%; bottom: -2.4%;
+  height: 5%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(116, 69, 55, .2), rgba(116, 69, 55, 0));
+  transition: transform var(--flip);
+}
+.jar.is-flipped::before { transform: scaleX(.94); }
+
+/* les marges générales des paragraphes et titres ne s'appliquent pas dans les bocaux */
+:where(.jar) :is(p, h3, h4) { margin: 0; }
+
+.jar__inner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform var(--flip);
+}
+.jar.is-flipped .jar__inner { transform: rotateY(180deg); }
+
+.jar__face {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+}
+.jar__face--back { transform: rotateY(180deg); }
+
+.jar__art { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+
+/* traits : contour principal 4 px quelle que soit la taille */
+.ol { fill: none; stroke: var(--brown); stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.ol--4 { stroke-width: 4px; }
+.ol--3 { stroke-width: 3px; }
+.ol--15 { stroke-width: 1.5px; }
+
+/* zones de texte posées sur le dessin */
+.jar__icon {
+  position: absolute;
+  left: 50%;
+  top: 36.6%;
+  width: 15%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  color: var(--caramel);
+}
+.jar__icon svg { width: 100%; height: 100%; }
+
+.jar__label {
+  position: absolute;
+  left: 20%; width: 60%;
+  top: 49.5%; height: 35%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  aspect-ratio: 31 / 48;
-  padding: 26% 12% 0;
-  border: 4px solid var(--brown);
-  border-radius: var(--radius-pill);
+  justify-content: center;
   text-align: center;
-  transition: background-color .5s ease, transform .6s var(--ease-out);
 }
-.formula:hover { background: var(--linen); transform: translateY(-6px); }
-.formula__icon {
-  width: clamp(46px, 5vw, 60px);
-  height: clamp(46px, 5vw, 60px);
-  color: var(--caramel);
-  transition: transform .8s var(--ease-out);
-}
-.formula:hover .formula__icon { transform: translateY(-4px) rotate(-6deg); }
-.formula__body { margin-top: auto; padding-bottom: 30%; }
-.formula__name {
-  margin-bottom: 12px;
+.jar__name {
   font-family: var(--font-sans);
-  font-size: clamp(.9rem, 1.35vw, 1.06rem);
   font-weight: 600;
-  letter-spacing: .04em;
+  font-size: clamp(12.5px, 5.6cqw, 16px);
+  line-height: 1.25;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--brown);
+  text-wrap: balance;
+}
+.jar__rule {
+  width: 22%;
+  height: 1px;
+  margin: 5cqw auto 4.5cqw;
+  background: var(--caramel);
+  position: relative;
+}
+.jar__rule::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 5px; height: 5px;
+  border: 1px solid var(--caramel);
+  background: var(--cream);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.jar__price {
+  font-size: clamp(12.5px, 5.3cqw, 15px);
+  line-height: 1.4;
+  color: var(--brown);
+  font-variant-numeric: lining-nums;
+}
+.jar__price strong { font-weight: 500; }
+.jar__net {
+  display: block;
+  margin-top: .25em;
+  font-size: clamp(12px, 4.6cqw, 13.5px);
+  line-height: 1.35;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* Verso : l'étiquette arrière, comme la liste d'ingrédients d'un pot */
+.jar__sheet {
+  position: absolute;
+  left: 15.5%; width: 69%;
+  top: 37.8%; height: 49.6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  text-align: center;
+}
+.jar__kicker {
+  font-weight: 600;
+  font-size: clamp(12px, 4.6cqw, 13px);
+  letter-spacing: .1em;
   line-height: 1.3;
   text-transform: uppercase;
   color: var(--brown);
 }
-.formula__price {
-  margin: 0;
-  font-size: .9rem;
-  line-height: 1.5;
-  color: var(--caramel-deep);
+.jar__heading {
+  margin-top: .2em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(19px, 8.4cqw, 25px);
+  line-height: 1.1;
+  color: var(--brown);
 }
-.formula__price strong { font-weight: 500; }
-.formula__net { display: block; font-size: .84rem; }
+.jar__soon {
+  margin-top: 3.4cqw;
+  font-weight: 400;
+  font-size: clamp(12.5px, 5cqw, 14.5px);
+  line-height: 1.45;
+  color: var(--ink);
+  text-wrap: balance;
+}
+/* gabarit prêt pour les puces de la cliente */
+.jar__list {
+  margin: 3.4cqw 0 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 400;
+  font-size: clamp(12px, 4.8cqw, 14px);
+  line-height: 1.4;
+  color: var(--ink);
+}
+.jar__list li + li { margin-top: .3em; }
+.jar__price--back {
+  margin-top: 4cqw;
+  padding-top: 3.4cqw;
+  border-top: 1px solid rgba(190, 154, 128, .55);
+  font-size: clamp(12px, 4.8cqw, 14px);
+}
+.jar__price--back .jar__net { font-size: clamp(12px, 4.2cqw, 13px); }
+.jar__cta {
+  margin-top: 4.4cqw;
+  display: inline-block;
+  padding: .62em 1.35em .58em;
+  border-radius: 999px;
+  background: var(--brown);
+  color: var(--cream);
+  font-weight: 500;
+  font-size: clamp(12px, 4.4cqw, 13px);
+  line-height: 1.2;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color .3s ease;
+}
+.jar__cta:hover { background: var(--espresso); }
+.jar__cta:focus-visible { outline: 2px solid var(--brown); outline-offset: 3px; }
+
+/* Bouton « retourner » : hors du plan qui tourne, donc toujours au même endroit */
+.jar__toggle {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 87.4%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  padding: .45em .9em;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--brown);
+  font: 500 clamp(12px, 4.4cqw, 13px) / 1.2 var(--font-sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.jar__toggle svg { width: 1.25em; height: 1.25em; flex: none; transition: transform var(--flip); }
+.jar.is-flipped .jar__toggle svg { transform: scaleX(-1); }
+.jar__toggle:focus-visible { outline: 2px solid var(--brown); outline-offset: 2px; }
+.jar__toggle .t-back { display: none; }
+.jar.is-flipped .jar__toggle .t-front { display: none; }
+.jar.is-flipped .jar__toggle .t-back { display: inline; }
+.jar__toggle-text { text-decoration: underline; text-decoration-color: rgba(116, 69, 55, .35); text-underline-offset: .35em; text-decoration-thickness: 1px; }
+
+/* survol : uniquement avec une souris (géré en JS pour garder l'état ARIA juste) ;
+   sans JS, repli CSS équivalent */
+@media (hover: hover) and (pointer: fine) {
+  .no-js .jar:hover .jar__inner { transform: rotateY(180deg); }
+}
+.no-js .jar__toggle { display: none; }
+
+/* Mouvement réduit : pas de rotation 3D, simple fondu */
+@media (prefers-reduced-motion: reduce) {
+  .jar__inner,
+  .jar.is-flipped .jar__inner,
+  .no-js .jar:hover .jar__inner { transform: none !important; transition: none; }
+  .jar__face,
+  .jar__face--back { transform: none; -webkit-backface-visibility: visible; backface-visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
+  .jar__face--back { opacity: 0; visibility: hidden; }
+  .jar.is-flipped .jar__face--back { opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s; }
+  .jar.is-flipped .jar__face--front { opacity: 0; visibility: hidden; }
+  .jar__toggle svg, .jar::before { transition: none; }
+}
+
+@media (max-width: 599.98px) {
+  .ol--4 { stroke-width: 3.5px; }
+}
 
 .formulas-note {
   font-variant-numeric: lining-nums;
@@ -872,10 +1082,6 @@ main:focus { outline: none; }
 /* ==========================================================================
    Responsive
    ========================================================================== */
-@media (max-width: 1080px) {
-  .formulas { grid-template-columns: repeat(2, minmax(0, 260px)); justify-content: center; }
-}
-
 @media (max-width: 900px) {
   :root { --header-h: 68px; }
 
@@ -928,12 +1134,6 @@ main:focus { outline: none; }
 
 @media (max-width: 560px) {
   body { font-size: 1rem; }
-  .formulas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-  .formula { border-width: 3px; padding-top: 24%; }
-  .formula__body { padding-bottom: 26%; }
-  .formula__name { font-size: .8rem; margin-bottom: 8px; }
-  .formula__price { font-size: .78rem; }
-  .formula__net { font-size: .74rem; }
   .hero__actions .btn { width: 100%; }
   .footer__grid { grid-template-columns: 1fr; }
   .intro__skip { right: 16px; bottom: 16px; }
@@ -960,5 +1160,4 @@ main:focus { outline: none; }
   .badge__ring { animation: none; }
   .js .rise,
   .js .reveal { transform: none; transition: opacity .6s ease; }
-  .formula:hover { transform: none; }
 }

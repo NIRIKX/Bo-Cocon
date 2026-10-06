@@ -118,6 +118,55 @@
     });
   }
 
+  /* ---------- Formules : les bocaux se retournent ----------
+     Survol = retournement seulement avec une vraie souris ;
+     clic / toucher / Entrée / Espace = bascule partout. */
+  var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+  document.querySelectorAll(".jar").forEach(function (jar) {
+    var btn = jar.querySelector(".jar__toggle");
+    var front = jar.querySelector(".jar__face--front");
+    var back = jar.querySelector(".jar__face--back");
+    var pinned = null;   /* null = suit le survol ; true / false = choix explicite */
+    var hovering = false;
+
+    function render() {
+      var flipped = pinned === null ? (hovering && fine.matches) : pinned;
+      jar.classList.toggle("is-flipped", flipped);
+      btn.setAttribute("aria-expanded", String(flipped));
+      front.inert = flipped;
+      back.inert = !flipped;
+      front.setAttribute("aria-hidden", String(flipped));
+      back.setAttribute("aria-hidden", String(!flipped));
+    }
+    function toggle() {
+      pinned = !jar.classList.contains("is-flipped");
+      render();
+    }
+
+    /* le bouton dit « Voir le détail » / « Revenir » : il bascule toujours */
+    btn.addEventListener("click", toggle);
+    /* tap / clic n'importe où sur le bocal (sauf sur le lien ou le bouton).
+       Si la souris l'a déjà retourné au survol, le clic le « garde » ouvert ;
+       un second clic le referme. */
+    jar.addEventListener("click", function (e) {
+      if (e.target.closest("a, button")) return;
+      if (pinned === null && hovering && fine.matches) { pinned = true; render(); return; }
+      toggle();
+    });
+    jar.addEventListener("pointerenter", function (e) {
+      if (e.pointerType !== "mouse") return;
+      hovering = true;
+      render();
+    });
+    jar.addEventListener("pointerleave", function (e) {
+      if (e.pointerType !== "mouse") return;
+      hovering = false;
+      if (pinned === false) pinned = null;   /* le survol suivant retourne de nouveau */
+      render();
+    });
+    render();
+  });
+
   /* ---------- Apparitions au défilement ---------- */
   var items = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
