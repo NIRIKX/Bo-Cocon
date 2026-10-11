@@ -32,7 +32,7 @@
   Première lueur (`.formulas--main`) ; puis « + Pour compléter votre formule » avec
   Douces énergies (des en-cas, à partir de 60 €) et Les courses (faites par la cuisinière,
   à partir de 50 €, soit 25 € après crédit d’impôt) (`.formulas--extras`). Ces deux compléments ne se réservent ni ne s’offrent seuls :
-  dans « Réserver », ce sont des cases (`.addon`), actives seulement quand une
+  dans « Réserver » et « Offrir », ce sont des cases (`.addon`), actives seulement quand une
   formule est choisie. Les courses ont droit au crédit d’impôt comme le reste
   (`data-credit="1"`, choix du propriétaire).
 - Dos des bocaux (`.jar__list`, contenu donné par le propriétaire) : Première lueur = 4 repas
@@ -44,15 +44,14 @@
   Bouton « Réserver » au dos de chaque bocal (`[data-reserve]`) : mène à Réserver avec la
   formule déjà choisie (pour un complément : coché dès qu’une formule est choisie).
 - Ordre des sections : accueil, L’approche, Déroulé (fond taupe clair, absent du menu),
-  Formules, crédit d’impôt, Réserver, Contact. Menu : L’approche, Formules, Réserver,
-  Offrir, Contact (choix du propriétaire).
-- « Offrir » n’est plus une section à part (choix du propriétaire) : dans Réserver, la case
-  « C’est pour offrir » (`book-gift`) fait apparaître « Pour qui ? », « De la part de », le
-  petit mot et l’aperçu de la carte cadeau (`#booking-gift`) ; le bouton devient « Commander
-  la carte cadeau » et l’e-mail change. Les liens « Offrir » (menu, pied de page) mènent à
-  Réserver (ancre `#offrir` en haut de la section) avec la case cochée.
-- Réserver : récapitulatif en direct + e-mail prérempli vers bococon.contact@gmail.com
-  (`js/main.js`), pas de paiement en ligne. Styles : `.field`, `.field-row`, `.chips`, `.chip`.
+  Formules, crédit d’impôt, Réserver, Offrir, Contact. Menu : L’approche, Formules,
+  Réserver, Offrir, Contact (choix du propriétaire).
+- Offrir reste une section à part (choix du propriétaire). Dans Réserver, le bouton
+  « C’est pour offrir » (`[data-gift-switch]`, lien vers `#offrir`) emmène à Offrir en
+  reprenant la formule et les compléments déjà choisis.
+- Sections « Réserver » (demande de réservation) et « Offrir » (carte cadeau) : aperçu en
+  direct + e-mail prérempli vers bococon.contact@gmail.com (`js/main.js`), pas de paiement
+  en ligne. Styles de formulaire partagés : `.field`, `.field-row`, `.chips`, `.chip`.
 - Menu sur téléphone (corrigé) : l’ouverture du menu ne doit rien changer d’autre que le
   menu. Jamais d’`overflow` sur `html` / `body` à l’ouverture, jamais de `backdrop-filter`
   sur l’en-tête en dessous de 900 px — sinon, après avoir fait défiler, l’en-tête sort de

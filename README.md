@@ -66,9 +66,9 @@ lorsque l’on revient sur l’accueil depuis une autre page du site.
 ## Page d’accueil : ordre des sections
 
 Accueil → L’approche → Le déroulé « Comment ça se passe ? » (fond taupe clair) →
-Formules → bandeau crédit d’impôt → Réserver → Contact.
+Formules → bandeau crédit d’impôt → Réserver → Offrir → Contact.
 Menu du haut et pied de page : L’approche, Formules, Réserver, Offrir, Contact
-(le déroulé n’a pas de lien dans le menu ; « Offrir » mène à Réserver, case cochée).
+(le déroulé n’a pas de lien dans le menu).
 
 ## Formules
 
@@ -77,16 +77,20 @@ Trois formules en haut (Cocon mois d’or, Semaine allégée, Première lueur), 
 qu’en plus d’une formule. Chaque bocal se retourne pour montrer ce qu’il contient, avec un
 bouton « Réserver ».
 
-## Réserver (et offrir)
+## Réserver
 
 La section « Réserver » permet de demander une réservation : formule, compléments,
 nom, téléphone, commune, date souhaitée et message facultatif. Un récapitulatif en forme
-d’arche se met à jour en direct (prix de départ et prix après crédit d’impôt).
+d’arche se met à jour en direct (prix de départ et prix après crédit d’impôt). Le bouton
+« C’est pour offrir » emmène à la section Offrir avec les mêmes choix.
 
-La case « C’est pour offrir » transforme la demande en carte cadeau : prénom de la
-personne, le sien, un petit mot, et un aperçu de la carte. Le bouton ouvre la messagerie
-avec la demande déjà écrite, envoyée à bococon.contact@gmail.com. Il n’y a pas de paiement
-en ligne : Bo’Cocon recontacte la personne pour finaliser.
+## Offrir (carte cadeau)
+
+La section « Offrir » permet de composer une carte cadeau : formule, compléments, prénom de
+la personne, le sien et un petit mot. La carte s’affiche en direct, puis le bouton
+« Commander la carte cadeau » ouvre la messagerie avec la demande déjà écrite, envoyée à
+bococon.contact@gmail.com. Il n’y a pas de paiement en ligne : Bo’Cocon recontacte la
+personne pour finaliser.
 
 ## Palette
 

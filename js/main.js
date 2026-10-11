@@ -200,7 +200,7 @@
      qu'aucune formule n'est choisie. Renvoie les compléments cochés. */
   function syncAddons(form, hasFormula) {
     var chosen = [];
-    form.querySelectorAll(".addon input[data-price]").forEach(function (x) {
+    form.querySelectorAll(".addon input").forEach(function (x) {
       x.disabled = !hasFormula;
       if (!hasFormula) x.checked = false;
       if (x.checked) chosen.push(x);
@@ -215,15 +215,6 @@
     var bookSend = document.getElementById("booking-send");
     var bookExtraLine = document.querySelector("[data-book-extra]");
     var wantedAddon = "";   /* « Réserver » au dos de Douces énergies / Les courses */
-    /* « C'est pour offrir » : champs et aperçu de la carte cadeau */
-    var giftMode = bookForm.elements["book-gift"];
-    var giftBlock = document.getElementById("booking-gift");
-    var giftExtraLine = document.querySelector("[data-gift-extra]");
-    var sendLabel = bookSend.querySelector(".form-submit__label");
-    var card = {};
-    document.querySelectorAll("[data-gift]").forEach(function (el) {
-      card[el.getAttribute("data-gift")] = { el: el, fallback: el.textContent };
-    });
     var recap = {};
     document.querySelectorAll("[data-book]").forEach(function (el) {
       recap[el.getAttribute("data-book")] = { el: el, fallback: el.textContent };
@@ -250,7 +241,7 @@
     var bookUpdate = function () {
       var checked = bookForm.querySelector('input[name="book-formule"]:checked');
       if (checked && wantedAddon) {
-        bookForm.querySelectorAll(".addon input[data-price]").forEach(function (x) {
+        bookForm.querySelectorAll(".addon input").forEach(function (x) {
           if (x.value === wantedAddon) x.checked = true;
         });
         wantedAddon = "";
@@ -291,49 +282,25 @@
         bookExtraLine.hidden = !extras.length;
         bookExtraLine.textContent = "+ " + extras.join(" · ");
       }
-      var gift = giftMode.checked;
-      giftBlock.hidden = !gift;
-      var g = {
-        formule: v.formule,
-        to: bookForm.elements["gift-to"].value.trim(),
-        from: bookForm.elements["gift-from"].value.trim(),
-        msg: bookForm.elements["gift-msg"].value.trim()
-      };
-      Object.keys(card).forEach(function (key) {
-        card[key].el.textContent = g[key] || card[key].fallback;
-        card[key].el.classList.toggle("is-empty", !g[key]);
-      });
-      if (giftExtraLine) {
-        giftExtraLine.hidden = !extras.length;
-        giftExtraLine.textContent = "+ " + extras.join(" · ");
-      }
-      if (sendLabel) sendLabel.textContent = gift ? "Commander la carte cadeau" : "Envoyer ma demande";
       var body = [
         "Bonjour,",
         "",
-        gift ? "Je souhaite offrir une carte cadeau Bo’Cocon." : "Je souhaite réserver une formule Bo’Cocon.",
+        "Je souhaite réserver une formule Bo’Cocon.",
         "",
         "Formule : " + (v.formule ? v.formule + " (à partir de " + euros(price) + ")" : "à définir ensemble"),
         "En plus : " + (chosen.length ? chosen.map(function (x) {
           return x.value + " (" + x.getAttribute("data-price-text") + ")";
-        }).join(", ") : "non")
-      ].concat(gift ? [
-        "",
-        "Carte cadeau pour : " + (g.to || "…"),
-        "De la part de : " + (g.from || "…"),
-        "Petit mot : " + (g.msg || "…"),
-        ""
-      ] : []).concat([
+        }).join(", ") : "non"),
         "Date souhaitée : " + (v.date || "à définir ensemble"),
         "Commune : " + (v.town || "…"),
         "Nom : " + (v.name || "…"),
         "Téléphone : " + (v.tel || "…"),
         "Message : " + (v.msg || "…"),
         "",
-        gift ? "Merci de me recontacter pour finaliser la carte cadeau." : "Merci de me recontacter pour confirmer la réservation."
-      ]).join("\n");
+        "Merci de me recontacter pour confirmer la réservation."
+      ].join("\n");
       bookSend.href = "mailto:bococon.contact@gmail.com?subject=" +
-        encodeURIComponent((gift ? "Carte cadeau Bo’Cocon" : "Réservation Bo’Cocon") + (v.formule ? " – " + v.formule : "") + extras.map(function (n) { return " + " + n; }).join("")) +
+        encodeURIComponent("Réservation Bo’Cocon" + (v.formule ? " – " + v.formule : "") + extras.map(function (n) { return " + " + n; }).join("")) +
         "&body=" + encodeURIComponent(body);
     };
     /* « Réserver » au dos d'un bocal : la formule (ou le complément) est déjà choisie */
@@ -347,15 +314,76 @@
         bookUpdate();
       });
     });
-    document.addEventListener("click", function (e) {
-      if (!e.target.closest('a[href="#offrir"]')) return;
-      giftMode.checked = true;
-      bookUpdate();
-    });
     bookForm.addEventListener("input", bookUpdate);
     bookForm.addEventListener("change", bookUpdate);
     bookForm.addEventListener("submit", function (e) { e.preventDefault(); });
     bookUpdate();
+  }
+
+  /* ---------- Offrir : aperçu de la carte cadeau et e-mail prérempli ---------- */
+  var giftForm = document.getElementById("gift-form");
+  if (giftForm) {
+    var giftOrder = document.getElementById("gift-order");
+    var giftExtraLine = document.querySelector("[data-gift-extra]");
+    var out = {};
+    document.querySelectorAll("[data-gift]").forEach(function (el) {
+      out[el.getAttribute("data-gift")] = { el: el, fallback: el.textContent };
+    });
+    var giftUpdate = function () {
+      var checked = giftForm.querySelector('input[name="gift-formule"]:checked');
+      var extras = addonNames(syncAddons(giftForm, !!checked));
+      if (giftExtraLine) {
+        giftExtraLine.hidden = !extras.length;
+        giftExtraLine.textContent = "+ " + extras.join(" · ");
+      }
+      var values = {
+        formule: checked ? checked.value : "",
+        to: giftForm.elements["gift-to"].value.trim(),
+        from: giftForm.elements["gift-from"].value.trim(),
+        msg: giftForm.elements["gift-msg"].value.trim()
+      };
+      Object.keys(out).forEach(function (key) {
+        out[key].el.textContent = values[key] || out[key].fallback;
+        out[key].el.classList.toggle("is-empty", !values[key]);
+      });
+      var body = [
+        "Bonjour,",
+        "",
+        "Je souhaite offrir une carte cadeau Bo’Cocon.",
+        "",
+        "Formule : " + (values.formule || "à définir ensemble"),
+        "En plus : " + (extras.length ? extras.join(", ") : "non"),
+        "Pour : " + (values.to || "…"),
+        "De la part de : " + (values.from || "…"),
+        "Petit mot : " + (values.msg || "…"),
+        "",
+        "Merci de me recontacter pour finaliser la commande."
+      ].join("\n");
+      giftOrder.href = "mailto:bococon.contact@gmail.com?subject=" +
+        encodeURIComponent("Carte cadeau Bo’Cocon" + (values.formule ? " – " + values.formule : "") + extras.map(function (n) { return " + " + n; }).join("")) +
+        "&body=" + encodeURIComponent(body);
+    };
+    giftForm.addEventListener("input", giftUpdate);
+    giftForm.addEventListener("change", giftUpdate);
+    giftForm.addEventListener("submit", function (e) { e.preventDefault(); });
+    giftUpdate();
+  }
+
+  /* ---------- Réserver → « C'est pour offrir » : on passe à Offrir avec les mêmes choix ---------- */
+  var giftSwitch = document.querySelector("[data-gift-switch]");
+  if (giftSwitch && bookForm && giftForm) {
+    giftSwitch.addEventListener("click", function () {
+      var picked = bookForm.querySelector('input[name="book-formule"]:checked');
+      var extras = [].slice.call(bookForm.querySelectorAll(".addon input:checked")).map(function (x) { return x.value; });
+      if (picked) {
+        giftForm.querySelectorAll('input[name="gift-formule"]').forEach(function (x) { x.checked = x.value === picked.value; });
+      }
+      giftForm.dispatchEvent(new Event("change", { bubbles: true }));   /* active les compléments */
+      giftForm.querySelectorAll(".addon input").forEach(function (x) {
+        if (!x.disabled && extras.indexOf(x.value) !== -1) x.checked = true;
+      });
+      giftForm.dispatchEvent(new Event("change", { bubbles: true }));   /* met à jour la carte */
+    });
   }
 
   /* ---------- Apparitions au défilement ---------- */
