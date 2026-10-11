@@ -953,6 +953,42 @@ main:focus { outline: none; }
   .formulas { grid-template-columns: minmax(0, 290px); gap: 40px; }
 }
 
+/* Douces énergies (des en-cas) : mis à part, en dernier, « pour compléter votre formule » */
+.formulas { align-items: end; }
+.formulas__extra { position: relative; }
+.formulas__extra::before {
+  content: "";
+  position: absolute;
+  top: 3rem;
+  bottom: 4%;
+  left: calc(clamp(20px, 2.8vw, 36px) / -2);
+  border-left: 1px dashed rgba(190, 154, 128, .9);
+}
+.formulas__tag {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .35em;
+  position: relative;
+  z-index: 1;
+  margin: 0 0 -24px;   /* le haut du cadre du bocal est vide (au-dessus du couvercle) */
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.22rem;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--brown);
+}
+.formulas__tag span { font-style: normal; font-size: 1.35em; line-height: 1; color: var(--caramel-deep); }
+@media (max-width: 1079.98px) {
+  .formulas__extra::before { left: -20px; }
+}
+@media (max-width: 599.98px) {
+  .formulas__extra { padding-top: 30px; }
+  .formulas__extra::before { top: 0; bottom: auto; left: 12%; right: 12%; border-left: 0; border-top: 1px dashed rgba(190, 154, 128, .9); }
+}
+
 /* Repère du dessin : 300 × 480 unités ; tout est placé en % de ce repère. */
 .jar {
   position: relative;

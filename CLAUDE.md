@@ -31,6 +31,9 @@
 - Prix des formules (repris des maquettes du propriétaire) : Douces énergies 60 €,
   Première lueur 180 €, Semaine allégée 250 €, Cocon mois d’or 900 € — moitié prix après
   crédit d’impôt immédiat.
+- Ordre des bocaux (choix du propriétaire) : Cocon mois d’or, Semaine allégée, Première lueur,
+  puis Douces énergies (des en-cas) mis à part, sous « + Pour compléter votre formule »
+  (`.formulas__extra`, `.formulas__tag`).
 - Ordre des sections : accueil, L’approche, Déroulé (fond taupe clair, absent du menu),
   Formules, crédit d’impôt, Réserver, Offrir, Contact. Menu : L’approche, Formules,
   Réserver, Offrir, Contact (choix du propriétaire).
