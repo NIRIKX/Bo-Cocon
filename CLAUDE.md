@@ -65,7 +65,8 @@
 - Streamlit ne se met pas toujours à jour tout seul après un push : si le propriétaire voit
   encore l’ancienne version, lui faire relancer l’appli (share.streamlit.io → ⋮ à côté de
   l’appli → « Reboot »), puis fermer et rouvrir l’onglet.
-- « Mon parcours » (texte donné par le propriétaire, au « je ») : études en
+- « Mon parcours » (frise chronologique sans logo, de gauche à droite ; de haut en bas sous
+  760 px ; texte donné par le propriétaire, au « je ») : études en
   hôtellerie-restauration, 10 ans dans la restauration, naissance de son petit garçon en
   2023, puis l’envie de créer une entreprise qui lui corresponde : Bo’Cocon. Rien d’autre
   à inventer (pas de prénom, pas de lieu).

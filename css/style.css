@@ -646,34 +646,18 @@ main:focus { outline: none; }
 }
 .pillar p { max-width: 32ch; margin-inline: auto; }
 
-/* Mon parcours : frise verticale, du restaurant à Bo'Cocon */
-.story__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
-  gap: clamp(36px, 7vw, 100px);
-  align-items: center;
-  max-width: calc(1000px + 2 * var(--gutter));
-}
-.story__visual { justify-self: center; width: min(100%, 250px); }
-.story__visual .arch-mono { width: 100%; }
+/* Mon parcours : frise chronologique (de gauche à droite ; de haut en bas sur téléphone) */
 .story__steps {
   position: relative;
   display: grid;
   gap: 24px;
-  margin: 30px 0 0;
+  max-width: 1040px;
+  margin: 0 auto;
   padding: 0 0 0 38px;
   list-style: none;
 }
 .story__steps li { position: relative; }
-/* trait pointillé d'un rond au suivant (il s'arrête au dernier) */
-.story__steps li:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  left: -29px;
-  top: calc(.32em + 19px);
-  bottom: calc(-24px - .32em);
-  border-left: 1px dashed var(--caramel);
-}
+/* les ronds */
 .story__steps li::before {
   content: "";
   position: absolute;
@@ -686,6 +670,15 @@ main:focus { outline: none; }
   background: var(--cream);
 }
 .story__steps li:last-child::before { background: var(--brown); border-color: var(--brown); box-shadow: 0 0 0 4px rgba(116, 69, 55, .15); }
+/* trait pointillé d'un rond au suivant (il s'arrête au dernier) */
+.story__steps li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: -29px;
+  top: calc(.32em + 19px);
+  bottom: calc(-24px - .32em);
+  border-left: 1px dashed var(--caramel);
+}
 .story__when {
   display: block;
   font-family: var(--font-display);
@@ -697,9 +690,20 @@ main:focus { outline: none; }
   color: var(--brown);
 }
 .story__steps p { max-width: 44ch; margin: 4px 0 0; }
-@media (max-width: 900px) {
-  .story__grid { grid-template-columns: 1fr; }
-  .story__visual { width: min(40%, 150px); }
+@media (min-width: 760px) {
+  .story__steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; padding: 0; }
+  .story__steps li { padding-top: 52px; text-align: center; }
+  .story__steps li::before { left: 50%; top: 0; width: 22px; height: 22px; transform: translateX(-50%); }
+  .story__steps li:not(:last-child)::after {
+    left: calc(50% + 15px);
+    top: 11px;
+    bottom: auto;
+    width: calc(100% + 28px - 30px);
+    border-left: 0;
+    border-top: 1px dashed var(--caramel);
+  }
+  .story__when { font-size: 1.65rem; }
+  .story__steps p { max-width: 26ch; margin: 8px auto 0; }
 }
 
 /* Réserver : demande de réservation avec récapitulatif en direct */
