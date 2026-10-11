@@ -41,6 +41,8 @@
   + nettoyage à chaque fois) ; Douces énergies = 3 en-cas au choix (granola, overnight skyr,
   pancakes, compotes, dattes snickers, barres chocolatées saines) ; Les courses = 0 % de
   charge mentale, « Je fais les courses à votre place » (au « je », choix du propriétaire).
+  Au dos : le nom, le contenu et le bouton, sans « Ce qui est compris » ni prix (choix du
+  propriétaire).
   Bouton « Réserver » au dos de chaque bocal (`[data-reserve]`) : mène à Réserver avec la
   formule déjà choisie (pour un complément : coché dès qu’une formule est choisie).
 - Ordre des sections : accueil, L’approche, Déroulé (fond taupe clair, absent du menu),
