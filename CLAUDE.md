@@ -46,5 +46,9 @@
   (`touchmove` / `wheel` sur l’en-tête). Le body utilise `overflow-x: clip`.
   Tests Playwright : toucher avec `touchscreen.tap(x, y)` (`locator.tap()` fait défiler la
   page tout seul) et faire défiler au doigt avec `Input.dispatchTouchEvent` (CDP).
+- Streamlit ne se met pas toujours à jour tout seul après un push : le repère en bas de page
+  (`.footer__version`, « Mise à jour du … ») permet au propriétaire de vérifier la version
+  affichée ; le changer quand il doit tester une correction. Sinon : share.streamlit.io →
+  ⋮ à côté de l’appli → « Reboot ».
 - Coordonnées : bococon.contact@gmail.com · 07 81 18 86 07 · du Pic Saint-Loup à la
   Vaunage.
