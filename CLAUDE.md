@@ -21,8 +21,6 @@
 - Ajouter le contenu de chaque formule au dos des bocaux (la cousine du propriétaire
   doit le fournir ; ne rien inventer). Un modèle de liste commenté est prêt dans
   `index.html`.
-- Retirer le repère de version du pied de page (`.footer__version`, « Mise à jour du … »),
-  qui sert seulement à vérifier quelle version Streamlit affiche.
 - Vérifier une dernière fois le site sur Netlify après la mise en ligne.
 
 ## Repères techniques
@@ -46,9 +44,8 @@
   (`touchmove` / `wheel` sur l’en-tête). Le body utilise `overflow-x: clip`.
   Tests Playwright : toucher avec `touchscreen.tap(x, y)` (`locator.tap()` fait défiler la
   page tout seul) et faire défiler au doigt avec `Input.dispatchTouchEvent` (CDP).
-- Streamlit ne se met pas toujours à jour tout seul après un push : le repère en bas de page
-  (`.footer__version`, « Mise à jour du … ») permet au propriétaire de vérifier la version
-  affichée ; le changer quand il doit tester une correction. Sinon : share.streamlit.io →
-  ⋮ à côté de l’appli → « Reboot ».
+- Streamlit ne se met pas toujours à jour tout seul après un push : si le propriétaire voit
+  encore l’ancienne version, lui faire relancer l’appli (share.streamlit.io → ⋮ à côté de
+  l’appli → « Reboot »), puis fermer et rouvrir l’onglet.
 - Coordonnées : bococon.contact@gmail.com · 07 81 18 86 07 · du Pic Saint-Loup à la
   Vaunage.
