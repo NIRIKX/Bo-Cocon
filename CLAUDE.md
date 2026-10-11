@@ -45,8 +45,9 @@
   propriétaire).
   Bouton « Réserver » au dos de chaque bocal (`[data-reserve]`) : mène à Réserver avec la
   formule déjà choisie (pour un complément : coché dès qu’une formule est choisie).
-- Ordre des sections : accueil, L’approche, Déroulé (fond taupe clair, absent du menu),
-  Formules, crédit d’impôt, Réserver, Offrir, Contact. Menu : L’approche, Formules,
+- Ordre des sections : accueil, L’approche, Mon parcours (`#parcours`, absent du menu),
+  Déroulé (fond taupe clair, absent du menu), Formules, crédit d’impôt, Réserver, Offrir,
+  Contact. Menu : L’approche, Formules,
   Réserver, Offrir, Contact (choix du propriétaire).
 - Offrir reste une section à part (choix du propriétaire). Dans Réserver, le bouton
   « C’est pour offrir » (`[data-gift-switch]`, lien vers `#offrir`) emmène à Offrir en
@@ -64,5 +65,9 @@
 - Streamlit ne se met pas toujours à jour tout seul après un push : si le propriétaire voit
   encore l’ancienne version, lui faire relancer l’appli (share.streamlit.io → ⋮ à côté de
   l’appli → « Reboot »), puis fermer et rouvrir l’onglet.
+- « Mon parcours » (texte donné par le propriétaire, au « je ») : études en
+  hôtellerie-restauration, 10 ans dans la restauration, naissance de son petit garçon en
+  2023, puis l’envie de créer une entreprise qui lui corresponde : Bo’Cocon. Rien d’autre
+  à inventer (pas de prénom, pas de lieu).
 - Coordonnées : bococon.contact@gmail.com · 07 81 18 86 07 · du Pic Saint-Loup à la
   Vaunage.

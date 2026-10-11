@@ -65,10 +65,10 @@ lorsque l’on revient sur l’accueil depuis une autre page du site.
 
 ## Page d’accueil : ordre des sections
 
-Accueil → L’approche → Le déroulé « Comment ça se passe ? » (fond taupe clair) →
+Accueil → L’approche → Mon parcours → Le déroulé « Comment ça se passe ? » (fond taupe clair) →
 Formules → bandeau crédit d’impôt → Réserver → Offrir → Contact.
 Menu du haut et pied de page : L’approche, Formules, Réserver, Offrir, Contact
-(le déroulé n’a pas de lien dans le menu).
+(« Mon parcours » et le déroulé n’ont pas de lien dans le menu).
 
 ## Formules
 
