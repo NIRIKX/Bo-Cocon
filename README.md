@@ -52,7 +52,6 @@ Chaque modification poussée sur la branche est ensuite mise en ligne automatiqu
    et le site est publié sur **Netlify**, relié uniquement à `main`.
 3. **Domaine** : relier bococon.fr au site Netlify.
 
-
 ## Intro d’ouverture
 
 À l’ouverture du site, deux battants portant l’arche « B » s’écartent de chaque côté, puis deux
@@ -63,6 +62,31 @@ Saint-Dionisy). Un soleil se lève derrière le Pic et les 9 villages s’allume
 Vaunage, avant l’arrivée sur la page d’accueil (environ 7 s).
 Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
 lorsque l’on revient sur l’accueil depuis une autre page du site.
+
+## Page d’accueil : ordre des sections
+
+Accueil → L’approche → Le déroulé « Comment ça se passe ? » (fond taupe clair) →
+Formules → bandeau crédit d’impôt → Réserver → Contact.
+Menu du haut et pied de page : L’approche, Formules, Réserver, Offrir, Contact
+(le déroulé n’a pas de lien dans le menu ; « Offrir » mène à Réserver, case cochée).
+
+## Formules
+
+Trois formules en haut (Cocon mois d’or, Semaine allégée, Première lueur), puis
+« + Pour compléter votre formule » : Douces énergies et Les courses, qui ne se prennent
+qu’en plus d’une formule. Chaque bocal se retourne pour montrer ce qu’il contient, avec un
+bouton « Réserver ».
+
+## Réserver (et offrir)
+
+La section « Réserver » permet de demander une réservation : formule, compléments,
+nom, téléphone, commune, date souhaitée et message facultatif. Un récapitulatif en forme
+d’arche se met à jour en direct (prix de départ et prix après crédit d’impôt).
+
+La case « C’est pour offrir » transforme la demande en carte cadeau : prénom de la
+personne, le sien, un petit mot, et un aperçu de la carte. Le bouton ouvre la messagerie
+avec la demande déjà écrite, envoyée à bococon.contact@gmail.com. Il n’y a pas de paiement
+en ligne : Bo’Cocon recontacte la personne pour finaliser.
 
 ## Palette
 
