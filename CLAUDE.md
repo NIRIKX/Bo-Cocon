@@ -18,13 +18,6 @@
 3. Ensuite : relier le domaine **bococon.fr** (celui de la carte de visite).
 
 ## À faire avant le passage sur Netlify
-- Corriger le menu sur téléphone : ouvert après avoir fait défiler la page, l’en-tête
-  sort de l’écran et le menu se réduit à 68 px (cause : `overflow: hidden` sur `html` et
-  `body` quand le menu est ouvert + `backdrop-filter` sur `.site-header.is-scrolled`, qui
-  devient le bloc conteneur du menu `position: fixed`). Correctif testé :
-  `body { overflow-x: clip }`, `.nav-open { overflow: hidden }`,
-  `.nav-open body { overflow: visible }`, et pas de `backdrop-filter` sur l’en-tête quand
-  le menu est ouvert.
 - Ajouter le contenu de chaque formule au dos des bocaux (la cousine du propriétaire
   doit le fournir ; ne rien inventer). Un modèle de liste commenté est prêt dans
   `index.html`.
@@ -44,5 +37,10 @@
 - Sections « Réserver » (demande de réservation) et « Offrir » (carte cadeau) : aperçu en
   direct + e-mail prérempli vers bococon.contact@gmail.com (`js/main.js`), pas de paiement
   en ligne. Styles de formulaire partagés : `.field`, `.field-row`, `.chips`, `.chip`.
+- Menu sur téléphone (corrigé) : ne jamais remettre `overflow: hidden` sur `body` quand le
+  menu est ouvert, ni de `backdrop-filter` sur l’en-tête menu ouvert — sinon, après avoir
+  fait défiler, l’en-tête sort de l’écran et le menu se réduit à 68 px. Le body utilise
+  `overflow-x: clip` (et non `hidden`). Pour tester avec Playwright, toucher le bouton avec
+  `touchscreen.tap(x, y)` : `locator.tap()` fait défiler la page tout seul.
 - Coordonnées : bococon.contact@gmail.com · 07 81 18 86 07 · du Pic Saint-Loup à la
   Vaunage.
