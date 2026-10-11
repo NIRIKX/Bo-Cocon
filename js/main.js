@@ -93,6 +93,18 @@
     window.matchMedia("(min-width: 901px)").addEventListener("change", function (mq) {
       if (mq.matches) setNav(false);
     });
+    /* menu ouvert : la page derrière ne défile pas. On ne touche pas au défilement de
+       html / body (ça faisait disparaître l'en-tête sur téléphone) : on bloque juste le
+       geste, sauf si le menu est plus haut que l'écran et doit défiler lui-même. */
+    var holdPage = function (e) {
+      if (!root.classList.contains("nav-open")) return;
+      if (nav.scrollHeight > nav.clientHeight + 1 && nav.contains(e.target)) return;
+      e.preventDefault();
+    };
+    if (header) {
+      header.addEventListener("touchmove", holdPage, { passive: false });
+      header.addEventListener("wheel", holdPage, { passive: false });
+    }
   }
 
   /* ---------- Liens internes quand le site est intégré (iframe Streamlit) ----------

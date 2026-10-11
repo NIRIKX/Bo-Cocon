@@ -1386,18 +1386,28 @@ main:focus { outline: none; }
     z-index: 1;
     flex-direction: column;
     justify-content: center;
+    justify-content: safe center;
     gap: 40px;
+    padding: calc(var(--header-h) + 8px) 0 24px;   /* le contenu commence sous l'en-tête */
     background: var(--cream);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     opacity: 0;
     visibility: hidden;
     transition: opacity .4s ease, visibility .4s;
   }
   .nav-open .nav { opacity: 1; visibility: visible; }
-  /* menu ouvert : défilement bloqué sur html seulement ; sans flou sur l'en-tête,
-     sinon le menu (position fixe) se calerait sur l'en-tête au lieu de l'écran */
-  .nav-open { overflow: hidden; }
-  .nav-open body { overflow: visible; }
-  .nav-open .site-header { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  /* Menu plein écran : son ouverture ne change rien d'autre que le menu lui-même.
+     - jamais de flou sous l'en-tête sur téléphone : il ferait de l'en-tête le cadre du
+       menu, qui se réduirait à 68 px ;
+     - jamais de « overflow » sur html / body à l'ouverture : c'est ce qui faisait sortir
+       l'en-tête de l'écran après avoir défilé. Le défilement derrière le menu est bloqué
+       en JavaScript (js/main.js). */
+  .site-header.is-scrolled {
+    background: rgba(254, 249, 240, .97);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
   .nav__list { flex-direction: column; align-items: center; gap: 22px; }
   .nav__link {
     font-family: var(--font-display);
@@ -1405,6 +1415,12 @@ main:focus { outline: none; }
     font-weight: 500;
     letter-spacing: .02em;
     text-transform: none;
+  }
+  /* téléphone couché : écran bas, menu resserré pour que tout tienne */
+  @media (max-height: 520px) {
+    .nav { gap: 18px; }
+    .nav__list { gap: 4px; }
+    .nav__link { font-size: 1.55rem; }
   }
   .brand { position: relative; z-index: 2; }
   .brand__wordmark { height: 34px; }

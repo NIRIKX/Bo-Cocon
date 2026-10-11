@@ -37,10 +37,12 @@
 - Sections « Réserver » (demande de réservation) et « Offrir » (carte cadeau) : aperçu en
   direct + e-mail prérempli vers bococon.contact@gmail.com (`js/main.js`), pas de paiement
   en ligne. Styles de formulaire partagés : `.field`, `.field-row`, `.chips`, `.chip`.
-- Menu sur téléphone (corrigé) : ne jamais remettre `overflow: hidden` sur `body` quand le
-  menu est ouvert, ni de `backdrop-filter` sur l’en-tête menu ouvert — sinon, après avoir
-  fait défiler, l’en-tête sort de l’écran et le menu se réduit à 68 px. Le body utilise
-  `overflow-x: clip` (et non `hidden`). Pour tester avec Playwright, toucher le bouton avec
-  `touchscreen.tap(x, y)` : `locator.tap()` fait défiler la page tout seul.
+- Menu sur téléphone (corrigé) : l’ouverture du menu ne doit rien changer d’autre que le
+  menu. Jamais d’`overflow` sur `html` / `body` à l’ouverture, jamais de `backdrop-filter`
+  sur l’en-tête en dessous de 900 px — sinon, après avoir fait défiler, l’en-tête sort de
+  l’écran et le menu se réduit à 68 px. Le défilement derrière le menu est bloqué en JS
+  (`touchmove` / `wheel` sur l’en-tête). Le body utilise `overflow-x: clip`.
+  Tests Playwright : toucher avec `touchscreen.tap(x, y)` (`locator.tap()` fait défiler la
+  page tout seul) et faire défiler au doigt avec `Input.dispatchTouchEvent` (CDP).
 - Coordonnées : bococon.contact@gmail.com · 07 81 18 86 07 · du Pic Saint-Loup à la
   Vaunage.
