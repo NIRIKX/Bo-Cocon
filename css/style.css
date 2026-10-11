@@ -651,6 +651,7 @@ main:focus { outline: none; }
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
   grid-template-areas: "intro form" "recap form";
+  grid-template-rows: auto 1fr;   /* l'arche reste juste sous l'intro */
   column-gap: clamp(32px, 6vw, 88px);
   row-gap: 40px;
   align-items: start;
@@ -658,7 +659,7 @@ main:focus { outline: none; }
 .booking__intro { grid-area: intro; }
 .booking__intro > .kicker { display: flex; width: max-content; }
 .booking__intro .lead { margin-top: 20px; }
-.booking__recap { grid-area: recap; }
+.booking__recap { grid-area: recap; position: sticky; top: calc(var(--header-h) + 24px); }
 .booking__form { grid-area: form; }
 
 /* le récapitulatif, en forme d'arche comme le « B » */
@@ -745,43 +746,27 @@ main:focus { outline: none; }
 }
 .booking-recap [data-book].is-empty { opacity: .85; }
 
-/* Offrir : carte cadeau avec aperçu en direct */
-.gift { background: #f6efe6; }
-.gift__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-areas: "intro preview" "form preview";
-  column-gap: clamp(32px, 6vw, 88px);
-  row-gap: 36px;
-  align-items: start;
-}
-.gift__intro { grid-area: intro; }
-.gift__preview { grid-area: preview; align-self: center; position: sticky; top: calc(var(--header-h) + 32px); }
-.gift__form { grid-area: form; }
-.gift__intro .lead { margin-top: 20px; }
-.gift__steps {
-  margin: 26px 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 12px;
-}
-.gift__steps li { display: flex; align-items: baseline; gap: 14px; }
-.gift__steps span {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--caramel);
-  border-radius: 50%;
+/* « C'est pour offrir » : champs et aperçu de la carte cadeau, dans Réserver */
+.booking__anchor { position: absolute; top: 0; }
+.booking { position: relative; }
+.booking__offer {
+  display: flex;
+  align-items: baseline;
+  gap: .45em;
+  margin: 18px 0 0;
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.05rem;
-  font-variant-numeric: lining-nums;
+  font-weight: 500;
+  font-size: 1.15rem;
+  line-height: 1.35;
   color: var(--brown);
-  transform: translateY(5px);
 }
+.booking__offer span { font-style: normal; color: var(--caramel-deep); }
+.addon--gift { margin-top: 4px; border-style: solid; border-color: rgba(116, 69, 55, .35); }
+.booking__gift { display: grid; gap: 18px; }
+.booking__gift[hidden] { display: none; }
+.booking__card { width: 100%; max-width: 440px; margin: 6px auto 4px; }
+.booking__card:hover .gift-card { transform: rotate(0deg); }
 
 /* la carte */
 .gift-card {
@@ -808,7 +793,6 @@ main:focus { outline: none; }
   border-radius: 12px;
   pointer-events: none;
 }
-.gift__preview:hover .gift-card { transform: rotate(0deg); }
 .gift-card__arch {
   display: block;
   aspect-ratio: 760 / 1209;
@@ -870,8 +854,7 @@ main:focus { outline: none; }
   color: var(--espresso);
 }
 
-/* les formulaires (Réserver et Offrir) */
-.gift__form,
+/* le formulaire Réserver */
 .booking__form { display: grid; gap: 18px; }
 .field { display: grid; gap: 8px; margin: 0; padding: 0; border: 0; min-width: 0; }
 .field > span,
@@ -1005,10 +988,9 @@ fieldset.field { container-type: inline-size; }
 
 @media (max-width: 900px) {
   .booking__grid { grid-template-columns: 1fr; grid-template-areas: "intro" "recap" "form"; }
-  .booking__recap { justify-self: center; width: 100%; max-width: 320px; }
+  .booking__grid { grid-template-rows: none; }
+  .booking__recap { position: static; justify-self: center; width: 100%; max-width: 320px; }
   .booking-recap { margin-inline: auto; }
-  .gift__grid { grid-template-columns: 1fr; grid-template-areas: "intro" "preview" "form"; }
-  .gift__preview { position: static; max-width: 460px; width: 100%; justify-self: center; }
 }
 @media (max-width: 560px) {
   .field-row, .chips { grid-template-columns: 1fr; }
