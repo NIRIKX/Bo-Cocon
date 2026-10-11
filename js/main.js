@@ -72,21 +72,35 @@
   /* ---------- Menu mobile ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("nav");
-  function setNav(open) {
+  /* derrière le menu ouvert, la page est inerte (Tab et lecteurs d'écran restent dans le menu) */
+  var behind = ["main", ".site-footer", ".skip-link"].map(function (s) {
+    return document.querySelector(s);
+  }).filter(Boolean);
+  var openY = 0;
+  /* keepPlace : en refermant (X ou Échap), on revient exactement où l'on était */
+  function setNav(open, keepPlace) {
+    if (open) openY = window.scrollY;
     root.classList.toggle("nav-open", open);
+    behind.forEach(function (el) { el.inert = open; });
+    if (!open && keepPlace && Math.abs(window.scrollY - openY) > 1) {
+      root.style.scrollBehavior = "auto";
+      window.scrollTo(0, openY);
+      root.style.scrollBehavior = "";
+    }
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
   }
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
-      setNav(!root.classList.contains("nav-open"));
+      setNav(!root.classList.contains("nav-open"), true);
     });
-    nav.addEventListener("click", function (e) {
+    /* un lien du menu, ou le logo : le menu se ferme */
+    (header || nav).addEventListener("click", function (e) {
       if (e.target.closest("a")) setNav(false);
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && root.classList.contains("nav-open")) {
-        setNav(false);
+        setNav(false, true);
         toggle.focus();
       }
     });
@@ -95,9 +109,11 @@
     });
     /* menu ouvert : la page derrière ne défile pas. On ne touche pas au défilement de
        html / body (ça faisait disparaître l'en-tête sur téléphone) : on bloque juste le
-       geste, sauf si le menu est plus haut que l'écran et doit défiler lui-même. */
+       geste, sauf si le menu est plus haut que l'écran et doit défiler lui-même.
+       Le zoom à deux doigts reste possible. */
     var holdPage = function (e) {
       if (!root.classList.contains("nav-open")) return;
+      if ((e.touches && e.touches.length > 1) || e.ctrlKey) return;
       if (nav.scrollHeight > nav.clientHeight + 1 && nav.contains(e.target)) return;
       e.preventDefault();
     };
