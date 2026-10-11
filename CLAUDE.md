@@ -40,7 +40,9 @@
   nettoyage, environ 4 h ; Cocon mois d’or = 4 séances d’environ 4 h (6 repas + 1 collation
   + nettoyage à chaque fois) ; Douces énergies = 3 en-cas au choix (granola, overnight skyr,
   pancakes, compotes, dattes snickers, barres chocolatées saines) ; Les courses = 0 % de
-  charge mentale, faites à la place du client.
+  charge mentale, « Je fais les courses à votre place » (au « je », choix du propriétaire).
+  Bouton « Réserver » au dos de chaque bocal (`[data-reserve]`) : mène à Réserver avec la
+  formule déjà choisie (pour un complément : coché dès qu’une formule est choisie).
 - Ordre des sections : accueil, L’approche, Déroulé (fond taupe clair, absent du menu),
   Formules, crédit d’impôt, Réserver, Offrir, Contact. Menu : L’approche, Formules,
   Réserver, Offrir, Contact (choix du propriétaire).

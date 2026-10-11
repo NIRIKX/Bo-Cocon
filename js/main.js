@@ -214,6 +214,7 @@
   if (bookForm) {
     var bookSend = document.getElementById("booking-send");
     var bookExtraLine = document.querySelector("[data-book-extra]");
+    var wantedAddon = "";   /* « Réserver » au dos de Douces énergies / Les courses */
     var recap = {};
     document.querySelectorAll("[data-book]").forEach(function (el) {
       recap[el.getAttribute("data-book")] = { el: el, fallback: el.textContent };
@@ -239,6 +240,12 @@
     };
     var bookUpdate = function () {
       var checked = bookForm.querySelector('input[name="book-formule"]:checked');
+      if (checked && wantedAddon) {
+        bookForm.querySelectorAll(".addon input").forEach(function (x) {
+          if (x.value === wantedAddon) x.checked = true;
+        });
+        wantedAddon = "";
+      }
       var chosen = syncAddons(bookForm, !!checked);
       var extras = addonNames(chosen);
       var price = checked ? +checked.getAttribute("data-price") : 0;
@@ -296,6 +303,17 @@
         encodeURIComponent("Réservation Bo’Cocon" + (v.formule ? " – " + v.formule : "") + extras.map(function (n) { return " + " + n; }).join("")) +
         "&body=" + encodeURIComponent(body);
     };
+    /* « Réserver » au dos d'un bocal : la formule (ou le complément) est déjà choisie */
+    document.querySelectorAll("[data-reserve]").forEach(function (cta) {
+      cta.addEventListener("click", function () {
+        var name = cta.getAttribute("data-reserve");
+        var radio = [].slice.call(bookForm.querySelectorAll('input[name="book-formule"]'))
+          .filter(function (x) { return x.value === name; })[0];
+        if (radio) radio.checked = true;
+        else wantedAddon = name;
+        bookUpdate();
+      });
+    });
     bookForm.addEventListener("input", bookUpdate);
     bookForm.addEventListener("change", bookUpdate);
     bookForm.addEventListener("submit", function (e) { e.preventDefault(); });
