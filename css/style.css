@@ -1372,6 +1372,7 @@ main:focus { outline: none; }
   color: rgba(198, 182, 169, .8);
 }
 .footer__bottom p { margin: 0; }
+.footer__version { flex-basis: 100%; font-size: .75rem; opacity: .8; }
 
 /* ==========================================================================
    Responsive

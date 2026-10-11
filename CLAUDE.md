@@ -21,6 +21,8 @@
 - Ajouter le contenu de chaque formule au dos des bocaux (la cousine du propriétaire
   doit le fournir ; ne rien inventer). Un modèle de liste commenté est prêt dans
   `index.html`.
+- Retirer le repère de version du pied de page (`.footer__version`, « Mise à jour du … »),
+  qui sert seulement à vérifier quelle version Streamlit affiche.
 - Vérifier une dernière fois le site sur Netlify après la mise en ligne.
 
 ## Repères techniques
