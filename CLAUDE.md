@@ -31,11 +31,13 @@
 - Prix des formules (repris des maquettes du propriétaire) : Douces énergies 60 €,
   Première lueur 180 €, Semaine allégée 250 €, Cocon mois d’or 900 € — moitié prix après
   crédit d’impôt immédiat.
-- Ordre des bocaux (choix du propriétaire) : Cocon mois d’or, Semaine allégée, Première lueur,
-  puis Douces énergies (des en-cas) mis à part, sous « + Pour compléter votre formule »
-  (`.formulas__extra`, `.formulas__tag`). Douces énergies ne se réserve ni ne s’offre seul :
-  dans « Réserver » et « Offrir », c’est une case « + Douces énergies » (`.addon`), active
-  seulement quand une formule est choisie.
+- Bocaux (choix du propriétaire) : en haut les 3 formules Cocon mois d’or, Semaine allégée,
+  Première lueur (`.formulas--main`) ; puis « + Pour compléter votre formule » avec
+  Douces énergies (des en-cas, à partir de 60 €) et Les courses (faites par la cuisinière,
+  50 €) (`.formulas--extras`). Ces deux compléments ne se réservent ni ne s’offrent seuls :
+  dans « Réserver » et « Offrir », ce sont des cases (`.addon`), actives seulement quand une
+  formule est choisie. Crédit d’impôt sur les courses : pas confirmé, donc les 50 € ne sont
+  pas divisés par deux (`data-credit="0"`) — à demander au propriétaire.
 - Ordre des sections : accueil, L’approche, Déroulé (fond taupe clair, absent du menu),
   Formules, crédit d’impôt, Réserver, Offrir, Contact. Menu : L’approche, Formules,
   Réserver, Offrir, Contact (choix du propriétaire).

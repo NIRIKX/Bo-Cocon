@@ -986,6 +986,7 @@ fieldset.field { container-type: inline-size; }
 .addon:has(input:disabled) { opacity: .6; cursor: not-allowed; }
 .addon:has(input:disabled):hover { border-color: rgba(116, 69, 55, .5); }
 .addon:not(:has(input:disabled)) .addon__hint { display: none; }
+.addon + .addon { margin-top: 10px; }
 @media (max-width: 420px) {
   .addon { flex-wrap: wrap; }
   .addon__hint { flex-basis: 100%; margin-left: 36px; text-align: left; }
@@ -1035,41 +1036,34 @@ fieldset.field { container-type: inline-size; }
   .formulas { grid-template-columns: minmax(0, 290px); gap: 40px; }
 }
 
-/* Douces énergies (des en-cas) : mis à part, en dernier, « pour compléter votre formule » */
-.formulas { align-items: end; }
-.formulas__extra { position: relative; }
-.formulas__extra::before {
-  content: "";
-  position: absolute;
-  top: 3rem;
-  bottom: 4%;
-  left: calc(clamp(20px, 2.8vw, 36px) / -2);
-  border-left: 1px dashed rgba(190, 154, 128, .9);
+/* 3 formules, puis « + Pour compléter votre formule » : Douces énergies et Les courses */
+@media (min-width: 1080px) {
+  .formulas--main { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 840px; }
+  .formulas--extras { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 556px; }
 }
-.formulas__tag {
+@media (min-width: 600px) and (max-width: 1079.98px) {
+  /* 3e formule seule sur sa ligne : centrée */
+  .formulas--main > li:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: 100%; max-width: 280px; }
+}
+.formulas--extras { margin-top: 18px; }
+.formulas__group {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
-  gap: .35em;
-  position: relative;
-  z-index: 1;
-  margin: 0 0 -24px;   /* le haut du cadre du bocal est vide (au-dessus du couvercle) */
+  gap: .6em;
+  max-width: 640px;
+  margin: clamp(48px, 6vw, 72px) auto 0;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 500;
-  font-size: 1.22rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.4rem);
   line-height: 1.2;
   text-align: center;
   color: var(--brown);
 }
-.formulas__tag span { font-style: normal; font-size: 1.35em; line-height: 1; color: var(--caramel-deep); }
-@media (max-width: 1079.98px) {
-  .formulas__extra::before { left: -20px; }
-}
-@media (max-width: 599.98px) {
-  .formulas__extra { padding-top: 30px; }
-  .formulas__extra::before { top: 0; bottom: auto; left: 12%; right: 12%; border-left: 0; border-top: 1px dashed rgba(190, 154, 128, .9); }
-}
+.formulas__group::before,
+.formulas__group::after { content: ""; flex: 1; min-width: 24px; border-top: 1px dashed rgba(190, 154, 128, .9); }
+.formulas__group span { font-style: normal; color: var(--caramel-deep); }
 
 /* Repère du dessin : 300 × 480 unités ; tout est placé en % de ce repère. */
 .jar {

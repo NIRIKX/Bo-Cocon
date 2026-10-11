@@ -195,11 +195,24 @@
     render();
   });
 
+  /* ---------- Compléments (Douces énergies, Les courses) ----------
+     Ils ne se prennent qu'en plus d'une formule : les cases restent grisées tant
+     qu'aucune formule n'est choisie. Renvoie les compléments cochés. */
+  function syncAddons(form, hasFormula) {
+    var chosen = [];
+    form.querySelectorAll(".addon input").forEach(function (x) {
+      x.disabled = !hasFormula;
+      if (!hasFormula) x.checked = false;
+      if (x.checked) chosen.push(x);
+    });
+    return chosen;
+  }
+  var addonNames = function (chosen) { return chosen.map(function (x) { return x.value; }); };
+
   /* ---------- Réserver : récapitulatif en direct et e-mail prérempli ---------- */
   var bookForm = document.getElementById("booking-form");
   if (bookForm) {
     var bookSend = document.getElementById("booking-send");
-    var bookExtra = bookForm.elements["book-extra"];   /* Douces énergies : seulement en plus d'une formule */
     var bookExtraLine = document.querySelector("[data-book-extra]");
     var recap = {};
     document.querySelectorAll("[data-book]").forEach(function (el) {
@@ -225,12 +238,16 @@
     };
     var bookUpdate = function () {
       var checked = bookForm.querySelector('input[name="book-formule"]:checked');
-      bookExtra.disabled = !checked;
-      if (!checked) bookExtra.checked = false;
-      var extra = bookExtra.checked;
-      var extraPrice = extra ? +bookExtra.getAttribute("data-price") : 0;
+      var chosen = syncAddons(bookForm, !!checked);
+      var extras = addonNames(chosen);
       var price = checked ? +checked.getAttribute("data-price") : 0;
-      var total = price + extraPrice;
+      /* prix total ; le crédit d'impôt n'est compté que sur ce qui y a droit (data-credit) */
+      var total = price, net = price / 2;
+      chosen.forEach(function (x) {
+        var p = +x.getAttribute("data-price");
+        total += p;
+        net += x.getAttribute("data-credit") === "1" ? p / 2 : p;
+      });
       var v = {
         formule: checked ? checked.value : "",
         name: bookForm.elements["book-name"].value.trim(),
@@ -242,7 +259,7 @@
       var shown = {
         formule: v.formule,
         price: price ? "À partir de " + euros(total) + ", soit" : "",
-        net: price ? euros(total / 2) : "",
+        net: price ? euros(net) : "",
         "net-label": price ? "après crédit d’impôt" : "",
         date: v.date ? "À partir du " + v.date : "",
         town: v.town ? "Chez vous, " + inTown(v.town) : ""
@@ -253,14 +270,19 @@
           recap[key].el.classList.toggle("is-empty", !shown[key]);
         }
       });
-      if (bookExtraLine) bookExtraLine.hidden = !extra;
+      if (bookExtraLine) {
+        bookExtraLine.hidden = !extras.length;
+        bookExtraLine.textContent = "+ " + extras.join(" · ");
+      }
       var body = [
         "Bonjour,",
         "",
         "Je souhaite réserver une formule Bo’Cocon.",
         "",
         "Formule : " + (v.formule ? v.formule + " (à partir de " + euros(price) + ")" : "à définir ensemble"),
-        "En plus : " + (extra ? bookExtra.value + " (à partir de " + euros(extraPrice) + ")" : "non"),
+        "En plus : " + (chosen.length ? chosen.map(function (x) {
+          return x.value + " (" + x.getAttribute("data-price-text") + ")";
+        }).join(", ") : "non"),
         "Date souhaitée : " + (v.date || "à définir ensemble"),
         "Commune : " + (v.town || "…"),
         "Nom : " + (v.name || "…"),
@@ -270,7 +292,7 @@
         "Merci de me recontacter pour confirmer la réservation."
       ].join("\n");
       bookSend.href = "mailto:bococon.contact@gmail.com?subject=" +
-        encodeURIComponent("Réservation Bo’Cocon" + (v.formule ? " – " + v.formule : "") + (extra ? " + " + bookExtra.value : "")) +
+        encodeURIComponent("Réservation Bo’Cocon" + (v.formule ? " – " + v.formule : "") + extras.map(function (n) { return " + " + n; }).join("")) +
         "&body=" + encodeURIComponent(body);
     };
     bookForm.addEventListener("input", bookUpdate);
@@ -283,7 +305,6 @@
   var giftForm = document.getElementById("gift-form");
   if (giftForm) {
     var giftOrder = document.getElementById("gift-order");
-    var giftExtra = giftForm.elements["gift-extra"];   /* Douces énergies : seulement en plus d'une formule */
     var giftExtraLine = document.querySelector("[data-gift-extra]");
     var out = {};
     document.querySelectorAll("[data-gift]").forEach(function (el) {
@@ -291,10 +312,11 @@
     });
     var giftUpdate = function () {
       var checked = giftForm.querySelector('input[name="gift-formule"]:checked');
-      giftExtra.disabled = !checked;
-      if (!checked) giftExtra.checked = false;
-      var extra = giftExtra.checked;
-      if (giftExtraLine) giftExtraLine.hidden = !extra;
+      var extras = addonNames(syncAddons(giftForm, !!checked));
+      if (giftExtraLine) {
+        giftExtraLine.hidden = !extras.length;
+        giftExtraLine.textContent = "+ " + extras.join(" · ");
+      }
       var values = {
         formule: checked ? checked.value : "",
         to: giftForm.elements["gift-to"].value.trim(),
@@ -311,7 +333,7 @@
         "Je souhaite offrir une carte cadeau Bo’Cocon.",
         "",
         "Formule : " + (values.formule || "à définir ensemble"),
-        "En plus : " + (extra ? giftExtra.value : "non"),
+        "En plus : " + (extras.length ? extras.join(", ") : "non"),
         "Pour : " + (values.to || "…"),
         "De la part de : " + (values.from || "…"),
         "Petit mot : " + (values.msg || "…"),
@@ -319,7 +341,7 @@
         "Merci de me recontacter pour finaliser la commande."
       ].join("\n");
       giftOrder.href = "mailto:bococon.contact@gmail.com?subject=" +
-        encodeURIComponent("Carte cadeau Bo’Cocon" + (values.formule ? " – " + values.formule : "") + (extra ? " + " + giftExtra.value : "")) +
+        encodeURIComponent("Carte cadeau Bo’Cocon" + (values.formule ? " – " + values.formule : "") + extras.map(function (n) { return " + " + n; }).join("")) +
         "&body=" + encodeURIComponent(body);
     };
     giftForm.addEventListener("input", giftUpdate);
