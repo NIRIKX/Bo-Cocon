@@ -52,7 +52,6 @@ Chaque modification poussée sur la branche est ensuite mise en ligne automatiqu
    et le site est publié sur **Netlify**, relié uniquement à `main`.
 3. **Domaine** : relier bococon.fr au site Netlify.
 
-Restant à faire : contenu de chaque formule au dos des bocaux.
 
 ## Intro d’ouverture
 

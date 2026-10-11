@@ -1193,25 +1193,27 @@ fieldset.field { container-type: inline-size; }
   line-height: 1.1;
   color: var(--brown);
 }
-.jar__soon {
-  margin-top: 4cqw;
-  font-weight: 400;
-  font-size: clamp(12.5px, 5cqw, 14.5px);
-  line-height: 1.45;
-  color: var(--ink);
-  text-wrap: balance;
-}
-/* liste du contenu de la formule (à compléter dans index.html) */
+/* ce que contient la formule */
 .jar__list {
-  margin: 4cqw 0 0;
+  margin: 3.4cqw 0 0;
   padding: 0;
   list-style: none;
   font-weight: 400;
   font-size: clamp(12px, 4.8cqw, 14px);
-  line-height: 1.4;
+  line-height: 1.35;
   color: var(--ink);
+  text-wrap: balance;
 }
-.jar__list li + li { margin-top: .3em; }
+.jar__list li + li { margin-top: .32em; }
+.jar__list strong { font-weight: 500; color: var(--brown); }
+.jar__list .jar__examples {
+  margin-top: .2em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.08em;
+  line-height: 1.25;
+  color: var(--caramel-deep);
+}
 .jar__price {
   margin-top: 4.5cqw;
   padding-top: 3.6cqw;

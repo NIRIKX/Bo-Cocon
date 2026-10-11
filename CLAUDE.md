@@ -18,9 +18,6 @@
 3. Ensuite : relier le domaine **bococon.fr** (celui de la carte de visite).
 
 ## À faire avant le passage sur Netlify
-- Ajouter le contenu de chaque formule au dos des bocaux (la cousine du propriétaire
-  doit le fournir ; ne rien inventer). Un modèle de liste commenté est prêt dans
-  `index.html`.
 - Vérifier une dernière fois le site sur Netlify après la mise en ligne.
 
 ## Repères techniques
@@ -38,6 +35,12 @@
   dans « Réserver » et « Offrir », ce sont des cases (`.addon`), actives seulement quand une
   formule est choisie. Les courses ont droit au crédit d’impôt comme le reste
   (`data-credit="1"`, choix du propriétaire).
+- Dos des bocaux (`.jar__list`, contenu donné par le propriétaire) : Première lueur = 4 repas
+  (entrée + plat), nettoyage, 2 à 3 h en moyenne ; Semaine allégée = 6 repas, 1 collation,
+  nettoyage, environ 4 h ; Cocon mois d’or = 4 séances d’environ 4 h (6 repas + 1 collation
+  + nettoyage à chaque fois) ; Douces énergies = 3 en-cas au choix (granola, overnight skyr,
+  pancakes, compotes, dattes snickers, barres chocolatées saines) ; Les courses = 0 % de
+  charge mentale, faites à la place du client.
 - Ordre des sections : accueil, L’approche, Déroulé (fond taupe clair, absent du menu),
   Formules, crédit d’impôt, Réserver, Offrir, Contact. Menu : L’approche, Formules,
   Réserver, Offrir, Contact (choix du propriétaire).
