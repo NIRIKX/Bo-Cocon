@@ -64,58 +64,6 @@ Vaunage, avant l’arrivée sur la page d’accueil (environ 7 s).
 Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
 lorsque l’on revient sur l’accueil depuis une autre page du site.
 
-## Page d’accueil : ordre des sections
-
-Accueil → L’approche → Le déroulé « Comment ça se passe ? » (fond taupe clair) →
-Formules → bandeau crédit d’impôt → Réserver → Contact.
-Menu du haut et pied de page : L’approche, Formules, Réserver, Offrir, Contact
-(le déroulé n’a pas de lien dans le menu ; « Offrir » mène à Réserver, case cochée).
-
-## Réserver (et offrir)
-
-La section « Réserver » permet de demander une réservation : formule, compléments
-(Douces énergies, Les courses), nom, téléphone, commune, date souhaitée et message
-facultatif. Un récapitulatif en forme d’arche se met à jour en direct (prix de départ et
-prix après crédit d’impôt).
-
-La case « C’est pour offrir » transforme la demande en carte cadeau : prénom de la
-personne, le sien, un petit mot, et un aperçu de la carte. Le bouton ouvre la messagerie
-avec la demande déjà écrite, envoyée à bococon.contact@gmail.com. Il n’y a pas de paiement
-en ligne : Bo’Cocon recontacte la personne pour finaliser.
-
-## Intro d’ouverture
-
-À l’ouverture du site, deux battants portant l’arche « B » s’écartent de chaque côté, puis deux
-dessins au trait se tracent, séparés : la silhouette du Pic Saint-Loup (« Du Pic Saint-Loup »), puis
-le contour du territoire de la Vaunage (« à la Vaunage » — contour réel des 9 communes : Boissières,
-Calvisson, Caveirac, Clarensac, Congénies, Langlade, Nages-et-Solorgues, Saint-Côme-et-Maruéjols,
-Saint-Dionisy). Un soleil se lève derrière le Pic et les 9 villages s’allument un à un dans la
-Vaunage, avant l’arrivée sur la page d’accueil (environ 7 s).
-Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
-lorsque l’on revient sur l’accueil depuis une autre page du site.
-
-## Page d’accueil : ordre des sections
-
-Accueil → L’approche → Le déroulé « Comment ça se passe ? » (fond taupe clair) →
-Formules → bandeau crédit d’impôt → Réserver → Offrir → Contact.
-Menu du haut et pied de page : L’approche, Formules, Réserver, Offrir, Contact
-(le déroulé n’a pas de lien dans le menu).
-
-## Réserver
-
-La section « Réserver » permet de demander une réservation : formule, nom, téléphone, commune,
-date souhaitée et message facultatif. Un récapitulatif en forme d’arche se met à jour en direct
-(prix de départ et prix après crédit d’impôt). Le bouton « Envoyer ma demande » ouvre la
-messagerie avec la demande déjà écrite, envoyée à bococon.contact@gmail.com.
-
-## Offrir (carte cadeau)
-
-La section « Offrir » permet de composer une carte cadeau : on choisit la formule, le prénom
-de la personne, le sien et un petit mot. La carte s’affiche en direct, puis le bouton
-« Commander la carte cadeau » ouvre la messagerie avec la demande déjà écrite, envoyée à
-bococon.contact@gmail.com. Il n’y a pas de paiement en ligne : Bo’Cocon recontacte la
-personne pour finaliser.
-
 ## Palette
 
 | Rôle            | Couleur   |
