@@ -451,6 +451,7 @@
             <svg class="booking-recap__sprig"><use href="#bco-sprig"/></svg>
             <p class="booking-recap__kicker">Votre demande</p>
             <p class="booking-recap__formula" data-book="formule">La formule de votre choix</p>
+            <p class="booking-recap__extra" data-book-extra hidden>+ Douces énergies</p>
             <p class="booking-recap__price" data-book="price">Toutes les formules</p>
             <p class="booking-recap__net"><strong data-book="net">50&nbsp;%</strong><span data-book="net-label">de crédit d’impôt immédiat</span></p>
             <dl class="booking-recap__list">
@@ -463,16 +464,11 @@
         <form class="booking__form reveal" style="--d:2" id="booking-form" novalidate>
           <fieldset class="field">
             <legend>Votre formule</legend>
-            <div class="chips">
+            <div class="chips chips--3">
                 <label class="chip">
-                  <input type="radio" name="book-formule" value="Douces énergies" data-price="60">
-                  <span class="chip__name">Douces énergies</span>
-                  <span class="chip__price">à partir de 60&nbsp;€</span>
-                </label>
-                <label class="chip">
-                  <input type="radio" name="book-formule" value="Première lueur" data-price="180">
-                  <span class="chip__name">Première lueur</span>
-                  <span class="chip__price">à partir de 180&nbsp;€</span>
+                  <input type="radio" name="book-formule" value="Cocon mois d’or" data-price="900">
+                  <span class="chip__name">Cocon mois d’or</span>
+                  <span class="chip__price">à partir de 900&nbsp;€</span>
                 </label>
                 <label class="chip">
                   <input type="radio" name="book-formule" value="Semaine allégée" data-price="250">
@@ -480,11 +476,21 @@
                   <span class="chip__price">à partir de 250&nbsp;€</span>
                 </label>
                 <label class="chip">
-                  <input type="radio" name="book-formule" value="Cocon mois d’or" data-price="900">
-                  <span class="chip__name">Cocon mois d’or</span>
-                  <span class="chip__price">à partir de 900&nbsp;€</span>
+                  <input type="radio" name="book-formule" value="Première lueur" data-price="180">
+                  <span class="chip__name">Première lueur</span>
+                  <span class="chip__price">à partir de 180&nbsp;€</span>
                 </label>
             </div>
+            <p class="addon-title">Pour compléter votre formule</p>
+            <label class="addon">
+              <input type="checkbox" name="book-extra" value="Douces énergies" data-price="60" disabled>
+              <span class="addon__box" aria-hidden="true"></span>
+              <span class="addon__text">
+                <span class="addon__name">+ Douces énergies</span>
+                <span class="addon__price">des en-cas en plus · à partir de 60&nbsp;€</span>
+              </span>
+              <span class="addon__hint">Choisissez d’abord une formule</span>
+            </label>
           </fieldset>
           <div class="field-row">
             <label class="field">
@@ -543,6 +549,7 @@
               <p class="gift-card__kicker">Carte cadeau</p>
               <p class="gift-card__to">Pour <span data-gift="to">vous</span></p>
               <p class="gift-card__formula" data-gift="formule">La formule de votre choix</p>
+              <p class="gift-card__extra" data-gift-extra hidden>+ Douces énergies</p>
               <p class="gift-card__msg" data-gift="msg">Prends soin de toi, on s’occupe du reste.</p>
               <p class="gift-card__from">De la part de <span data-gift="from">…</span></p>
             </div>
@@ -552,16 +559,11 @@
         <form class="gift__form reveal" style="--d:2" id="gift-form" novalidate>
           <fieldset class="field">
             <legend>La formule à offrir</legend>
-            <div class="chips">
+            <div class="chips chips--3">
                 <label class="chip">
-                  <input type="radio" name="gift-formule" value="Douces énergies">
-                  <span class="chip__name">Douces énergies</span>
-                  <span class="chip__price">à partir de 60&nbsp;€</span>
-                </label>
-                <label class="chip">
-                  <input type="radio" name="gift-formule" value="Première lueur">
-                  <span class="chip__name">Première lueur</span>
-                  <span class="chip__price">à partir de 180&nbsp;€</span>
+                  <input type="radio" name="gift-formule" value="Cocon mois d’or">
+                  <span class="chip__name">Cocon mois d’or</span>
+                  <span class="chip__price">à partir de 900&nbsp;€</span>
                 </label>
                 <label class="chip">
                   <input type="radio" name="gift-formule" value="Semaine allégée">
@@ -569,11 +571,21 @@
                   <span class="chip__price">à partir de 250&nbsp;€</span>
                 </label>
                 <label class="chip">
-                  <input type="radio" name="gift-formule" value="Cocon mois d’or">
-                  <span class="chip__name">Cocon mois d’or</span>
-                  <span class="chip__price">à partir de 900&nbsp;€</span>
+                  <input type="radio" name="gift-formule" value="Première lueur">
+                  <span class="chip__name">Première lueur</span>
+                  <span class="chip__price">à partir de 180&nbsp;€</span>
                 </label>
             </div>
+            <p class="addon-title">Pour compléter votre formule</p>
+            <label class="addon">
+              <input type="checkbox" name="gift-extra" value="Douces énergies" disabled>
+              <span class="addon__box" aria-hidden="true"></span>
+              <span class="addon__text">
+                <span class="addon__name">+ Douces énergies</span>
+                <span class="addon__price">des en-cas en plus · à partir de 60&nbsp;€</span>
+              </span>
+              <span class="addon__hint">Choisissez d’abord une formule</span>
+            </label>
           </fieldset>
           <div class="field-row">
             <label class="field">
