@@ -218,7 +218,8 @@
     document.querySelectorAll("[data-book]").forEach(function (el) {
       recap[el.getAttribute("data-book")] = { el: el, fallback: el.textContent };
     });
-    var euros = function (n) { return String(n).replace(".", ",") + " €"; };
+    /* « 1 010 € », « 62,5 € » */
+    var euros = function (n) { return n.toLocaleString("fr-FR", { maximumFractionDigits: 2 }) + "\u00a0€"; };
     var pad = function (n) { return (n < 10 ? "0" : "") + n; };
     var now = new Date();
     var minIso = now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());

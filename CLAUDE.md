@@ -34,10 +34,10 @@
 - Bocaux (choix du propriétaire) : en haut les 3 formules Cocon mois d’or, Semaine allégée,
   Première lueur (`.formulas--main`) ; puis « + Pour compléter votre formule » avec
   Douces énergies (des en-cas, à partir de 60 €) et Les courses (faites par la cuisinière,
-  50 €) (`.formulas--extras`). Ces deux compléments ne se réservent ni ne s’offrent seuls :
+  à partir de 50 €, soit 25 € après crédit d’impôt) (`.formulas--extras`). Ces deux compléments ne se réservent ni ne s’offrent seuls :
   dans « Réserver » et « Offrir », ce sont des cases (`.addon`), actives seulement quand une
-  formule est choisie. Crédit d’impôt sur les courses : pas confirmé, donc les 50 € ne sont
-  pas divisés par deux (`data-credit="0"`) — à demander au propriétaire.
+  formule est choisie. Les courses ont droit au crédit d’impôt comme le reste
+  (`data-credit="1"`, choix du propriétaire).
 - Ordre des sections : accueil, L’approche, Déroulé (fond taupe clair, absent du menu),
   Formules, crédit d’impôt, Réserver, Offrir, Contact. Menu : L’approche, Formules,
   Réserver, Offrir, Contact (choix du propriétaire).
