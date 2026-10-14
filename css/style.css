@@ -1300,6 +1300,11 @@ fieldset.field { container-type: inline-size; }
   line-height: 1.25;
   color: var(--caramel-deep);
 }
+/* Douces énergies : plus de texte, la liste profite du ventre du bocal (plus large) */
+.jar__sheet--dense .jar__list { margin-inline: -5cqw; margin-top: 4cqw; }
+.jar__sheet--dense .jar__list li + li { margin-top: .35em; }
+.jar__sheet--dense .jar__list .jar__examples { line-height: 1.2; }
+.jar__sheet--dense .jar__cta { margin-top: 5cqw; }
 .jar__price {
   margin-top: 4.5cqw;
   padding-top: 3.6cqw;

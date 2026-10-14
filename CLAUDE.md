@@ -38,8 +38,10 @@
 - Dos des bocaux (`.jar__list`, contenu donné par le propriétaire) : Première lueur = 4 repas
   (entrée + plat), nettoyage, 2 à 3 h en moyenne ; Semaine allégée = 6 repas, 1 collation,
   nettoyage, environ 4 h ; Cocon mois d’or = 4 prestations d’environ 4 h (6 repas + 1
-  collation + nettoyage à chaque fois) ; Douces énergies = 3 en-cas au choix (granola, overnight skyr,
-  pancakes, compotes, dattes snickers, barres chocolatées saines) ; Les courses = 0 % de
+  collation + nettoyage à chaque fois) ; Douces énergies = 3 en-cas au choix, « 100 % fait
+  maison, équilibrés, riches en nutriments essentiels » (mots de la cuisinière), par exemple
+  granola, overnight skyr, pancakes, compotes, dattes snickers, barres chocolatées saines
+  (liste plus large au dos : `.jar__sheet--dense`) ; Les courses = 0 % de
   charge mentale, « Je fais les courses à votre place » (au « je », choix du propriétaire).
   Au dos : le nom, le contenu et le bouton, sans « Ce qui est compris » ni prix (choix du
   propriétaire).
