@@ -138,7 +138,8 @@
       var smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       var top = 0;
       if (target) {
-        var offset = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+        var offset = (parseFloat(getComputedStyle(root).scrollPaddingTop) || 0) +
+          (parseFloat(getComputedStyle(target).scrollMarginTop) || 0);
         top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset);
       }
       window.scrollTo({ top: top, behavior: smooth ? "smooth" : "auto" });

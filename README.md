@@ -77,6 +77,11 @@ Trois formules en haut (Cocon mois d’or, Semaine allégée, Première lueur), 
 qu’en plus d’une formule. Chaque bocal se retourne pour montrer ce qu’il contient, avec un
 bouton « Réserver ».
 
+Sous les bocaux, l’encadré « L’option bocaux » (la consigne) explique comment marchent les
+contenants en verre prêtés par la cuisinière : inclus dans Semaine allégée et Cocon mois
+d’or, 15 € par prestation avec Première lueur, caution de 80 €. Le dos de ces trois bocaux
+a un lien qui y mène.
+
 ## Réserver
 
 La section « Réserver » permet de demander une réservation : formule, compléments,

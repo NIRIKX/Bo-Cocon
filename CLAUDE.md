@@ -45,6 +45,12 @@
   propriétaire).
   Bouton « Réserver » au dos de chaque bocal (`[data-reserve]`) : mène à Réserver avec la
   formule déjà choisie (pour un complément : coché dès qu’une formule est choisie).
+- Option bocaux (consigne, texte donné par la cuisinière) : bloc `#option-bocaux` sous les
+  bocaux, à la place de l’ancienne phrase sur le crédit d’impôt (le bandeau juste dessous
+  suffit). Incluse dans Semaine allégée et Cocon mois d’or, 15 € par prestation avec
+  Première lueur ; caution de 80 € avant la première prestation. Au dos de ces 3 bocaux, un
+  lien `.jar__option` y mène. La clause juridique (consigne et caution) va dans les CGV /
+  le devis, pas sur le site. Pas encore de case « option bocaux » dans Réserver / Offrir.
 - Ordre des sections : accueil, L’approche, Mon parcours (`#parcours`, absent du menu),
   Déroulé (fond taupe clair, absent du menu), Formules, crédit d’impôt, Réserver, Offrir,
   Contact. Menu : L’approche, Formules,
