@@ -27,7 +27,8 @@
   `srcdoc`. Les liens internes y sont gérés en JS (`location.protocol === "about:"`).
 - Prix des formules (repris des maquettes du propriétaire) : Douces énergies 60 €,
   Première lueur 180 €, Semaine allégée 250 €, Cocon mois d’or 900 € — moitié prix après
-  crédit d’impôt immédiat.
+  crédit d’impôt immédiat. Sur les bocaux, « À PARTIR DE … € » (prix avant crédit d’impôt, texte en arc
+  `.jar__arc`) a été agrandi à la demande de la cuisinière (17,5 px au lieu de 14).
 - Bocaux (choix du propriétaire) : en haut les 3 formules, de la moins chère à la plus chère
   (demande de la famille) : Première lueur, Semaine allégée, Cocon mois d’or
   (`.formulas--main`), même ordre dans les choix de Réserver et d’Offrir ; puis « + Pour compléter votre formule » avec

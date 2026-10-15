@@ -1263,9 +1263,9 @@ fieldset.field { container-type: inline-size; }
 /* prix en arc sous l'ovale, comme l'accroche du logo */
 .jar__arc {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 17.5px;   /* agrandi à la demande de la cuisinière (avant : 14px) */
   font-weight: 500;
-  letter-spacing: 2.2px;
+  letter-spacing: 2.3px;
   fill: var(--caramel-deep);
 }
 
