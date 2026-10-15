@@ -28,8 +28,9 @@
 - Prix des formules (repris des maquettes du propriétaire) : Douces énergies 60 €,
   Première lueur 180 €, Semaine allégée 250 €, Cocon mois d’or 900 € — moitié prix après
   crédit d’impôt immédiat.
-- Bocaux (choix du propriétaire) : en haut les 3 formules Cocon mois d’or, Semaine allégée,
-  Première lueur (`.formulas--main`) ; puis « + Pour compléter votre formule » avec
+- Bocaux (choix du propriétaire) : en haut les 3 formules, de la moins chère à la plus chère
+  (demande de la famille) : Première lueur, Semaine allégée, Cocon mois d’or
+  (`.formulas--main`), même ordre dans les choix de Réserver et d’Offrir ; puis « + Pour compléter votre formule » avec
   Douces énergies (des en-cas, à partir de 60 €) et Les courses (faites par la cuisinière,
   à partir de 50 €, soit 25 € après crédit d’impôt) (`.formulas--extras`). Ces deux compléments ne se réservent ni ne s’offrent seuls :
   dans « Réserver » et « Offrir », ce sont des cases (`.addon`), actives seulement quand une

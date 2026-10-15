@@ -73,7 +73,8 @@ L’approche, L’option bocaux et Le crédit d’impôt sous Formules.
 
 ## Formules
 
-Trois formules en haut (Cocon mois d’or, Semaine allégée, Première lueur), puis
+Trois formules en haut, de la moins chère à la plus chère (Première lueur, Semaine allégée,
+Cocon mois d’or), puis
 « + Pour compléter votre formule » : Douces énergies et Les courses, qui ne se prennent
 qu’en plus d’une formule. Chaque bocal se retourne pour montrer ce qu’il contient, avec un
 bouton « Réserver ».
