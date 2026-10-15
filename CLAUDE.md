@@ -39,8 +39,9 @@
   (`data-credit="1"`, choix du propriétaire).
 - Dos des bocaux (`.jar__list`, contenu donné par le propriétaire) : Première lueur = 4 repas
   (entrée + plat), nettoyage, 2 à 3 h en moyenne ; Semaine allégée = 6 repas, 1 collation,
-  nettoyage, environ 4 h ; Cocon mois d’or = 4 prestations d’environ 4 h chacune (6 repas +
-  1 collation + nettoyage à chaque fois) ; une collation = « un des en-cas de Douces
+  nettoyage, environ 4 h ; Cocon mois d’or = 4 prestations d’environ 4 h chacune, puis « À
+  chaque prestation : » et, ligne par ligne comme Semaine allégée, 6 repas, 1 collation,
+  le nettoyage (choix du propriétaire) ; une collation = « un des en-cas de Douces
   énergies » (précision en italique `.jar__hint` sous la collation, demandée par la famille ;
   Cocon et Semaine en `.jar__sheet--dense`, Cocon aussi `--denser` pour que tout tienne) ; Douces énergies = 3 en-cas au choix, « 100 % fait
   maison, équilibrés, riches en nutriments essentiels » (mots de la cuisinière), par exemple
