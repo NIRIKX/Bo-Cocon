@@ -96,7 +96,18 @@
     });
     /* un lien du menu, ou le logo : le menu se ferme */
     (header || nav).addEventListener("click", function (e) {
-      if (e.target.closest("a")) setNav(false);
+      var link = e.target.closest("a");
+      if (!link) return;
+      setNav(false);
+      /* ordinateur : le petit menu des sous-parties se replie après un clic,
+         même si la souris reste dessus */
+      var item = link.closest(".nav__list > li");
+      if (item && item.querySelector(".nav__sub")) {
+        item.classList.add("is-folded");
+        item.addEventListener("mouseleave", function () {
+          item.classList.remove("is-folded");
+        }, { once: true });
+      }
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && root.classList.contains("nav-open")) {

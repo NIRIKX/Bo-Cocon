@@ -56,13 +56,14 @@
   Première lueur ; caution de 80 € (chèque non encaissé) avant la première prestation. Au
   dos de ces 3 bocaux, un lien `.jar__option` y mène. La clause juridique (consigne et
   caution) va dans les CGV / le devis, pas sur le site. Pas encore de case « option bocaux » dans Réserver / Offrir.
-- Ordre des sections : accueil, L’approche, Mon parcours (`#parcours`, absent du menu),
-  Déroulé (fond taupe clair, absent du menu), Formules, crédit d’impôt, Réserver, Offrir,
-  Contact. Menu : L’approche, Formules,
-  Réserver, Offrir, Contact (choix du propriétaire). Dans le menu du téléphone seulement,
-  des sous-parties (`.nav__sub`, demande de la famille) : sous L’approche « Mon parcours ·
-  Le déroulé », sous Formules « L’option bocaux · Le crédit d’impôt » (`#credit-impot`).
-  Sur ordinateur, la barre du haut ne les montre pas.
+- Ordre des sections : accueil, Le concept (`#approche`, s’appelait « L’approche »), Mon
+  parcours (`#parcours`), Déroulé (`#deroule`, fond taupe clair), Formules, crédit d’impôt
+  (`#credit-impot`), Réserver, Offrir, Contact. Menu : Le concept, Formules, Réserver,
+  Offrir, Contact (choix du propriétaire), avec des sous-parties (`.nav__sub`) : sous Le
+  concept « Mon parcours · Le déroulé », sous Formules « L’option bocaux · Le crédit
+  d’impôt ». Sur téléphone, elles sont écrites en petit sous le titre dans le menu ; sur
+  ordinateur, un petit menu apparaît au survol de la souris (ou au clavier), avec une
+  petite flèche, et se replie après un clic (`.is-folded`, js/main.js).
 - Offrir reste une section à part (choix du propriétaire). Dans Réserver, le bouton
   « C’est pour offrir » (`[data-gift-switch]`, lien vers `#offrir`) emmène à Offrir en
   reprenant la formule et les compléments déjà choisis.
