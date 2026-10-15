@@ -67,8 +67,9 @@ lorsque l’on revient sur l’accueil depuis une autre page du site.
 
 Accueil → L’approche → Mon parcours → Le déroulé « Comment ça se passe ? » (fond taupe clair) →
 Formules → bandeau crédit d’impôt → Réserver → Offrir → Contact.
-Menu du haut et pied de page : L’approche, Formules, Réserver, Offrir, Contact
-(« Mon parcours » et le déroulé n’ont pas de lien dans le menu).
+Menu du haut et pied de page : L’approche, Formules, Réserver, Offrir, Contact.
+Sur téléphone, le menu montre aussi des sous-parties : Mon parcours et Le déroulé sous
+L’approche, L’option bocaux et Le crédit d’impôt sous Formules.
 
 ## Formules
 

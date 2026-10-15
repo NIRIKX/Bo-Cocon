@@ -445,6 +445,8 @@ main:focus { outline: none; }
   transform-origin: left;
 }
 .nav .btn { min-height: 44px; padding: 10px 22px; font-size: .78rem; }
+/* sous-parties : seulement dans le menu du téléphone */
+.nav__sub { display: none; }
 
 .nav-toggle {
   display: none;
@@ -1305,6 +1307,22 @@ fieldset.field { container-type: inline-size; }
 .jar__sheet--dense .jar__list li + li { margin-top: .35em; }
 .jar__sheet--dense .jar__list .jar__examples { line-height: 1.2; }
 .jar__sheet--dense .jar__cta { margin-top: 5cqw; }
+/* Cocon mois d'or : le plus de texte, un rien plus petit */
+.jar__sheet--denser .jar__list { margin-top: 3cqw; font-size: clamp(13.5px, 5.7cqw, 17px); }
+.jar__sheet--denser .jar__list li + li { margin-top: .3em; }
+.jar__sheet--denser .jar__list .jar__option { margin-top: .4em; }
+.jar__sheet--denser .jar__hint { line-height: 1.12; }
+.jar__sheet--denser .jar__cta { margin-top: 4cqw; }
+/* petite précision sous une ligne (ex. ce qu'est une collation) */
+.jar__hint {
+  display: block;
+  margin-top: .1em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1em;
+  line-height: 1.2;
+  color: var(--caramel-deep);
+}
 .jar__price {
   margin-top: 4.5cqw;
   padding-top: 3.6cqw;
@@ -1758,11 +1776,37 @@ fieldset.field { container-type: inline-size; }
     letter-spacing: .02em;
     text-transform: none;
   }
+  .nav__list > li { text-align: center; }
+  .nav__sub {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .nav__sub li + li::before {
+    content: "·";
+    margin: 0 .15em;
+    color: var(--caramel);
+  }
+  .nav__sub a {
+    display: inline-block;
+    padding: 6px 8px;
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--caramel-deep);
+  }
   /* téléphone couché : écran bas, menu resserré pour que tout tienne */
   @media (max-height: 520px) {
     .nav { gap: 18px; }
     .nav__list { gap: 4px; }
     .nav__link { font-size: 1.55rem; }
+    .nav__sub { margin-top: 0; }
+    .nav__sub a { padding-block: 3px; }
   }
   @media (max-height: 360px) {
     .nav { gap: 8px; padding-top: var(--header-h); padding-bottom: 10px; }

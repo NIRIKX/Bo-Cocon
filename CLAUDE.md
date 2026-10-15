@@ -37,8 +37,10 @@
   (`data-credit="1"`, choix du propriétaire).
 - Dos des bocaux (`.jar__list`, contenu donné par le propriétaire) : Première lueur = 4 repas
   (entrée + plat), nettoyage, 2 à 3 h en moyenne ; Semaine allégée = 6 repas, 1 collation,
-  nettoyage, environ 4 h ; Cocon mois d’or = 4 prestations d’environ 4 h (6 repas + 1
-  collation + nettoyage à chaque fois) ; Douces énergies = 3 en-cas au choix, « 100 % fait
+  nettoyage, environ 4 h ; Cocon mois d’or = 4 prestations d’environ 4 h chacune (6 repas +
+  1 collation + nettoyage à chaque fois) ; une collation = « un des en-cas de Douces
+  énergies » (précision en italique `.jar__hint` sous la collation, demandée par la famille ;
+  Cocon et Semaine en `.jar__sheet--dense`, Cocon aussi `--denser` pour que tout tienne) ; Douces énergies = 3 en-cas au choix, « 100 % fait
   maison, équilibrés, riches en nutriments essentiels » (mots de la cuisinière), par exemple
   granola, overnight skyr, pancakes, compotes, dattes snickers, barres chocolatées saines
   (liste plus large au dos : `.jar__sheet--dense`) ; Les courses = 0 % de
@@ -56,7 +58,10 @@
 - Ordre des sections : accueil, L’approche, Mon parcours (`#parcours`, absent du menu),
   Déroulé (fond taupe clair, absent du menu), Formules, crédit d’impôt, Réserver, Offrir,
   Contact. Menu : L’approche, Formules,
-  Réserver, Offrir, Contact (choix du propriétaire).
+  Réserver, Offrir, Contact (choix du propriétaire). Dans le menu du téléphone seulement,
+  des sous-parties (`.nav__sub`, demande de la famille) : sous L’approche « Mon parcours ·
+  Le déroulé », sous Formules « L’option bocaux · Le crédit d’impôt » (`#credit-impot`).
+  Sur ordinateur, la barre du haut ne les montre pas.
 - Offrir reste une section à part (choix du propriétaire). Dans Réserver, le bouton
   « C’est pour offrir » (`[data-gift-switch]`, lien vers `#offrir`) emmène à Offrir en
   reprenant la formule et les compléments déjà choisis.
