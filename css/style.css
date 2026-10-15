@@ -1311,8 +1311,9 @@ fieldset.field { container-type: inline-size; }
 .jar__sheet--denser .jar__list { margin-top: 3cqw; font-size: clamp(13.5px, 5.7cqw, 17px); }
 .jar__sheet--denser .jar__list li + li { margin-top: .3em; }
 .jar__sheet--denser .jar__list .jar__option { margin-top: .4em; }
-.jar__sheet--denser .jar__hint { line-height: 1.12; }
-.jar__sheet--denser .jar__cta { margin-top: 4cqw; }
+.jar__sheet--denser .jar__hint { margin-top: .5em; line-height: 1.12; }   /* un petit air avant la précision */
+.jar__sheet--denser .jar__cta { margin-top: 3cqw; }
+.jar__sheet--denser .jar__kicker { letter-spacing: .07em; }
 /* petite précision sous une ligne (ex. ce qu'est une collation) */
 .jar__hint {
   display: block;
