@@ -69,6 +69,14 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* la section atteinte par un lien interne reçoit le focus (sans faire défiler) :
+     au clavier, on continue depuis elle */
+  function focusSection(target) {
+    if (!target) return;
+    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
+  }
+
   /* ---------- Menu mobile ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("nav");
@@ -79,7 +87,10 @@
   var openY = 0;
   /* keepPlace : en refermant (X ou Échap), on revient exactement où l'on était */
   function setNav(open, keepPlace) {
-    if (open) openY = window.scrollY;
+    if (open) {
+      openY = window.scrollY;
+      nav.scrollTop = 0;   /* le menu s'ouvre toujours par le haut */
+    }
     root.classList.toggle("nav-open", open);
     behind.forEach(function (el) { el.inert = open; });
     if (!open && keepPlace && Math.abs(window.scrollY - openY) > 1) {
@@ -99,21 +110,34 @@
       var link = e.target.closest("a");
       if (!link) return;
       setNav(false);
-      /* ordinateur : le petit menu des sous-parties se replie après un clic,
+      /* ordinateur : le petit menu des sous-parties se replie après un choix,
          même si la souris reste dessus */
       var item = link.closest(".nav__list > li");
-      if (item && item.querySelector(".nav__sub")) {
-        item.classList.add("is-folded");
-        item.addEventListener("mouseleave", function () {
-          item.classList.remove("is-folded");
-        }, { once: true });
+      if (item && item.querySelector(".nav__sub")) item.classList.add("is-folded");
+      /* au clavier (Entrée) : on continue depuis la section choisie */
+      var href = link.getAttribute("href");
+      if (e.detail === 0 && href && href.charAt(0) === "#" && href.length > 1) {
+        focusSection(document.querySelector(href));
       }
     });
+    /* le petit menu replié se rouvre au prochain survol ou au prochain passage au clavier */
+    nav.querySelectorAll(".nav__list > li").forEach(function (item) {
+      if (!item.querySelector(".nav__sub")) return;
+      item.addEventListener("mouseenter", function () { item.classList.remove("is-folded"); });
+      item.addEventListener("focusin", function (e) {
+        if (!item.contains(e.relatedTarget)) item.classList.remove("is-folded");
+      });
+    });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && root.classList.contains("nav-open")) {
+      if (e.key !== "Escape") return;
+      if (root.classList.contains("nav-open")) {
         setNav(false, true);
-        toggle.focus();
+        toggle.focus({ preventScroll: true });
+        return;
       }
+      /* ordinateur : Échap referme le petit menu des sous-parties */
+      var open = nav.querySelector(".nav__list > li:hover, .nav__list > li:focus-within");
+      if (open && open.querySelector(".nav__sub")) open.classList.add("is-folded");
     });
     window.matchMedia("(min-width: 901px)").addEventListener("change", function (mq) {
       if (mq.matches) setNav(false);
@@ -154,7 +178,7 @@
         top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset);
       }
       window.scrollTo({ top: top, behavior: smooth ? "smooth" : "auto" });
-      if (target && target.tabIndex === -1) target.focus({ preventScroll: true });
+      focusSection(target);
     });
   }
 

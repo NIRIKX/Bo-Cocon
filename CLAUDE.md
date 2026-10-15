@@ -64,7 +64,12 @@
   concept « Mon parcours · Le déroulé », sous Formules « L’option bocaux · Le crédit
   d’impôt ». Sur téléphone, elles sont écrites en petit sous le titre dans le menu ; sur
   ordinateur, un petit menu apparaît au survol de la souris (ou au clavier), avec une
-  petite flèche, et se replie après un clic (`.is-folded`, js/main.js).
+  petite flèche ; il se replie après un choix ou avec Échap (`.is-folded`, js/main.js) et
+  se rouvre au survol suivant. Au clavier, la section choisie reçoit le focus
+  (`focusSection`). Le menu du téléphone s’ouvre toujours par le haut et tient sur les
+  téléphones couchés (règles `max-height` 520 / 360 / 300 px) ; sous 300 px de large, les
+  sous-parties passent l’une sous l’autre. Mot à ne pas couper : `<span class="nowrap">`
+  (pas de trait d’union insécable U+2011, absent de la police Cormorant).
 - Offrir reste une section à part (choix du propriétaire). Dans Réserver, le bouton
   « C’est pour offrir » (`[data-gift-switch]`, lien vers `#offrir`) emmène à Offrir en
   reprenant la formule et les compléments déjà choisis.
