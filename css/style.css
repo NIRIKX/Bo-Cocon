@@ -732,6 +732,110 @@ main:focus { outline: none; }
 }
 .pillar p { max-width: 32ch; margin-inline: auto; }
 
+/* Mes engagements : 4 cartes courtes (2 × 2 sur grand écran) */
+.pledges {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(18px, 2.6vw, 28px);
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 760px) {
+  .pledges { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* 1re carte sur toute la largeur, ses 3 points côte à côte */
+  .pledge--wide { grid-column: 1 / -1; }
+  .pledge--wide .pledge__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 clamp(22px, 3vw, 40px);
+  }
+  .pledge--wide .pledge__list li + li { margin-top: 0; }
+  .pledge--wide .pledge__list strong { display: block; margin-bottom: 6px; }
+  .pledge--wide .pledge__sep { display: none; }
+  /* tablette : la dernière carte prend toute la largeur */
+  .pledges > .pledge:last-child { grid-column: 1 / -1; }
+}
+@media (min-width: 1000px) {
+  /* ordinateur : les 3 autres cartes côte à côte */
+  .pledges { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1120px; }
+  .pledges > .pledge:last-child { grid-column: auto; }
+  /* cartes plus étroites : l'icône au-dessus du titre, pour qu'il ait toute la largeur */
+  .pledge:not(.pledge--wide) .pledge__head { flex-direction: column; align-items: flex-start; gap: 14px; }
+}
+.pledge {
+  position: relative;
+  padding: clamp(26px, 3.4vw, 40px) clamp(22px, 3.4vw, 40px) clamp(24px, 3vw, 36px);
+  border-radius: 28px;
+  background: var(--cream);
+  box-shadow: inset 0 0 0 1px rgba(116, 69, 55, .14);
+}
+.pledge__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.pledge__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background: var(--linen);
+  color: var(--brown);
+}
+.pledge__icon svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pledge h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.65rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--brown);
+}
+.pledge__tag {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-sans);
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--caramel-deep);
+}
+.pledge__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.55;
+}
+.pledge__list li + li { margin-top: 10px; }
+.pledge__list strong { font-weight: 500; color: var(--brown); }
+/* listes courtes : une petite coche devant chaque ligne */
+.pledge__list--ticks li { position: relative; padding-left: 26px; }
+.pledge__list--ticks li::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: .5em;
+  width: 11px;
+  height: 6px;
+  border-left: 1.6px solid var(--caramel-deep);
+  border-bottom: 1.6px solid var(--caramel-deep);
+  transform: rotate(-45deg);
+}
+
 /* Mon parcours : frise chronologique (de gauche à droite ; de haut en bas sur téléphone) */
 .story__steps {
   position: relative;
@@ -1869,15 +1973,10 @@ fieldset.field { container-type: inline-size; }
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    column-gap: .9em;
     margin: 2px 0 0;
-    padding: 0;
+    padding: 0 12px;
     list-style: none;
-  }
-  .nav__sub li + li::before {
-    content: "·";
-    content: "·" / "";   /* décoratif : pas lu par les lecteurs d'écran */
-    margin: 0 .15em;
-    color: var(--caramel);
   }
   .nav__sub a {
     display: inline-block;
@@ -1907,11 +2006,15 @@ fieldset.field { container-type: inline-size; }
     .nav { gap: 4px; padding-bottom: 6px; }
     .nav__link { font-size: 1.3rem; line-height: 1.35; }
   }
-  /* écran très étroit : les sous-parties l'une sous l'autre, sans point */
+  /* écran très étroit : les sous-parties l'une sous l'autre */
   @media (max-width: 300px) {
     .nav__sub { flex-direction: column; align-items: center; }
-    .nav__sub li + li::before { display: none; }
     .nav__sub a { padding-block: 5px; }
+  }
+  /* téléphone debout mais pas très haut (ex. iPhone SE) : un peu moins d'espace */
+  @media (max-height: 620px) and (min-height: 521px) {
+    .nav { gap: 26px; padding-bottom: 12px; }
+    .nav__list { gap: 12px; }
   }
   .brand { position: relative; z-index: 2; }
   .brand__wordmark { height: 34px; }

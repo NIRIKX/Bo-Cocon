@@ -59,11 +59,18 @@
   dos de ces 3 bocaux, un lien `.jar__option` y mène. La clause juridique (consigne et
   caution) va dans les CGV / le devis, pas sur le site. Pas encore de case « option bocaux » dans Réserver / Offrir.
 - Ordre des sections : accueil, Le concept (`#approche`, s’appelait « L’approche »), Mon
-  parcours (`#parcours`), Déroulé (`#deroule`, fond taupe clair), Formules, crédit d’impôt
-  (`#credit-impot`), Réserver, Offrir, Contact. Menu : Le concept, Formules, Réserver,
-  Offrir, Contact (choix du propriétaire), avec des sous-parties (`.nav__sub`) : sous Le
-  concept « Mon parcours · Le déroulé », sous Formules « L’option bocaux · Le crédit
-  d’impôt ». Sur téléphone, elles sont écrites en petit sous le titre dans le menu ; sur
+  parcours (`#parcours`), Déroulé (`#deroule`, fond taupe clair), Mes engagements
+  (`#engagements`, fond lin), Formules, crédit d’impôt (`#credit-impot`), Réserver, Offrir,
+  Contact. Menu : Le concept, Formules, Réserver, Offrir, Contact (choix du propriétaire),
+  avec des sous-parties (`.nav__sub`) : sous Le concept « Mon parcours, Le déroulé, Mes
+  engagements », sous Formules « L’option bocaux, Le crédit d’impôt » (séparées par un
+  simple espace sur téléphone, sans point).
+- « Mes engagements » : charte éthique et professionnelle envoyée par la cuisinière,
+  condensée à sa demande en 4 cartes (`.pledges` / `.pledge`) : Respect et bienveillance
+  (intimité, sans jugement, écoute ; carte large, 3 colonnes), Sécurité alimentaire et
+  traçabilité (normes HACCP), Nutrition sur-mesure pour le post-partum, Transparence légale
+  et confiance (Services à la Personne, tarifs clairs). Son nom, Shannon Gaidoz, y figure
+  (donné par elle dans la charte). Sur téléphone, elles sont écrites en petit sous le titre dans le menu ; sur
   ordinateur, un petit menu apparaît au survol de la souris (ou au clavier), avec une
   petite flèche ; il se replie après un choix ou avec Échap (`.is-folded`, js/main.js) et
   se rouvre au survol suivant. Au clavier, la section choisie reçoit le focus

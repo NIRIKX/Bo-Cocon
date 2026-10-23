@@ -66,9 +66,10 @@ lorsque l’on revient sur l’accueil depuis une autre page du site.
 ## Page d’accueil : ordre des sections
 
 Accueil → Le concept → Mon parcours → Le déroulé « Comment ça se passe ? » (fond taupe clair) →
+Mes engagements (la charte de la cuisinière, en 4 cartes) →
 Formules → bandeau crédit d’impôt → Réserver → Offrir → Contact.
 Menu du haut et pied de page : Le concept, Formules, Réserver, Offrir, Contact.
-Le menu a aussi des sous-parties : Mon parcours et Le déroulé sous Le concept, L’option
+Le menu a aussi des sous-parties : Mon parcours, Le déroulé et Mes engagements sous Le concept, L’option
 bocaux et Le crédit d’impôt sous Formules. Sur téléphone, elles sont écrites sous le titre ;
 sur ordinateur, elles apparaissent au passage de la souris.
 
