@@ -64,20 +64,21 @@
   Contact. Menu : Le concept, Formules, Réserver, Offrir, Contact (choix du propriétaire),
   avec des sous-parties (`.nav__sub`) : sous Le concept « Mon parcours, Le déroulé, Mes
   engagements », sous Formules « L’option bocaux, Le crédit d’impôt » (séparées par un
-  simple espace sur téléphone, sans point).
-- « Mes engagements » : charte éthique et professionnelle envoyée par la cuisinière,
-  condensée à sa demande en 4 cartes (`.pledges` / `.pledge`) : Respect et bienveillance
-  (intimité, sans jugement, écoute ; carte large, 3 colonnes), Sécurité alimentaire et
-  traçabilité (normes HACCP), Nutrition sur-mesure pour le post-partum, Transparence légale
-  et confiance (Services à la Personne, tarifs clairs). Son nom, Shannon Gaidoz, y figure
-  (donné par elle dans la charte). Sur téléphone, elles sont écrites en petit sous le titre dans le menu ; sur
-  ordinateur, un petit menu apparaît au survol de la souris (ou au clavier), avec une
+  simple espace sur téléphone, sans point). Sur téléphone, elles sont écrites en petit sous
+  le titre dans le menu ; sur ordinateur, un petit menu apparaît au survol de la souris (ou au clavier), avec une
   petite flèche ; il se replie après un choix ou avec Échap (`.is-folded`, js/main.js) et
   se rouvre au survol suivant. Au clavier, la section choisie reçoit le focus
   (`focusSection`). Le menu du téléphone s’ouvre toujours par le haut et tient sur les
   téléphones couchés (règles `max-height` 520 / 360 / 300 px) ; sous 300 px de large, les
   sous-parties passent l’une sous l’autre. Mot à ne pas couper : `<span class="nowrap">`
   (pas de trait d’union insécable U+2011, absent de la police Cormorant).
+- « Mes engagements » : charte éthique et professionnelle envoyée par la cuisinière,
+  condensée à sa demande en 4 cartes (`.pledges` / `.pledge`) : Respect et bienveillance
+  (intimité, sans jugement, écoute ; carte large, 3 colonnes), Sécurité alimentaire et
+  traçabilité (normes HACCP), Nutrition sur-mesure pour le post-partum, Transparence légale
+  et confiance (Services à la Personne, tarifs clairs). Son nom, Shannon Gaidoz, y figure
+  (donné par elle dans la charte). C’est une partie de la page d’accueil, pas une page à
+  part (elle parlait d’une « page » : possible plus tard sur Netlify si elle y tient).
 - Offrir reste une section à part (choix du propriétaire). Dans Réserver, le bouton
   « C’est pour offrir » (`[data-gift-switch]`, lien vers `#offrir`) emmène à Offrir en
   reprenant la formule et les compléments déjà choisis.
