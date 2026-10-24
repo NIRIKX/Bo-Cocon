@@ -27,7 +27,21 @@
    e-mail n’utilise bococon.fr (l’adresse actuelle est un Gmail) ; garder les éventuels
    enregistrements e-mail lors du transfert.
 
-## À faire avant la mise en ligne
+## À faire avant la mise en ligne (à la fin, avec le propriétaire)
+- Mentions légales (obligatoires pour un site professionnel) : la cuisinière a fait ses
+  démarches (INPI) ; attendre son SIRET (et, si elle en a un, son numéro de déclaration
+  Services à la Personne), son nom ou celui de l’entreprise, une adresse (ou domiciliation),
+  et les coordonnées de l’hébergeur (Cloudflare). Rien à inventer : demander chaque info.
+- Nom de domaine bococon.fr : pas encore réservé par le propriétaire ; la cuisinière est
+  peut-être en train de le faire. Le site peut d’abord tourner sur l’adresse gratuite
+  `*.pages.dev`, le domaine se branche ensuite.
+- Propriété : aujourd’hui le dépôt est sur le compte GitHub du propriétaire ; il veut que
+  le site appartienne à sa cousine (Bo’Cocon), qui ne sait pas gérer la technique.
+  Proposé : tout au nom de l’entreprise avec l’adresse bococon.contact@gmail.com (compte
+  chez le vendeur du domaine, compte Cloudflare, organisation GitHub « Bo’Cocon » dont elle
+  et lui sont tous deux propriétaires, dépôt transféré dedans), plus une petite fiche pour
+  elle (identifiants, renouvellement du domaine). À décider avec eux à la fin ; après un
+  transfert du dépôt, il faudra redonner l’accès à Claude et mettre à jour Streamlit.
 - Vérifier une dernière fois le site sur Cloudflare Pages après la mise en ligne.
 
 ## Repères techniques
