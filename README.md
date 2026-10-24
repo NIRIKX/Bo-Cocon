@@ -49,8 +49,9 @@ Chaque modification poussée sur la branche est ensuite mise en ligne automatiqu
 1. **Construction** : on termine le site en le regardant sur Streamlit
    (https://bo-cocon.streamlit.app, branche `claude/great-cray-oy302g`).
 2. **Mise en ligne définitive** : quand le site est fini, tout est regroupé sur `main`
-   et le site est publié sur **Netlify**, relié uniquement à `main`.
-3. **Domaine** : relier bococon.fr au site Netlify.
+   et le site est publié sur **Cloudflare Pages** (gratuit, visites illimitées), avec `main`
+   comme version en ligne.
+3. **Domaine** : relier bococon.fr au site sur Cloudflare Pages.
 
 ## Intro d’ouverture
 

@@ -11,14 +11,24 @@
 1. **Pendant la construction** : le site est affiché sur Streamlit
    (https://bo-cocon.streamlit.app), qui suit la branche de travail
    `claude/great-cray-oy302g`. On y pousse toutes les modifications.
-2. **Quand le propriétaire dit que le site est fini** : regrouper tout le travail sur la
-   branche `main`, puis l’aider à créer le site sur **Netlify** relié uniquement à `main`
-   (une seule mise à jour utilisée). Le forfait gratuit de Netlify compte environ
-   20 mises à jour par mois : ne jamais relier Netlify à la branche de travail.
-3. Ensuite : relier le domaine **bococon.fr** (celui de la carte de visite).
+2. **Quand le propriétaire dit que le site est fini** (pas encore : la cuisinière veut
+   peut-être ajouter des choses) : regrouper tout le travail sur la branche `main`, puis
+   l’aider à créer le site sur **Cloudflare Pages** (choisi à la place de Netlify le
+   24/10/2026 : visites illimitées, 500 mises à jour par mois, pas de risque de site coupé ;
+   le gratuit de Netlify, 300 crédits, coupe le site quand ils sont épuisés). Branche de
+   production : `main`.
+   Ne publier que les fichiers du site (`index.html`, `css/`, `js/`, `assets/`), pas
+   `app.py`, `CLAUDE.md`, `README.md` : par exemple une commande de construction qui les
+   copie dans un dossier `dist/`, publié comme dossier de sortie.
+3. Ensuite : relier le domaine **bococon.fr** (celui de la carte de visite). Pour le domaine
+   nu sur Cloudflare Pages, la gestion du domaine (serveurs DNS) doit passer chez
+   Cloudflare : changer les serveurs DNS chez le vendeur du domaine (à demander au
+   propriétaire : où il a été acheté, identifiants). Vérifier avant qu’aucune adresse
+   e-mail n’utilise bococon.fr (l’adresse actuelle est un Gmail) ; garder les éventuels
+   enregistrements e-mail lors du transfert.
 
-## À faire avant le passage sur Netlify
-- Vérifier une dernière fois le site sur Netlify après la mise en ligne.
+## À faire avant la mise en ligne
+- Vérifier une dernière fois le site sur Cloudflare Pages après la mise en ligne.
 
 ## Repères techniques
 - Site statique : `index.html`, `css/style.css`, `js/main.js`, `assets/` (logo d’origine
@@ -78,7 +88,7 @@
   traçabilité (normes HACCP), Nutrition sur-mesure pour le post-partum, Transparence légale
   et confiance (Services à la Personne, tarifs clairs). Son nom, Shannon Gaidoz, y figure
   (donné par elle dans la charte). C’est une partie de la page d’accueil, pas une page à
-  part (elle parlait d’une « page » : possible plus tard sur Netlify si elle y tient).
+  part (elle parlait d’une « page » : possible plus tard, une fois sur Cloudflare Pages, si elle y tient).
 - Offrir reste une section à part (choix du propriétaire). Dans Réserver, le bouton
   « C’est pour offrir » (`[data-gift-switch]`, lien vers `#offrir`) emmène à Offrir en
   reprenant la formule et les compléments déjà choisis.
