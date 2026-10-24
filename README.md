@@ -55,12 +55,12 @@ Chaque modification poussée sur la branche est ensuite mise en ligne automatiqu
 
 ## Intro d’ouverture
 
-À l’ouverture du site, deux battants portant l’arche « B » s’écartent de chaque côté, puis deux
-dessins au trait se tracent, séparés : la silhouette du Pic Saint-Loup (« Du Pic Saint-Loup »), puis
+À l’ouverture du site, sur fond taupe, deux dessins au trait se tracent, séparés : la silhouette du Pic Saint-Loup (« Du Pic Saint-Loup »), puis
 le contour du territoire de la Vaunage (« à la Vaunage » — contour réel des 9 communes : Boissières,
 Calvisson, Caveirac, Clarensac, Congénies, Langlade, Nages-et-Solorgues, Saint-Côme-et-Maruéjols,
 Saint-Dionisy). Un soleil se lève derrière le Pic et les 9 villages s’allument un à un dans la
-Vaunage, avant l’arrivée sur la page d’accueil (environ 7 s).
+Vaunage, avant l’arrivée sur la page d’accueil (environ 4,5 s ; sans les battants au « B »,
+à la demande du propriétaire).
 Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
 lorsque l’on revient sur l’accueil depuis une autre page du site.
 

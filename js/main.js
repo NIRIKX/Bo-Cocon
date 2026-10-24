@@ -10,7 +10,7 @@
     root.classList.add("is-ready");
   }
 
-  /* ---------- Intro : les battants s'ouvrent, le logo apparaît ---------- */
+  /* ---------- Intro : le Pic Saint-Loup puis la Vaunage, au trait ---------- */
   function playIntro() {
     var finished = false;
 
@@ -51,7 +51,7 @@
     });
 
     // filet de sécurité si les animations ne se déclenchent pas
-    window.setTimeout(finish, 8500);
+    window.setTimeout(finish, 6500);
   }
 
   if (intro && root.classList.contains("intro-on")) {

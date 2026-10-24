@@ -124,5 +124,8 @@
   hôtellerie-restauration, 10 ans dans la restauration, naissance de son petit garçon en
   2023, puis l’envie de créer une entreprise qui lui corresponde : Bo’Cocon. Rien d’autre
   à inventer (pas de prénom, pas de lieu).
+- Ouverture (intro) : seulement le Pic Saint-Loup puis la Vaunage au trait (soleil, 9 villages,
+  « Du Pic Saint-Loup » / « à la Vaunage »), environ 4,5 s ; plus de battants au « B »
+  (choix du propriétaire). Timings dans `css/style.css` (`.intro…`), sécurité JS à 6,5 s.
 - Coordonnées : bococon.contact@gmail.com · 07 81 18 86 07 · du Pic Saint-Loup à la
   Vaunage.
