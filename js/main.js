@@ -10,7 +10,7 @@
     root.classList.add("is-ready");
   }
 
-  /* ---------- Intro : le Pic Saint-Loup puis la Vaunage, au trait ---------- */
+  /* ---------- Intro : le « B » s'ouvre, puis le Pic Saint-Loup et la Vaunage ---------- */
   function playIntro() {
     var finished = false;
 
@@ -51,7 +51,7 @@
     });
 
     // filet de sécurité si les animations ne se déclenchent pas
-    window.setTimeout(finish, 6500);
+    window.setTimeout(finish, 7500);
   }
 
   if (intro && root.classList.contains("intro-on")) {
