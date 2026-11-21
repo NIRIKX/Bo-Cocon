@@ -133,9 +133,9 @@
 - Sections « Réserver » (demande de réservation) et « Offrir » (carte cadeau) : aperçu en
   direct + e-mail prérempli vers bococon.contact@gmail.com (`js/main.js`), pas de paiement
   en ligne. Styles de formulaire partagés : `.field`, `.field-row`, `.chips`, `.chip`.
-- Barre du haut (`.site-header`) en taupe clair (`--taupe-light`) avec un filet, pour qu’elle
-  se détache du reste (demande du propriétaire, 21/11/2026 ; choix proposés : A taupe clair
-  retenu par défaut, B taupe `--taupe`, C brun foncé avec texte crème).
+- Barre du haut (`.site-header`) : couleur crème « comme avant » (transparente en haut de
+  page, crème une fois défilé ; le propriétaire n’a pas voulu de taupe ni d’autre couleur)
+  et un fin trait dessous, toujours visible, pour la séparer de la page (accueil compris).
 - Menu sur téléphone (corrigé) : l’ouverture du menu ne doit rien changer d’autre que le
   menu. Jamais d’`overflow` sur `html` / `body` à l’ouverture, jamais de `backdrop-filter`
   sur l’en-tête en dessous de 900 px — sinon, après avoir fait défiler, l’en-tête sort de
