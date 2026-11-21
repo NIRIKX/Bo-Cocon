@@ -188,12 +188,21 @@
       return p ? p.getAttribute("data-page") : "index";
     };
     var showPage = function (name) {
-      stPages.forEach(function (p) { p.hidden = p.getAttribute("data-page") !== name; });
+      stPages.forEach(function (p) {
+        p.hidden = p.getAttribute("data-page") !== name;
+        /* la nouvelle page apparaît en fondu : on voit bien qu'on a changé de page */
+        p.classList.toggle("is-entering", !p.hidden);
+      });
       document.querySelectorAll("[data-nav]").forEach(function (a) {
         if (a.getAttribute("data-nav") === MENU[name]) a.setAttribute("aria-current", "page");
         else a.removeAttribute("aria-current");
       });
     };
+    stPages.forEach(function (p) {
+      p.addEventListener("animationend", function (e) {
+        if (e.target === p) p.classList.remove("is-entering");
+      });
+    });
     document.addEventListener("click", function (e) {
       var link = e.target.closest("a[href]");
       if (!link || e.defaultPrevented) return;

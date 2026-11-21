@@ -49,7 +49,9 @@
 ## Repères techniques
 - Site statique à plusieurs pages (demande de la cuisinière, 21/11/2026 : « moins de trop
   d’informations », chaque partie dans son onglet) : `index.html` (accueil : héros,
-  aperçu du concept, aperçu des 3 bocaux), `concept.html` (concept, parcours, déroulé,
+  aperçu du concept = « Le concept » + les 3 points, sans le grand titre ni le texte de la
+  page Le concept — sinon cette page ressemblait à l’accueil qui défile, signalé par le
+  propriétaire ; aperçu des 3 bocaux), `concept.html` (concept, parcours, déroulé,
   engagements), `formules.html` (bocaux, option bocaux, crédit d’impôt), `reserver.html`,
   `offrir.html`, `contact.html`, `cgv.html`, `confidentialite.html` ; `css/style.css`,
   `js/main.js`, `assets/`.
@@ -69,7 +71,8 @@
   Attention : les ids doivent rester uniques sur l’ensemble des pages. En changeant de
   page, on va tout de suite en haut (`jumpTo`, `behavior: "instant"`) : avec le défilement
   doux, la nouvelle page apparaissait d’abord en bas puis remontait (signalé par le
-  propriétaire). Changer `style.scrollBehavior` ne suffit pas dans Chrome.
+  propriétaire). Changer `style.scrollBehavior` ne suffit pas dans Chrome. La page
+  choisie arrive en fondu (`.st-page.is-entering`).
 - Prix des formules (repris des maquettes du propriétaire) : Douces énergies 60 €,
   Première lueur 180 €, Semaine allégée 250 €, Cocon mois d’or 900 € — moitié prix après
   crédit d’impôt immédiat. Sur les bocaux, « À PARTIR DE … € » (prix avant crédit d’impôt, texte en arc

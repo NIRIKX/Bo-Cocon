@@ -76,7 +76,7 @@ lorsque l’on revient sur l’accueil depuis une autre page du site.
 
 ## Les pages
 
-- Accueil : le titre, un aperçu du concept (« Découvrir le concept ») et les 3 bocaux
+- Accueil : le titre, les 3 points du concept (« Découvrir le concept ») et les 3 bocaux
   (« Voir le détail des formules »).
 - Le concept : le concept, Mon parcours, Le déroulé « Comment ça se passe ? » (fond taupe
   clair), Mes engagements (la charte de la cuisinière, en 4 cartes).

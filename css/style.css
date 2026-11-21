@@ -1323,6 +1323,9 @@ fieldset.field { container-type: inline-size; }
 /* Accueil : lien « Découvrir le concept » / « Voir le détail des formules » */
 .teaser-more { margin: clamp(28px, 4vw, 44px) 0 0; text-align: center; }
 .section-head .teaser-more { margin-top: 30px; }
+/* Accueil, aperçu du concept : juste « Le concept » et les 3 points */
+.concept-teaser .section-head { margin-bottom: clamp(32px, 4.5vw, 52px); }
+.concept-teaser .teaser-more { margin-top: clamp(36px, 5vw, 56px); }
 .formulas__group {
   display: flex;
   align-items: center;
@@ -1953,6 +1956,11 @@ fieldset.field { container-type: inline-size; }
   transition: color .3s ease, text-decoration-color .3s ease;
 }
 .footer__legal a:hover { color: var(--cream); text-decoration-color: currentColor; }
+
+/* Streamlit (toutes les pages dans le même document) : la page choisie arrive en fondu */
+.st-page.is-entering { animation: pageIn .35s ease both; }
+@keyframes pageIn { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .st-page.is-entering { animation: none; } }
 
 /* Pages CGV / politique de confidentialité */
 /* page courte : le pied de page reste en bas de l’écran */
