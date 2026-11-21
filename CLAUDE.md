@@ -153,10 +153,11 @@
   encore l’ancienne version, lui faire relancer l’appli (share.streamlit.io → ⋮ à côté de
   l’appli → « Reboot »), puis fermer et rouvrir l’onglet.
 - « Mon parcours » (frise chronologique sans logo, de gauche à droite ; de haut en bas sous
-  760 px ; texte donné par le propriétaire, au « je ») : études en
-  hôtellerie-restauration, 10 ans dans la restauration, naissance de son petit garçon en
-  2023, puis l’envie de créer une entreprise qui lui corresponde : Bo’Cocon. Rien d’autre
-  à inventer (pas de prénom, pas de lieu).
+  760 px ; texte donné par le propriétaire, au « je ») : « Mes études » — Diplômée en
+  hôtellerie-restauration ; « Expérience » — 10 ans de métier en restauration (mots de la
+  cuisinière, 21/11/2026) ; naissance de son petit garçon en 2023, puis l’envie de créer
+  une entreprise qui lui corresponde : Bo’Cocon. Rien d’autre à inventer (pas de prénom,
+  pas de lieu).
 - Bas de page : à droite, à la place de la phrase sur le crédit d’impôt (demande de la
   cuisinière), deux liens discrets « CGV · Politique de confidentialité » (`.footer__legal`)
   vers les pages `cgv.html` et `confidentialite.html` (`.legal-page`). Textes pas encore
