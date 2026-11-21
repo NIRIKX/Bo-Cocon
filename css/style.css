@@ -2095,7 +2095,9 @@ fieldset.field { container-type: inline-size; }
     width: clamp(56px, calc(15svh * .6286), 112px);
     margin: 0 auto 12px;
   }
-  body[data-page="index"] .badge { display: none; }
+  /* la petite marmite qui tourne, en plus petit, sur le bord gauche du « B » */
+  body[data-page="index"] .badge { width: 64px; height: 64px; left: -58px; top: 12%; }
+  body[data-page="index"] .badge__center svg { width: 26px; height: 26px; }
   body[data-page="index"] .hero .kicker { margin-bottom: 10px; font-size: .68rem; letter-spacing: .12em; }
   body[data-page="index"] .hero__title { font-size: clamp(2rem, 8.6vw, 2.8rem); }
   body[data-page="index"] .hero__text { margin: 12px auto 18px; font-size: 1rem; line-height: 1.55; }

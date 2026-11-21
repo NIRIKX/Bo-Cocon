@@ -53,7 +53,8 @@
   écran, sans rien à faire défiler ; le reste passe par les onglets du haut (demande de la
   cuisinière, 21/11/2026). Sur l’accueil, le pied de page se réduit à sa dernière ligne
   (© · CGV · confidentialité) ; sur téléphone l’arche « B » passe en petit au-dessus du
-  titre, et disparaît sous 600 px de haut. Règles `body[data-page="index"]` dans
+  titre, avec la petite marmite qui tourne (`.badge`) à sa gauche (à garder : la cuisinière
+  l’a réclamée), et disparaît sous 600 px de haut. Règles `body[data-page="index"]` dans
   css/style.css ; vérifié sans défilement de 1920×1080 à l’iPhone SE), `concept.html` (concept, parcours, déroulé,
   engagements), `formules.html` (bocaux, option bocaux, crédit d’impôt), `reserver.html`,
   `offrir.html`, `contact.html`, `cgv.html`, `confidentialite.html` ; `css/style.css`,
@@ -108,7 +109,8 @@
   bocaux, à la place de l’ancienne phrase sur le crédit d’impôt (le bandeau juste dessous
   suffit). Incluse dans Semaine allégée et Cocon mois d’or, 15 € par prestation avec
   Première lueur ; caution de 80 € (chèque non encaissé) avant la première prestation. Au
-  dos de ces 3 bocaux, un lien `.jar__option` y mène. La clause juridique (consigne et
+  dos de ces 3 bocaux, un lien `.jar__option` y mène. Avantages : Zéro achat, Conservation
+  saine (remplace « Gain de place », demande de la cuisinière), Du four à la table. La clause juridique (consigne et
   caution) va dans les CGV / le devis, pas sur le site. Pas encore de case « option bocaux » dans Réserver / Offrir.
 - Pages et menu : Accueil (`./`, ajouté le 21/11/2026 : sans lui, le propriétaire croyait
   que la première page — titre et grand « B » — avait disparu), Le concept (`concept.html` : `#approche`, `#parcours`, `#deroule` fond
