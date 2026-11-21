@@ -66,7 +66,10 @@
   (iframe `srcdoc`), chacune dans un bloc `.st-page` ; js/main.js affiche la page demandée
   (`location.protocol === "about:"`, aiguillage des liens « x.html », « x.html#partie »,
   « ?formule=… »). `?page=formules` dans l’adresse Streamlit ouvre directement une page.
-  Attention : les ids doivent rester uniques sur l’ensemble des pages.
+  Attention : les ids doivent rester uniques sur l’ensemble des pages. En changeant de
+  page, on va tout de suite en haut (`jumpTo`, `behavior: "instant"`) : avec le défilement
+  doux, la nouvelle page apparaissait d’abord en bas puis remontait (signalé par le
+  propriétaire). Changer `style.scrollBehavior` ne suffit pas dans Chrome.
 - Prix des formules (repris des maquettes du propriétaire) : Douces énergies 60 €,
   Première lueur 180 €, Semaine allégée 250 €, Cocon mois d’or 900 € — moitié prix après
   crédit d’impôt immédiat. Sur les bocaux, « À PARTIR DE … € » (prix avant crédit d’impôt, texte en arc

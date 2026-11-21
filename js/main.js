@@ -78,6 +78,15 @@
     return bare(path) === bare(location.pathname.split("/").pop() || "");
   }
 
+  /* aller tout de suite à une hauteur, sans glisser (malgré « scroll-behavior: smooth ») */
+  function jumpTo(y) {
+    root.style.scrollBehavior = "auto";
+    void getComputedStyle(root).scrollBehavior;   /* pris en compte tout de suite */
+    try { window.scrollTo({ top: y, behavior: "instant" }); }
+    catch (err) { window.scrollTo(0, y); }        /* anciens navigateurs */
+    root.style.scrollBehavior = "";
+  }
+
   /* la section atteinte par un lien interne reçoit le focus (sans faire défiler) :
      au clavier, on continue depuis elle */
   function focusSection(target) {
@@ -102,11 +111,7 @@
     }
     root.classList.toggle("nav-open", open);
     behind.forEach(function (el) { el.inert = open; });
-    if (!open && keepPlace && Math.abs(window.scrollY - openY) > 1) {
-      root.style.scrollBehavior = "auto";
-      window.scrollTo(0, openY);
-      root.style.scrollBehavior = "";
-    }
+    if (!open && keepPlace && Math.abs(window.scrollY - openY) > 1) jumpTo(openY);
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
   }
@@ -200,17 +205,25 @@
       if (stPages.length && !stPages.some(function (p) { return p.getAttribute("data-page") === name; })) return;
       e.preventDefault();
       var changed = stPages.length > 0 && name !== shownPage();
-      if (changed) showPage(name);
+      /* nouvelle page : on la montre directement en haut (ou à la partie demandée), sans
+         glisser depuis l'endroit où l'on était sur la page d'avant */
+      if (changed) {
+        jumpTo(0);
+        showPage(name);
+      }
       if (m[2]) prefillForms(new URLSearchParams(m[2].slice(1)));
       var target = m[3] && m[3].length > 1 ? document.getElementById(m[3].slice(1)) : null;
-      var smooth = !changed && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       var top = 0;
       if (target) {
         var offset = (parseFloat(getComputedStyle(root).scrollPaddingTop) || 0) +
           (parseFloat(getComputedStyle(target).scrollMarginTop) || 0);
         top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset);
       }
-      window.scrollTo({ top: top, behavior: smooth ? "smooth" : "auto" });
+      if (changed) jumpTo(top);
+      else {
+        var smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: top, behavior: smooth ? "smooth" : "auto" });
+      }
       focusSection(target);
     });
   }
