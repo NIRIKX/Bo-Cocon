@@ -8,7 +8,7 @@ dans un navigateur ou de publier les fichiers du site tels quels.
 ## Structure
 
 ```
-index.html            Accueil (ouverture animée, aperçu du concept et des formules)
+index.html            Accueil (ouverture animée, puis un seul écran : titre, texte, « B »)
 concept.html          Le concept, Mon parcours, Le déroulé, Mes engagements
 formules.html         Les bocaux, l’option bocaux, le crédit d’impôt
 reserver.html         Demande de réservation
@@ -76,8 +76,8 @@ lorsque l’on revient sur l’accueil depuis une autre page du site.
 
 ## Les pages
 
-- Accueil : le titre, les 3 points du concept (« Découvrir le concept ») et les 3 bocaux
-  (« Voir le détail des formules »).
+- Accueil : un seul écran, sans rien à faire défiler — le titre « Un cocon de douceur,
+  jusque dans l’assiette », le texte, les boutons et le « B ». Le reste est dans les onglets.
 - Le concept : le concept, Mon parcours, Le déroulé « Comment ça se passe ? » (fond taupe
   clair), Mes engagements (la charte de la cuisinière, en 4 cartes).
 - Formules : les 5 bocaux, l’option bocaux, le bandeau crédit d’impôt.

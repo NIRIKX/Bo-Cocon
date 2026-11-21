@@ -39,6 +39,7 @@ def build_site(start: str = "index") -> str:
         blocks.append(f'\n<div class="st-page" data-page="{name}"{hidden}>{MAIN.search(page).group(2)}</div>')
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     html = MAIN.sub(lambda m: m.group(1) + "".join(blocks) + "\n  " + m.group(3), html, count=1)
+    html = html.replace('<body data-page="index">', f'<body data-page="{start}">', 1)
     css = (ROOT / "css" / "style.css").read_text(encoding="utf-8")
     js = (ROOT / "js" / "main.js").read_text(encoding="utf-8")
 

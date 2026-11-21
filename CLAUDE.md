@@ -48,10 +48,13 @@
 
 ## Repères techniques
 - Site statique à plusieurs pages (demande de la cuisinière, 21/11/2026 : « moins de trop
-  d’informations », chaque partie dans son onglet) : `index.html` (accueil : héros,
-  aperçu du concept = « Le concept » + les 3 points, sans le grand titre ni le texte de la
-  page Le concept — sinon cette page ressemblait à l’accueil qui défile, signalé par le
-  propriétaire ; aperçu des 3 bocaux), `concept.html` (concept, parcours, déroulé,
+  d’informations », chaque partie dans son onglet) : `index.html` (accueil = **seulement le
+  héros** — titre « Un cocon de douceur… », texte, boutons, 50 %, arche « B » — sur un seul
+  écran, sans rien à faire défiler ; le reste passe par les onglets du haut (demande de la
+  cuisinière, 21/11/2026). Sur l’accueil, le pied de page se réduit à sa dernière ligne
+  (© · CGV · confidentialité) ; sur téléphone l’arche « B » passe en petit au-dessus du
+  titre, et disparaît sous 600 px de haut. Règles `body[data-page="index"]` dans
+  css/style.css ; vérifié sans défilement de 1920×1080 à l’iPhone SE), `concept.html` (concept, parcours, déroulé,
   engagements), `formules.html` (bocaux, option bocaux, crédit d’impôt), `reserver.html`,
   `offrir.html`, `contact.html`, `cgv.html`, `confidentialite.html` ; `css/style.css`,
   `js/main.js`, `assets/`.
@@ -60,7 +63,8 @@
   menu) ou `pages/_gabarit.html` (tout ce qui est commun : en-tête, menu, ouverture, pied
   de page), puis lancer `python3 outils/generer_pages.py` (vérifier :
   `python3 outils/generer_pages.py --verifier`). Le menu marque la page en cours
-  (`data-nav` → `aria-current="page"`).
+  (`data-nav` → `aria-current="page"`) ; `<body data-page="<nom>">` (aussi mis à jour dans
+  Streamlit par js/main.js et app.py).
 - Choix transmis d’une page à l’autre par l’adresse : bouton « Réserver » au dos d’un bocal
   → `reserver.html?formule=…` (ou `?complement=…` pour Douces énergies / Les courses) ;
   « C’est pour offrir » → `offrir.html?formule=…&extras=…` (js/main.js : `prefill`).

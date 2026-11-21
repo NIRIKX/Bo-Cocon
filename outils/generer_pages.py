@@ -38,7 +38,8 @@ def fabriquer(nom: str, gabarit: str) -> str:
     infos, contenu = lire_page(nom)
     html = (gabarit.replace("{{titre}}", infos["titre"])
                    .replace("{{description}}", infos["description"])
-                   .replace("{{contenu}}", contenu))
+                   .replace("{{contenu}}", contenu)
+                   .replace("{{page}}", nom))
     menu = infos.get("menu", "").strip()
     if menu:
         html, n = re.subn(rf'data-nav="{menu}"', f'data-nav="{menu}" aria-current="page"', html)

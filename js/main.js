@@ -188,6 +188,7 @@
       return p ? p.getAttribute("data-page") : "index";
     };
     var showPage = function (name) {
+      document.body.setAttribute("data-page", name);
       stPages.forEach(function (p) {
         p.hidden = p.getAttribute("data-page") !== name;
         /* la nouvelle page apparaît en fondu : on voit bien qu'on a changé de page */
@@ -241,7 +242,7 @@
      Survol = retournement seulement avec une vraie souris ;
      clic / toucher / Entrée / Espace = bascule partout. */
   var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
-  document.querySelectorAll(".jar:not(.jar--teaser)").forEach(function (jar) {
+  document.querySelectorAll(".jar").forEach(function (jar) {
     var btn = jar.querySelector(".jar__toggle");
     var front = jar.querySelector(".jar__face--front");
     var back = jar.querySelector(".jar__face--back");
