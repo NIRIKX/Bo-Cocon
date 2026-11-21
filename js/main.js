@@ -165,7 +165,7 @@
   if (location.protocol === "about:") {
     document.addEventListener("click", function (e) {
       var link = e.target.closest('a[href^="#"], a[href="./"]');
-      if (!link) return;
+      if (!link || link.hasAttribute("data-legal")) return;
       var href = link.getAttribute("href");
       var target = href === "./" || href === "#" ? null : document.querySelector(href);
       if (href !== "./" && href !== "#" && !target) return;
@@ -181,6 +181,25 @@
       focusSection(target);
     });
   }
+
+  /* ---------- CGV et politique de confidentialité : petites fenêtres ----------
+     Fermeture : la croix, Échap, ou un clic sur le fond sombre. */
+  document.addEventListener("click", function (e) {
+    var opener = e.target.closest("[data-legal]");
+    if (opener) {
+      var dialog = document.getElementById(opener.getAttribute("data-legal"));
+      if (dialog && typeof dialog.showModal === "function") {
+        e.preventDefault();
+        dialog.showModal();
+      }
+      return;
+    }
+    if (e.target.closest("[data-legal-close]")) {
+      e.target.closest("dialog").close();
+      return;
+    }
+    if (e.target.matches && e.target.matches("dialog.legal")) e.target.close();
+  });
 
   /* ---------- Formules : les bocaux se retournent ----------
      Survol = retournement seulement avec une vraie souris ;

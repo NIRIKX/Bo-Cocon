@@ -124,6 +124,13 @@
   hôtellerie-restauration, 10 ans dans la restauration, naissance de son petit garçon en
   2023, puis l’envie de créer une entreprise qui lui corresponde : Bo’Cocon. Rien d’autre
   à inventer (pas de prénom, pas de lieu).
+- Bas de page : à droite, à la place de la phrase sur le crédit d’impôt (demande de la
+  cuisinière), deux liens discrets « CGV · Politique de confidentialité » (`.footer__legal`)
+  qui ouvrent chacun une petite fenêtre (`<dialog class="legal">`, `#cgv` et
+  `#confidentialite`, js/main.js : croix, Échap ou clic sur le fond pour fermer). Textes
+  pas encore reçus : un simple message « bientôt disponibles ». Une partie des CGV est
+  prête chez elle ; l’autre attend les infos de l’hébergeur (Cloudflare, Inc., 101
+  Townsend Street, San Francisco, CA 94107, États-Unis, +1 (650) 319-8930).
 - Ouverture (intro) : les battants au « B » s’ouvrent (à garder absolument : le propriétaire
   y tient), puis le Pic Saint-Loup et la Vaunage au trait (soleil, 9 villages, « Du Pic
   Saint-Loup » / « à la Vaunage »). Accélérée à sa demande : environ 5,5 s au lieu de 7,2 s.

@@ -836,9 +836,42 @@
       </div>
       <div class="footer__bottom">
         <p>© <span id="year">2026</span> Bo’Cocon</p>
-        <p>Formules éligibles à 50&nbsp;% de crédit d’impôt immédiat</p>
+        <p class="footer__legal">
+          <a href="#cgv" data-legal="cgv">CGV</a>
+          <span aria-hidden="true">·</span>
+          <a href="#confidentialite" data-legal="confidentialite">Politique de confidentialité</a>
+        </p>
       </div>
     </div>
   </footer>
+
+  <!-- ===================== CGV et politique de confidentialité (petites fenêtres) =====================
+       Textes à recevoir de la cuisinière : en attendant, un simple message. -->
+  <dialog class="legal" id="cgv" aria-labelledby="cgv-title">
+    <div class="legal__inner">
+      <button class="legal__close" type="button" data-legal-close aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <p class="kicker">Bo’Cocon</p>
+      <h2 class="legal__title" id="cgv-title">Conditions générales de vente</h2>
+      <div class="legal__body">
+        <p>Les conditions générales de vente seront bientôt disponibles ici.</p>
+        <p>Pour toute question&nbsp;: <a href="mailto:bococon.contact@gmail.com">bococon.contact@gmail.com</a></p>
+      </div>
+    </div>
+  </dialog>
+  <dialog class="legal" id="confidentialite" aria-labelledby="confidentialite-title">
+    <div class="legal__inner">
+      <button class="legal__close" type="button" data-legal-close aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <p class="kicker">Bo’Cocon</p>
+      <h2 class="legal__title" id="confidentialite-title">Politique de confidentialité</h2>
+      <div class="legal__body">
+        <p>La politique de confidentialité sera bientôt disponible ici.</p>
+        <p>Pour toute question&nbsp;: <a href="mailto:bococon.contact@gmail.com">bococon.contact@gmail.com</a></p>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>
