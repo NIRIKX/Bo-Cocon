@@ -2006,11 +2006,12 @@ fieldset.field { container-type: inline-size; }
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
-  .nav__list { flex-direction: column; align-items: center; gap: 22px; }
+  .nav__list { flex-direction: column; align-items: center; gap: 18px; }
   .nav__link {
     font-family: var(--font-display);
     font-size: 2rem;
     font-weight: 500;
+    line-height: 1.25;
     letter-spacing: .02em;
     text-transform: none;
   }
@@ -2038,19 +2039,23 @@ fieldset.field { container-type: inline-size; }
   @media (max-height: 520px) {
     .nav { gap: 12px; padding-bottom: 12px; }
     .nav__list { gap: 4px; }
-    .nav__link { font-size: 1.55rem; }
+    .nav__link { font-size: 1.55rem; line-height: 1.2; }
+    .nav__list > li,
+    .nav__sub { line-height: 1.2; }
     .nav__sub { margin-top: 0; }
     .nav__sub a { padding-block: 2px; }
   }
   @media (max-height: 360px) {
     .nav { gap: 8px; padding-top: var(--header-h); padding-bottom: 10px; }
     .nav__list { gap: 0; }
-    .nav__link { font-size: 1.4rem; line-height: 1.45; }
-    .nav__sub a { padding-block: 0; }
+    .nav__link { font-size: 1.3rem; line-height: 1.12; }
+    .nav__sub a { padding-block: 0; line-height: 1.5; }
   }
   @media (max-height: 300px) {
     .nav { gap: 4px; padding-bottom: 6px; }
-    .nav__link { font-size: 1.3rem; line-height: 1.35; }
+    .nav__link { font-size: 1.25rem; line-height: 1.1; }
+    /* très bas : pas de place pour « Accueil », le logo juste au-dessus y mène */
+    .nav__list > li:first-child { display: none; }
   }
   /* écran très étroit : les sous-parties l'une sous l'autre */
   @media (max-width: 300px) {
@@ -2059,8 +2064,8 @@ fieldset.field { container-type: inline-size; }
   }
   /* téléphone debout mais pas très haut (ex. iPhone SE) : un peu moins d'espace */
   @media (max-height: 620px) and (min-height: 521px) {
-    .nav { gap: 26px; padding-bottom: 12px; }
-    .nav__list { gap: 12px; }
+    .nav { gap: 22px; padding-bottom: 12px; }
+    .nav__list { gap: 10px; }
   }
   .brand { position: relative; z-index: 2; }
   .brand__wordmark { height: 34px; }

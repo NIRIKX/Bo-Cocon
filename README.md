@@ -84,7 +84,7 @@ lorsque l’on revient sur l’accueil depuis une autre page du site.
 - Réserver, Offrir, Contact : chacun sa page.
 - CGV et politique de confidentialité : liens discrets en bas de chaque page.
 
-Menu du haut et pied de page : Le concept, Formules, Réserver, Offrir, Contact.
+Menu du haut et pied de page : Accueil, Le concept, Formules, Réserver, Offrir, Contact.
 Le menu a aussi des sous-parties : Mon parcours, Le déroulé et Mes engagements sous Le concept, L’option
 bocaux et Le crédit d’impôt sous Formules. Sur téléphone, elles sont écrites sous le titre ;
 sur ordinateur, elles apparaissent au passage de la souris.

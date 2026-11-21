@@ -182,7 +182,7 @@
      scrollIntoView(), qui ferait aussi défiler la page Streamlit autour du site. */
   if (embedded) {
     var stPages = [].slice.call(document.querySelectorAll(".st-page"));
-    var MENU = { concept: "concept", formules: "formules", reserver: "reserver", offrir: "offrir", contact: "contact" };
+    var MENU = { index: "accueil", concept: "concept", formules: "formules", reserver: "reserver", offrir: "offrir", contact: "contact" };
     var shownPage = function () {
       var p = stPages.filter(function (x) { return !x.hidden; })[0];
       return p ? p.getAttribute("data-page") : "index";

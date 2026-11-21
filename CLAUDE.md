@@ -106,7 +106,8 @@
   Première lueur ; caution de 80 € (chèque non encaissé) avant la première prestation. Au
   dos de ces 3 bocaux, un lien `.jar__option` y mène. La clause juridique (consigne et
   caution) va dans les CGV / le devis, pas sur le site. Pas encore de case « option bocaux » dans Réserver / Offrir.
-- Pages et menu : Le concept (`concept.html` : `#approche`, `#parcours`, `#deroule` fond
+- Pages et menu : Accueil (`./`, ajouté le 21/11/2026 : sans lui, le propriétaire croyait
+  que la première page — titre et grand « B » — avait disparu), Le concept (`concept.html` : `#approche`, `#parcours`, `#deroule` fond
   taupe clair, `#engagements` fond lin), Formules (`formules.html` : `#formules`,
   `#option-bocaux`, `#credit-impot`), Réserver, Offrir, Contact (choix du propriétaire),
   avec des sous-parties (`.nav__sub`) : sous Le concept « Mon parcours, Le déroulé, Mes
@@ -116,7 +117,8 @@
   petite flèche ; il se replie après un choix ou avec Échap (`.is-folded`, js/main.js) et
   se rouvre au survol suivant. Au clavier, la section choisie reçoit le focus
   (`focusSection`). Le menu du téléphone s’ouvre toujours par le haut et tient sur les
-  téléphones couchés (règles `max-height` 520 / 360 / 300 px) ; sous 300 px de large, les
+  téléphones couchés (règles `max-height` 620 / 520 / 360 / 300 px ; sous 300 px de haut,
+  « Accueil » est caché, le logo juste au-dessus y mène) ; sous 300 px de large, les
   sous-parties passent l’une sous l’autre. Mot à ne pas couper : `<span class="nowrap">`
   (pas de trait d’union insécable U+2011, absent de la police Cormorant).
 - « Mes engagements » : charte éthique et professionnelle envoyée par la cuisinière,
