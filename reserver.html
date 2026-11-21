@@ -1,0 +1,288 @@
+<!doctype html>
+<!-- Page fabriquée par outils/generer_pages.py à partir de pages/reserver.html et pages/_gabarit.html : ne pas la modifier ici. -->
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Réserver — Bo’Cocon</title>
+  <meta name="description" content="Réservez votre formule Bo’Cocon : cuisine à domicile post-partum et familiale, du Pic Saint-Loup à la Vaunage.">
+  <meta name="theme-color" content="#fef9f0">
+  <meta property="og:title" content="Réserver — Bo’Cocon">
+  <meta property="og:description" content="Réservez votre formule Bo’Cocon : cuisine à domicile post-partum et familiale, du Pic Saint-Loup à la Vaunage.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/logo-wordmark.png" as="image">
+  <link rel="preload" href="assets/monogramme-b.png" as="image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    /* Avant le premier affichage : active l'intro sauf si l'on arrive d'une autre page du site
+       (toujours jouée quand le site est intégré, par exemple dans Streamlit) */
+    (function () {
+      var d = document.documentElement, internal = false;
+      d.classList.remove("no-js");
+      d.classList.add("js");
+      try {
+        internal = location.protocol !== "about:" && !!document.referrer &&
+          new URL(document.referrer).origin === location.origin;
+      } catch (e) {}
+      if (!internal) d.classList.add("intro-on");
+      setTimeout(function () {
+        if (!d.classList.contains("js-main")) d.classList.add("is-ready", "reveal-all");
+      }, 9000);
+    })();
+  </script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false"><defs><!-- bocaux des formules -->
+<linearGradient id="jar-content" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ecdccb"/><stop offset=".5" stop-color="#e2cdb8"/><stop offset="1" stop-color="#d4b9a0"/></linearGradient>
+<clipPath id="jar-clip"><path d="M78 92V98C78 120 28 132 24 196C21 244 16 290 18 330C20 400 30 452 78 464C100 469 200 469 222 464C270 452 280 400 282 330C284 290 279 244 276 196C272 132 222 120 222 98V92Z"/></clipPath>
+<path id="jar-glass" d="M78 92V98C78 120 28 132 24 196C21 244 16 290 18 330C20 400 30 452 78 464C100 469 200 469 222 464C270 452 280 400 282 330C284 290 279 244 276 196C272 132 222 120 222 98V92Z" style="fill: var(--jar-fill, #fbf6ef)"/>
+<g id="jar-outline"><path class="ol ol--jar" d="M78 92V98C78 120 28 132 24 196C21 244 16 290 18 330C20 400 30 452 78 464C100 469 200 469 222 464C270 452 280 400 282 330C284 290 279 244 276 196C272 132 222 120 222 98V92"/><rect x="66" y="66" width="168" height="26" rx="11" fill="#c7b7aa"/><rect class="ol ol--jar" x="66" y="66" width="168" height="26" rx="11"/><path class="ol" d="M82 75h136M82 83h136" stroke-width="1px" stroke-opacity=".45"/></g>
+<g id="jar-wave"><path d="M-150 8Q-112.5 0 -75 8T0 8T75 8T150 8T225 8T300 8T375 8T450 8V420H-150Z" fill="url(#jar-content)"/></g>
+<g id="jar-oval"><ellipse cx="150" cy="228" rx="98" ry="52" fill="#fef9f0"/><ellipse cx="150" cy="228" rx="98" ry="52" fill="none" stroke="#512814" stroke-width="3px" vector-effect="non-scaling-stroke"/><ellipse cx="150" cy="228" rx="90" ry="44" fill="none" stroke="#be9a80" stroke-width="1px" stroke-dasharray="2 3" vector-effect="non-scaling-stroke"/></g>
+<path id="jar-arc" d="M30 228A120 77 0 0 0 270 228" fill="none"/>
+<g id="bocal-mini" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="3.5" rx="1.2"/><path d="M8 6v1.2C8 8.6 4.8 9.6 4.8 13.5v4.3C4.8 20.4 6.4 21.5 9 21.5h6c2.6 0 4.2-1.1 4.2-3.7v-4.3c0-3.9-3.2-4.9-3.2-6.3V6"/></g>
+</defs><symbol id="bco-sprig" viewBox="0 0 172 40"><path d="M6,22 C46,17 98,16 154,20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M30.0,19.2 C23.6,22.9 16.9,17.4 15.3,10.7 C21.9,8.8 30.0,11.8 30.0,19.2Z M46.0,18.4 C45.4,11.0 53.2,7.3 59.9,8.6 C58.9,15.5 52.7,21.5 46.0,18.4Z M62.0,17.6 C61.3,25.0 53.0,27.3 46.6,24.8 C48.8,18.2 55.9,13.4 62.0,17.6Z M80.0,17.2 C80.3,9.8 88.5,7.0 95.0,9.2 C93.2,15.9 86.3,21.1 80.0,17.2Z M98.0,17.2 C98.0,24.6 89.9,27.6 83.3,25.7 C84.9,19.0 91.6,13.5 98.0,17.2Z M116.0,17.6 C116.8,10.2 125.2,8.1 131.5,10.7 C129.2,17.2 122.0,21.9 116.0,17.6Z M134.0,18.6 C134.2,26.0 126.3,29.3 119.6,27.6 C121.0,20.9 127.4,15.2 134.0,18.6Z M154.0,20.0 C156.7,13.6 164.8,13.8 169.8,17.8 C166.1,23.0 158.3,25.5 154.0,20.0Z" fill="currentColor"/></symbol></svg>
+
+  <!-- ===================== Intro : le « B » s’ouvre, puis le Pic Saint-Loup et la Vaunage ===================== -->
+  <div class="intro" id="intro">
+    <div class="intro__stage">
+      <div class="intro-scene" role="img" aria-label="Du Pic Saint-Loup à la Vaunage">
+        <figure class="intro-scene__item intro-scene__item--pic">
+          <svg viewBox="88 50 598 212" aria-hidden="true" focusable="false">
+            <!-- soleil qui se lève derrière le Pic (caché sous la crête par la forme du Pic) -->
+            <g class="intro-sun"><circle cx="352" cy="102" r="30" fill="#fef9f0" fill-opacity=".45" stroke="#fef9f0" stroke-width="1.8"/></g>
+            <path d="M97 250C130 236 150 214 175 207C200 200 215 202 235 190C265 172 285 160 300 150C318 140 330 128 350 122C372 115 382 108 400 96C420 82 438 70 455 64C462 61 466 60 468 62C474 70 486 86 500 104C516 126 534 160 552 188C568 210 584 220 600 222C626 222 640 206 678 190L686 262L88 262Z" style="fill: var(--taupe)"/>
+            <g fill="none" stroke="#512814" stroke-linecap="round" stroke-linejoin="round">
+              <path class="ln" style="--d:0" d="M97 250C130 236 150 214 175 207C200 200 215 202 235 190C265 172 285 160 300 150C318 140 330 128 350 122C372 115 382 108 400 96C420 82 438 70 455 64C462 61 466 60 468 62C474 70 486 86 500 104C516 126 534 160 552 188C568 210 584 220 600 222C626 222 640 206 678 190" pathLength="1"/>
+              <path class="ln" style="--d:1" d="M468 62C472 80 466 100 450 120C430 146 400 166 376 176C340 190 300 198 270 206C240 214 225 218 215 220" pathLength="1"/>
+              <path class="ln" style="--d:2" d="M200 252C260 236 320 214 380 192C420 176 460 152 490 128" pathLength="1"/>
+              <path class="ln" style="--d:3" d="M490 128C500 134 506 140 520 142C560 136 620 124 678 114" pathLength="1"/>
+              <path class="ln" style="--d:4" d="M208 222L255 178M448 178L492 128" pathLength="1"/>
+            </g>
+          </svg>
+          <figcaption>Du Pic Saint-Loup</figcaption>
+        </figure>
+        <figure class="intro-scene__item intro-scene__item--vaunage">
+          <svg viewBox="-8 -8 316 296" aria-hidden="true" focusable="false">
+            <path class="ln ln--vaunage" d="M0.0 222.2C-1.5 215.2 -0.1 202.5 2.9 193.8C6.0 185.2 16.5 177.9 18.2 170.3C19.8 162.7 13.3 153.2 12.8 148.2C12.4 143.3 13.4 141.8 15.5 140.6C17.6 139.4 23.8 144.0 25.4 140.8C27.1 137.6 23.4 125.9 25.3 121.3C27.1 116.7 34.4 119.8 36.6 113.2C38.8 106.6 31.1 94.7 38.5 81.6C46.0 68.4 73.0 46.3 81.3 34.2C89.6 22.2 84.5 13.6 88.2 9.3C92.0 4.9 99.5 4.3 103.9 8.2C108.3 12.1 109.9 30.4 114.5 32.6C119.0 34.9 127.9 26.6 131.3 21.5C134.8 16.3 114.4 1.3 135.0 1.7C155.5 2.2 232.8 19.9 254.4 24.2C276.1 28.4 264.4 25.1 264.9 27.0C265.5 28.9 255.1 33.3 257.9 35.4C260.8 37.4 280.7 36.4 281.9 39.4C283.0 42.3 265.8 49.0 264.9 53.1C264.1 57.2 274.2 57.6 276.9 64.0C279.6 70.4 277.3 82.1 281.2 91.5C285.0 101.0 298.0 115.5 300.0 120.6C302.0 125.7 294.6 124.1 293.1 122.4C291.5 120.7 295.3 111.9 290.5 110.3C285.7 108.6 271.7 109.5 264.3 112.5C256.8 115.4 248.4 119.6 245.7 128.1C243.0 136.6 249.8 154.7 248.1 163.5C246.5 172.2 240.2 177.8 235.9 180.6C231.7 183.5 225.6 178.5 222.8 180.5C220.0 182.4 221.2 190.1 219.2 192.2C217.3 194.4 216.5 188.1 210.8 193.3C205.2 198.4 189.3 212.5 185.4 223.2C181.5 233.9 198.6 248.1 187.2 257.3C175.8 266.5 133.5 279.9 116.9 278.3C100.3 276.7 95.2 252.4 87.6 247.5C79.9 242.6 75.3 246.6 71.1 248.7C67.0 250.8 72.5 262.1 62.6 260.0C52.8 257.8 22.5 242.3 12.1 236.0C1.6 229.7 1.5 229.2 0.0 222.2Z" fill="none" stroke="#512814" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/>
+            <!-- les 9 villages de la Vaunage, à leur vraie place, d'ouest en est -->
+            <g class="intro-villages">
+            <circle style="--v:0" cx="38.6" cy="214.6" r="4.6"><title>Congénies</title></circle>
+            <circle style="--v:1" cx="91.6" cy="75.9" r="4.6"><title>Saint-Côme-et-Maruéjols</title></circle>
+            <circle style="--v:2" cx="93.3" cy="184.1" r="4.6"><title>Calvisson</title></circle>
+            <circle style="--v:3" cx="155.6" cy="141.8" r="4.6"><title>Saint-Dionisy</title></circle>
+            <circle style="--v:4" cx="158.2" cy="61.1" r="4.6"><title>Clarensac</title></circle>
+            <circle style="--v:5" cx="166.8" cy="226.7" r="4.6"><title>Boissières</title></circle>
+            <circle style="--v:6" cx="172.5" cy="185.1" r="4.6"><title>Nages-et-Solorgues</title></circle>
+            <circle style="--v:7" cx="213.1" cy="142.9" r="4.6"><title>Langlade</title></circle>
+            <circle style="--v:8" cx="234.2" cy="68.9" r="4.6"><title>Caveirac</title></circle>
+            </g>
+          </svg>
+          <figcaption>à la Vaunage</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="intro__door intro__door--left" aria-hidden="true">
+      <div class="intro__door-face"><span class="arch-mono arch-mono--plain" aria-hidden="true"></span></div>
+    </div>
+    <div class="intro__door intro__door--right" aria-hidden="true">
+      <div class="intro__door-face"><span class="arch-mono arch-mono--plain" aria-hidden="true"></span></div>
+    </div>
+    <button class="intro__skip" type="button">Passer</button>
+  </div>
+
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- ===================== En-tête ===================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="./" aria-label="Bo’Cocon — accueil">
+        <span class="brand__wordmark" aria-hidden="true"></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li>
+            <a class="nav__link" href="concept.html" data-nav="concept">Le concept</a>
+            <ul class="nav__sub">
+              <li><a href="concept.html#parcours">Mon parcours</a></li>
+              <li><a href="concept.html#deroule">Le déroulé</a></li>
+              <li><a href="concept.html#engagements">Mes engagements</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class="nav__link" href="formules.html" data-nav="formules">Formules</a>
+            <ul class="nav__sub">
+              <li><a href="formules.html#option-bocaux">L’option bocaux</a></li>
+              <li><a href="formules.html#credit-impot">Le crédit d’impôt</a></li>
+            </ul>
+          </li>
+          <li><a class="nav__link" href="reserver.html" data-nav="reserver" aria-current="page">Réserver</a></li>
+          <li><a class="nav__link" href="offrir.html" data-nav="offrir">Offrir</a></li>
+        </ul>
+        <a class="btn btn--ghost" href="contact.html" data-nav="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu" tabindex="-1">
+    <!-- ===================== Réserver ===================== -->
+    <section class="section section--linen booking" id="reserver" aria-labelledby="reserver-title">
+      <div class="container booking__grid">
+        <div class="booking__intro reveal">
+          <p class="kicker">Réserver</p>
+          <h1 class="section-title" id="reserver-title">Réservez <em>votre formule</em></h1>
+          <p class="lead">
+            Choisissez votre formule et la date à laquelle vous aimeriez commencer&nbsp;:
+            Bo’Cocon vous recontacte pour confirmer et préparer avec vous le premier échange.
+          </p>
+        </div>
+
+        <div class="booking__recap reveal" style="--d:1" aria-hidden="true">
+          <div class="booking-recap">
+            <svg class="booking-recap__sprig"><use href="#bco-sprig"/></svg>
+            <p class="booking-recap__kicker">Votre demande</p>
+            <p class="booking-recap__formula" data-book="formule">La formule de votre choix</p>
+            <p class="booking-recap__extra" data-book-extra hidden>+ Douces énergies</p>
+            <p class="booking-recap__price" data-book="price">Toutes les formules</p>
+            <p class="booking-recap__net"><strong data-book="net">50&nbsp;%</strong><span data-book="net-label">de crédit d’impôt immédiat</span></p>
+            <dl class="booking-recap__list">
+              <div><dt>Quand</dt><dd data-book="date">À définir ensemble</dd></div>
+              <div><dt>Où</dt><dd data-book="town">Chez vous, du Pic Saint-Loup à la Vaunage</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <form class="booking__form reveal" style="--d:2" id="booking-form" novalidate>
+          <fieldset class="field">
+            <legend>Votre formule</legend>
+            <div class="chips chips--3">
+                <label class="chip">
+                  <input type="radio" name="book-formule" value="Première lueur" data-price="180">
+                  <span class="chip__name">Première lueur</span>
+                  <span class="chip__price">à partir de 180&nbsp;€</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="book-formule" value="Semaine allégée" data-price="250">
+                  <span class="chip__name">Semaine allégée</span>
+                  <span class="chip__price">à partir de 250&nbsp;€</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="book-formule" value="Cocon mois d’or" data-price="900">
+                  <span class="chip__name">Cocon mois d’or</span>
+                  <span class="chip__price">à partir de 900&nbsp;€</span>
+                </label>
+            </div>
+            <p class="addon-title">Pour compléter votre formule</p>
+            <label class="addon">
+              <input type="checkbox" name="book-extra" value="Douces énergies" data-price="60" data-credit="1" data-price-text="à partir de 60&nbsp;€" disabled>
+              <span class="addon__box" aria-hidden="true"></span>
+              <span class="addon__text">
+                <span class="addon__name">+ Douces énergies</span>
+                <span class="addon__price">des en-cas en plus · à partir de 60&nbsp;€</span>
+              </span>
+              <span class="addon__hint">Choisissez d’abord une formule</span>
+            </label>
+            <label class="addon">
+              <input type="checkbox" name="book-courses" value="Les courses" data-price="50" data-credit="1" data-price-text="à partir de 50&nbsp;€" disabled>
+              <span class="addon__box" aria-hidden="true"></span>
+              <span class="addon__text">
+                <span class="addon__name">+ Les courses</span>
+                <span class="addon__price">faites pour vous · à partir de 50&nbsp;€</span>
+              </span>
+              <span class="addon__hint">Choisissez d’abord une formule</span>
+            </label>
+          </fieldset>
+          <a class="addon addon--gift" href="offrir.html" data-gift-switch>
+            <span class="addon__gift" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="11" rx="1.5"/><path d="M2.5 9h19v-3h-19z"/><path d="M12 6v14"/><path d="M12 6c-1.5-3-5.5-3.5-5.5-.8C6.5 6.5 9 6 12 6zM12 6c1.5-3 5.5-3.5 5.5-.8 0 1.3-2.5.8-5.5.8z"/></svg></span>
+            <span class="addon__text">
+              <span class="addon__name">C’est pour offrir</span>
+              <span class="addon__price">composez la carte cadeau, avec votre petit mot</span>
+            </span>
+            <span class="addon__go" aria-hidden="true">→</span>
+          </a>
+          <div class="field-row">
+            <label class="field">
+              <span>Votre nom</span>
+              <input type="text" name="book-name" maxlength="60" autocomplete="name" placeholder="Prénom et nom">
+            </label>
+            <label class="field">
+              <span>Téléphone</span>
+              <input type="tel" name="book-tel" maxlength="20" autocomplete="tel" placeholder="Votre numéro">
+            </label>
+          </div>
+          <div class="field-row">
+            <label class="field">
+              <span>Votre commune</span>
+              <input type="text" name="book-town" maxlength="60" autocomplete="address-level2" placeholder="Ex.&nbsp;: Calvisson">
+            </label>
+            <label class="field">
+              <span>Date souhaitée</span>
+              <input type="date" name="book-date">
+            </label>
+          </div>
+          <label class="field">
+            <span>Votre message <small>(facultatif)</small></span>
+            <textarea name="book-msg" rows="3" maxlength="400" placeholder="Date du terme, nombre de personnes, allergies…"></textarea>
+          </label>
+          <a class="btn btn--primary form-submit" id="booking-send" href="mailto:bococon.contact@gmail.com?subject=R%C3%A9servation%20Bo%E2%80%99Cocon">
+            Envoyer ma demande
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+          <p class="form-note">Votre messagerie s’ouvre avec la demande déjà écrite. Vous pouvez aussi appeler le <a href="tel:+33781188607">07&nbsp;81&nbsp;18&nbsp;86&nbsp;07</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Pied de page ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand-col">
+          <a class="brand footer__brand" href="./" aria-label="Bo’Cocon — accueil"><span class="footer__wordmark" aria-hidden="true"></span></a>
+          <p class="footer__tagline">Cuisine à domicile post-partum &amp; familiale</p>
+        </div>
+        <div>
+          <h2 class="footer__title">Navigation</h2>
+          <ul class="footer__list">
+            <li><a href="concept.html">Le concept</a></li>
+            <li><a href="formules.html">Formules</a></li>
+            <li><a href="reserver.html">Réserver</a></li>
+            <li><a href="offrir.html">Offrir</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer__title">Contact</h2>
+          <ul class="footer__list">
+            <li><a href="mailto:bococon.contact@gmail.com">bococon.contact@gmail.com</a></li>
+            <li><a href="tel:+33781188607">07 81 18 86 07</a></li>
+            <li>Du Pic Saint-Loup à la Vaunage</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> Bo’Cocon</p>
+        <p class="footer__legal">
+          <a href="cgv.html">CGV</a>
+          <span aria-hidden="true">·</span>
+          <a href="confidentialite.html">Politique de confidentialité</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

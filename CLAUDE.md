@@ -17,9 +17,11 @@
    24/10/2026 : visites illimitées, 500 mises à jour par mois, pas de risque de site coupé ;
    le gratuit de Netlify, 300 crédits, coupe le site quand ils sont épuisés). Branche de
    production : `main`.
-   Ne publier que les fichiers du site (`index.html`, `css/`, `js/`, `assets/`), pas
-   `app.py`, `CLAUDE.md`, `README.md` : par exemple une commande de construction qui les
-   copie dans un dossier `dist/`, publié comme dossier de sortie.
+   Ne publier que les fichiers du site (les `*.html` de la racine, `css/`, `js/`,
+   `assets/`), pas `app.py`, `pages/`, `outils/`, `CLAUDE.md`, `README.md` : par exemple
+   une commande de construction qui les copie dans un dossier `dist/`, publié comme
+   dossier de sortie. Cloudflare Pages enlève « .html » des adresses (/formules) : les
+   liens en « formules.html » restent valables (redirection).
 3. Ensuite : relier le domaine **bococon.fr** (celui de la carte de visite). Pour le domaine
    nu sur Cloudflare Pages, la gestion du domaine (serveurs DNS) doit passer chez
    Cloudflare : changer les serveurs DNS chez le vendeur du domaine (à demander au
@@ -45,10 +47,26 @@
 - Vérifier une dernière fois le site sur Cloudflare Pages après la mise en ligne.
 
 ## Repères techniques
-- Site statique : `index.html`, `css/style.css`, `js/main.js`, `assets/` (logo d’origine
-  détouré en PNG). Pas d’outil de build.
-- `app.py` n’existe que pour Streamlit : il intègre CSS, JS et images dans une iframe
-  `srcdoc`. Les liens internes y sont gérés en JS (`location.protocol === "about:"`).
+- Site statique à plusieurs pages (demande de la cuisinière, 21/11/2026 : « moins de trop
+  d’informations », chaque partie dans son onglet) : `index.html` (accueil : héros,
+  aperçu du concept, aperçu des 3 bocaux), `concept.html` (concept, parcours, déroulé,
+  engagements), `formules.html` (bocaux, option bocaux, crédit d’impôt), `reserver.html`,
+  `offrir.html`, `contact.html`, `cgv.html`, `confidentialite.html` ; `css/style.css`,
+  `js/main.js`, `assets/`.
+- **Les pages de la racine sont fabriquées** : ne jamais les modifier directement.
+  Modifier `pages/<nom>.html` (contenu de la page, avec en tête titre / description /
+  menu) ou `pages/_gabarit.html` (tout ce qui est commun : en-tête, menu, ouverture, pied
+  de page), puis lancer `python3 outils/generer_pages.py` (vérifier :
+  `python3 outils/generer_pages.py --verifier`). Le menu marque la page en cours
+  (`data-nav` → `aria-current="page"`).
+- Choix transmis d’une page à l’autre par l’adresse : bouton « Réserver » au dos d’un bocal
+  → `reserver.html?formule=…` (ou `?complement=…` pour Douces énergies / Les courses) ;
+  « C’est pour offrir » → `offrir.html?formule=…&extras=…` (js/main.js : `prefill`).
+- `app.py` n’existe que pour Streamlit : il met toutes les pages dans un seul document
+  (iframe `srcdoc`), chacune dans un bloc `.st-page` ; js/main.js affiche la page demandée
+  (`location.protocol === "about:"`, aiguillage des liens « x.html », « x.html#partie »,
+  « ?formule=… »). `?page=formules` dans l’adresse Streamlit ouvre directement une page.
+  Attention : les ids doivent rester uniques sur l’ensemble des pages.
 - Prix des formules (repris des maquettes du propriétaire) : Douces énergies 60 €,
   Première lueur 180 €, Semaine allégée 250 €, Cocon mois d’or 900 € — moitié prix après
   crédit d’impôt immédiat. Sur les bocaux, « À PARTIR DE … € » (prix avant crédit d’impôt, texte en arc
@@ -82,10 +100,9 @@
   Première lueur ; caution de 80 € (chèque non encaissé) avant la première prestation. Au
   dos de ces 3 bocaux, un lien `.jar__option` y mène. La clause juridique (consigne et
   caution) va dans les CGV / le devis, pas sur le site. Pas encore de case « option bocaux » dans Réserver / Offrir.
-- Ordre des sections : accueil, Le concept (`#approche`, s’appelait « L’approche »), Mon
-  parcours (`#parcours`), Déroulé (`#deroule`, fond taupe clair), Mes engagements
-  (`#engagements`, fond lin), Formules, crédit d’impôt (`#credit-impot`), Réserver, Offrir,
-  Contact. Menu : Le concept, Formules, Réserver, Offrir, Contact (choix du propriétaire),
+- Pages et menu : Le concept (`concept.html` : `#approche`, `#parcours`, `#deroule` fond
+  taupe clair, `#engagements` fond lin), Formules (`formules.html` : `#formules`,
+  `#option-bocaux`, `#credit-impot`), Réserver, Offrir, Contact (choix du propriétaire),
   avec des sous-parties (`.nav__sub`) : sous Le concept « Mon parcours, Le déroulé, Mes
   engagements », sous Formules « L’option bocaux, Le crédit d’impôt » (séparées par un
   simple espace sur téléphone, sans point). Sur téléphone, elles sont écrites en petit sous
@@ -101,10 +118,9 @@
   (intimité, sans jugement, écoute ; carte large, 3 colonnes), Sécurité alimentaire et
   traçabilité (normes HACCP), Nutrition sur-mesure pour le post-partum, Transparence légale
   et confiance (Services à la Personne, tarifs clairs). Son nom, Shannon Gaidoz, y figure
-  (donné par elle dans la charte). C’est une partie de la page d’accueil, pas une page à
-  part (elle parlait d’une « page » : possible plus tard, une fois sur Cloudflare Pages, si elle y tient).
-- Offrir reste une section à part (choix du propriétaire). Dans Réserver, le bouton
-  « C’est pour offrir » (`[data-gift-switch]`, lien vers `#offrir`) emmène à Offrir en
+  (donné par elle dans la charte). Sur la page `concept.html`.
+- Offrir est une page à part (choix du propriétaire). Dans Réserver, le bouton
+  « C’est pour offrir » (`[data-gift-switch]`, lien vers `offrir.html`) emmène à Offrir en
   reprenant la formule et les compléments déjà choisis.
 - Sections « Réserver » (demande de réservation) et « Offrir » (carte cadeau) : aperçu en
   direct + e-mail prérempli vers bococon.contact@gmail.com (`js/main.js`), pas de paiement
@@ -126,9 +142,8 @@
   à inventer (pas de prénom, pas de lieu).
 - Bas de page : à droite, à la place de la phrase sur le crédit d’impôt (demande de la
   cuisinière), deux liens discrets « CGV · Politique de confidentialité » (`.footer__legal`)
-  qui ouvrent chacun une petite fenêtre (`<dialog class="legal">`, `#cgv` et
-  `#confidentialite`, js/main.js : croix, Échap ou clic sur le fond pour fermer). Textes
-  pas encore reçus : un simple message « bientôt disponibles ». Une partie des CGV est
+  vers les pages `cgv.html` et `confidentialite.html` (`.legal-page`). Textes pas encore
+  reçus : un simple message « bientôt disponibles ». Une partie des CGV est
   prête chez elle ; l’autre attend les infos de l’hébergeur (Cloudflare, Inc., 101
   Townsend Street, San Francisco, CA 94107, États-Unis, +1 (650) 319-8930).
 - Ouverture (intro) : les battants au « B » s’ouvrent (à garder absolument : le propriétaire

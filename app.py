@@ -1,9 +1,10 @@
 """Bo'Cocon — affichage du site sur Streamlit.
 
-Le site reste un site statique (index.html + css/ + js/) ; cette application
-l'assemble en une seule page et l'affiche en plein écran.
+Le site reste un site statique (une page HTML par partie + css/ + js/) ; cette
+application assemble toutes les pages dans un seul document (chaque page dans un
+bloc .st-page, js/main.js affiche celle qu'on demande) et l'affiche en plein écran.
 
-Lancer en local :  streamlit run app.py
+Lancer en local :  streamlit run app.py      (une page précise : ?page=formules)
 """
 
 import base64
@@ -23,9 +24,21 @@ def data_uri(match: re.Match) -> str:
     return f"data:{mime};base64,{base64.b64encode(path.read_bytes()).decode()}"
 
 
-def build_site() -> str:
-    """Retourne index.html avec la feuille de style, le script et les images intégrés."""
+# les pages du site, dans l'ordre (même liste que outils/generer_pages.py)
+PAGES = ["index", "concept", "formules", "reserver", "offrir", "contact", "cgv", "confidentialite"]
+MAIN = re.compile(r'(<main id="contenu" tabindex="-1">)(.*?)(</main>)', re.S)
+
+
+def build_site(start: str = "index") -> str:
+    """Toutes les pages dans un seul document, avec la feuille de style, le script et
+    les images intégrés ; seule la page « start » est visible au départ."""
+    blocks = []
+    for name in PAGES:
+        page = (ROOT / f"{name}.html").read_text(encoding="utf-8")
+        hidden = "" if name == start else " hidden"
+        blocks.append(f'\n<div class="st-page" data-page="{name}"{hidden}>{MAIN.search(page).group(2)}</div>')
     html = (ROOT / "index.html").read_text(encoding="utf-8")
+    html = MAIN.sub(lambda m: m.group(1) + "".join(blocks) + "\n  " + m.group(3), html, count=1)
     css = (ROOT / "css" / "style.css").read_text(encoding="utf-8")
     js = (ROOT / "js" / "main.js").read_text(encoding="utf-8")
 
@@ -80,4 +93,5 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-components.html(build_site(), height=900, scrolling=True)
+page = st.query_params.get("page", "index")
+components.html(build_site(page if page in PAGES else "index"), height=900, scrolling=True)

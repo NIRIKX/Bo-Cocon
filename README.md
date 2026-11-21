@@ -2,13 +2,22 @@
 
 Cuisine à domicile post-partum & familiale.
 
-Site statique (HTML / CSS / JavaScript, sans outil de build) : il suffit d’ouvrir `index.html`
-dans un navigateur ou de publier le dossier tel quel (GitHub Pages, Netlify, OVH…).
+Site statique à plusieurs pages (HTML / CSS / JavaScript) : il suffit d’ouvrir `index.html`
+dans un navigateur ou de publier les fichiers du site tels quels.
 
 ## Structure
 
 ```
-index.html            Page d’accueil (intro animée + sections)
+index.html            Accueil (ouverture animée, aperçu du concept et des formules)
+concept.html          Le concept, Mon parcours, Le déroulé, Mes engagements
+formules.html         Les bocaux, l’option bocaux, le crédit d’impôt
+reserver.html         Demande de réservation
+offrir.html           Carte cadeau
+contact.html          Contact
+cgv.html              Conditions générales de vente (texte à venir)
+confidentialite.html  Politique de confidentialité (texte à venir)
+pages/                Contenu de chaque page + _gabarit.html (en-tête, menu, pied de page communs)
+outils/generer_pages.py  Fabrique les pages de la racine à partir de pages/
 css/style.css         Styles : palette, typographies, animations, responsive
 js/main.js            Intro, en-tête, menu mobile, formulaires, apparitions au défilement
 assets/               Logo d’origine détouré (fond transparent)
@@ -24,9 +33,10 @@ requirements.txt      Dépendances Streamlit
 
 ## Publier sur Streamlit
 
-`app.py` assemble `index.html`, `css/style.css` et `js/main.js` en une seule page et
-l’affiche en plein écran (l’interface Streamlit est masquée). Les modifications du site
-se font donc toujours dans ces fichiers.
+`app.py` assemble toutes les pages, `css/style.css` et `js/main.js` en un seul document et
+l’affiche en plein écran (l’interface Streamlit est masquée) ; les liens entre pages y
+restent dans le même document. Les modifications du site se font dans `pages/`, `css/` et
+`js/`, puis `python3 outils/generer_pages.py` refabrique les pages.
 
 En local :
 
@@ -64,11 +74,16 @@ Vaunage, avant l’arrivée sur la page d’accueil (environ 5,5 s).
 Un clic, la molette ou la touche Échap permettent de la passer. L’intro n’est pas rejouée
 lorsque l’on revient sur l’accueil depuis une autre page du site.
 
-## Page d’accueil : ordre des sections
+## Les pages
 
-Accueil → Le concept → Mon parcours → Le déroulé « Comment ça se passe ? » (fond taupe clair) →
-Mes engagements (la charte de la cuisinière, en 4 cartes) →
-Formules → bandeau crédit d’impôt → Réserver → Offrir → Contact.
+- Accueil : le titre, un aperçu du concept (« Découvrir le concept ») et les 3 bocaux
+  (« Voir le détail des formules »).
+- Le concept : le concept, Mon parcours, Le déroulé « Comment ça se passe ? » (fond taupe
+  clair), Mes engagements (la charte de la cuisinière, en 4 cartes).
+- Formules : les 5 bocaux, l’option bocaux, le bandeau crédit d’impôt.
+- Réserver, Offrir, Contact : chacun sa page.
+- CGV et politique de confidentialité : liens discrets en bas de chaque page.
+
 Menu du haut et pied de page : Le concept, Formules, Réserver, Offrir, Contact.
 Le menu a aussi des sous-parties : Mon parcours, Le déroulé et Mes engagements sous Le concept, L’option
 bocaux et Le crédit d’impôt sous Formules. Sur téléphone, elles sont écrites sous le titre ;

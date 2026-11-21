@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Page fabriquée par outils/generer_pages.py à partir de pages/index.html et pages/_gabarit.html : ne pas la modifier ici. -->
 <html lang="fr" class="no-js">
 <head>
   <meta charset="utf-8">
@@ -7,7 +8,7 @@
   <meta name="description" content="Bo’Cocon prépare chez vous des repas faits maison, doux et nourrissants, pour accompagner le post-partum et le quotidien de toute la famille. Formules éligibles à 50 % de crédit d’impôt immédiat.">
   <meta name="theme-color" content="#fef9f0">
   <meta property="og:title" content="Bo’Cocon — Cuisine à domicile post-partum &amp; familiale">
-  <meta property="og:description" content="Des repas sur mesure et faits maison, préparés chez vous, pour les premières semaines avec bébé et pour toute la famille.">
+  <meta property="og:description" content="Bo’Cocon prépare chez vous des repas faits maison, doux et nourrissants, pour accompagner le post-partum et le quotidien de toute la famille. Formules éligibles à 50 % de crédit d’impôt immédiat.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <link rel="icon" href="assets/favicon.png" type="image/png">
@@ -113,24 +114,24 @@
       <nav class="nav" id="nav" aria-label="Navigation principale">
         <ul class="nav__list">
           <li>
-            <a class="nav__link" href="#approche">Le concept</a>
+            <a class="nav__link" href="concept.html" data-nav="concept">Le concept</a>
             <ul class="nav__sub">
-              <li><a href="#parcours">Mon parcours</a></li>
-              <li><a href="#deroule">Le déroulé</a></li>
-              <li><a href="#engagements">Mes engagements</a></li>
+              <li><a href="concept.html#parcours">Mon parcours</a></li>
+              <li><a href="concept.html#deroule">Le déroulé</a></li>
+              <li><a href="concept.html#engagements">Mes engagements</a></li>
             </ul>
           </li>
           <li>
-            <a class="nav__link" href="#formules">Formules</a>
+            <a class="nav__link" href="formules.html" data-nav="formules">Formules</a>
             <ul class="nav__sub">
-              <li><a href="#option-bocaux">L’option bocaux</a></li>
-              <li><a href="#credit-impot">Le crédit d’impôt</a></li>
+              <li><a href="formules.html#option-bocaux">L’option bocaux</a></li>
+              <li><a href="formules.html#credit-impot">Le crédit d’impôt</a></li>
             </ul>
           </li>
-          <li><a class="nav__link" href="#reserver">Réserver</a></li>
-          <li><a class="nav__link" href="#offrir">Offrir</a></li>
+          <li><a class="nav__link" href="reserver.html" data-nav="reserver">Réserver</a></li>
+          <li><a class="nav__link" href="offrir.html" data-nav="offrir">Offrir</a></li>
         </ul>
-        <a class="btn btn--ghost" href="#contact">Contact</a>
+        <a class="btn btn--ghost" href="contact.html" data-nav="contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -150,11 +151,11 @@
             et simplifier le quotidien de toute la famille.
           </p>
           <div class="hero__actions rise" style="--d:3">
-            <a class="btn btn--primary" href="#formules">
+            <a class="btn btn--primary" href="formules.html">
               Découvrir les formules
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
             </a>
-            <a class="btn btn--ghost" href="#contact">Me contacter</a>
+            <a class="btn btn--ghost" href="contact.html">Me contacter</a>
           </div>
           <p class="hero__note rise" style="--d:4">
             <strong>50%</strong>
@@ -181,183 +182,40 @@
       </div>
     </section>
 
-    <!-- ===================== Le concept ===================== -->
-    <section class="section section--linen" id="approche" aria-labelledby="approche-title">
+    <!-- ===================== Aperçu : le concept ===================== -->
+    <section class="section section--linen" aria-labelledby="accueil-concept-title">
       <div class="container">
         <div class="section-head reveal">
           <svg class="sprig" aria-hidden="true"><use href="#bco-sprig"/></svg>
           <p class="kicker kicker--center">Le concept</p>
-          <h2 class="section-title" id="approche-title">Prendre soin de votre cocon à&nbsp;travers une cuisine <em>saine et réconfortante</em></h2>
+          <h2 class="section-title" id="accueil-concept-title">Prendre soin de votre cocon à&nbsp;travers une cuisine <em>saine et réconfortante</em></h2>
           <p class="lead">
             Après une naissance, chaque heure de repos compte. Bo’Cocon s’occupe de la cuisine, chez vous,
             pour que vous puissiez vous consacrer à l’essentiel : récupérer, faire connaissance avec bébé
             et profiter de ces moments en famille.
           </p>
+          <p class="teaser-more">
+            <a class="btn btn--ghost" href="concept.html">
+              Découvrir le concept
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+            </a>
+          </p>
         </div>
-
-        <ul class="pillars">
-          <li class="pillar reveal" style="--d:0">
-            <div class="pillar__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10 30 32 12l22 18"/>
-                <path d="M16 26v24h32V26"/>
-                <path d="M32 44s-8-5-8-10a4.2 4.2 0 0 1 8-1.8A4.2 4.2 0 0 1 40 34c0 5-8 10-8 10z"/>
-              </svg>
-            </div>
-            <h3>Fait maison, chez vous</h3>
-            <p>Les repas sont cuisinés dans votre cuisine, avec des produits frais et de saison.</p>
-          </li>
-          <li class="pillar reveal" style="--d:1">
-            <div class="pillar__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11 33c1.5 10.5 10 17 21 17s19.5-6.5 21-17"/>
-                <ellipse cx="32" cy="33" rx="21" ry="5"/>
-                <path d="M16 41c9 3.5 23 3.5 32 0M21 47c7 2 15 2 22 0"/>
-                <path d="M25 29c0-5 2.4-9 5.5-9s5.5 4 5.5 9M33 29c.4-4 2.6-7 5.2-7 2.8 0 4.8 3.2 4.8 7"/>
-              </svg>
-            </div>
-            <h3>Pensé pour le post-partum</h3>
-            <p>Des plats chauds, doux et nourrissants, inspirés de la tradition du mois d’or.</p>
-          </li>
-          <li class="pillar reveal" style="--d:2">
-            <div class="pillar__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="32" cy="34" r="14"/>
-                <circle cx="32" cy="34" r="9"/>
-                <path d="M10 18v9a3.5 3.5 0 0 0 7 0v-9M13.5 18v32"/>
-                <path d="M54 18c-3.5 2-5 7-5 13h5v19"/>
-              </svg>
-            </div>
-            <h3>Pour toute la famille</h3>
-            <p>Des recettes simples et gourmandes, adaptées à vos goûts, vos allergies et vos habitudes.</p>
-          </li>
-        </ul>
       </div>
     </section>
 
-    <!-- ===================== Mon parcours (texte donné par le propriétaire) ===================== -->
-    <section class="section story" id="parcours" aria-labelledby="parcours-title">
+    <!-- ===================== Aperçu : les formules ===================== -->
+    <section class="section formules-teaser" aria-labelledby="accueil-formules-title">
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker kicker--center">Mon parcours</p>
-          <h2 class="section-title" id="parcours-title">Du restaurant <em>à votre cuisine</em></h2>
-        </div>
-        <ol class="story__steps">
-          <li class="reveal" style="--d:0">
-            <span class="story__when">Mes études</span>
-            <p>Une formation en hôtellerie&#8209;restauration.</p>
-          </li>
-          <li class="reveal" style="--d:1">
-            <span class="story__when">10 ans</span>
-            <p>de métier dans la restauration.</p>
-          </li>
-          <li class="reveal" style="--d:2">
-            <span class="story__when">2023</span>
-            <p>La naissance de mon petit garçon.</p>
-          </li>
-          <li class="reveal" style="--d:3">
-            <span class="story__when">Bo’Cocon</span>
-            <p>Depuis, je cherchais à créer une entreprise qui me corresponde&nbsp;: c’est ainsi qu’est né Bo’Cocon.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ===================== Déroulé ===================== -->
-    <section class="section section--taupe" id="deroule" aria-labelledby="deroule-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker kicker--center">Le déroulé</p>
-          <h2 class="section-title" id="deroule-title">Comment ça se passe&nbsp;?</h2>
-        </div>
-        <ol class="steps">
-          <li class="step reveal" style="--d:0">
-            <span class="step__num" aria-hidden="true">01</span>
-            <h3>On fait connaissance</h3>
-            <p>Un premier échange pour comprendre vos besoins, vos envies et le rythme de votre foyer.</p>
-          </li>
-          <li class="step reveal" style="--d:1">
-            <span class="step__num" aria-hidden="true">02</span>
-            <h3>Un menu sur-mesure</h3>
-            <p>Les menus sont composés pour vous, selon la formule choisie et vos préférences.</p>
-          </li>
-          <li class="step reveal" style="--d:2">
-            <span class="step__num" aria-hidden="true">03</span>
-            <h3>Je cuisine chez vous</h3>
-            <p>Les plats sont préparés chez vous. Il ne vous reste plus qu’à vous mettre à table.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ===================== Mes engagements (charte de la cuisinière, condensée) ===================== -->
-    <section class="section section--linen" id="engagements" aria-labelledby="engagements-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="kicker kicker--center">Mes engagements</p>
-          <h2 class="section-title" id="engagements-title">Une charte éthique <em>et professionnelle</em></h2>
-          <p class="lead">Bo’Cocon (Shannon Gaidoz) s’engage à la respecter lors de chaque intervention à votre domicile.</p>
-        </div>
-        <ol class="pledges">
-          <li class="pledge pledge--wide reveal" style="--d:0">
-            <div class="pledge__head">
-              <span class="pledge__icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 51S14 41 14 27.5a9 9 0 0 1 18-3.8 9 9 0 0 1 18 3.8C50 41 32 51 32 51z"/><path d="M24 28.5c0-2.6 1.8-4.5 4.2-4.8"/></svg></span>
-              <h3>Respect et bienveillance</h3>
-            </div>
-            <ul class="pledge__list">
-              <li><strong>Votre intimité</strong><span class="pledge__sep">&nbsp;: </span>j’entre dans votre bulle familiale avec discrétion, en respectant votre espace, votre fatigue et vos moments avec votre <span class="nowrap">nouveau-né</span>.</li>
-              <li><strong>Sans jugement</strong><span class="pledge__sep">&nbsp;: </span>pas de conseils non sollicités, ni de regard sur vos choix (allaitement maternel ou artificiel, cododo, organisation). Je suis là pour vous porter, pas pour vous évaluer.</li>
-              <li><strong>À votre écoute</strong><span class="pledge__sep">&nbsp;: </span>une oreille chaleureuse pour vos mots, vos doutes ou vos joies de jeune maman, dans le cadre de mon métier.</li>
-            </ul>
-          </li>
-          <li class="pledge reveal" style="--d:1">
-            <div class="pledge__head">
-              <span class="pledge__icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 10l18 6.5v13c0 11.5-7.8 19.6-18 24.5-10.2-4.9-18-13-18-24.5v-13z"/><path d="M24 32.5l5.5 5.5L41 26.5"/></svg></span>
-              <h3>Sécurité alimentaire et traçabilité <span class="pledge__tag">Normes HACCP</span></h3>
-            </div>
-            <ul class="pledge__list pledge__list--ticks">
-              <li>Hygiène rigoureuse</li>
-              <li>Gestion absolue des allergènes</li>
-              <li>Chaîne du froid et conservation respectées</li>
-            </ul>
-          </li>
-          <li class="pledge reveal" style="--d:2">
-            <div class="pledge__head">
-              <span class="pledge__icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 54V31"/><path d="M32 35c-10.5 0-16.5-6-16.5-16.5C26 18.5 32 24.5 32 35z"/><path d="M32 31c0-9.5 6-15 15.5-15C47.5 25.5 41.5 31 32 31z"/></svg></span>
-              <h3>Nutrition sur-mesure pour le post-partum</h3>
-            </div>
-            <ul class="pledge__list pledge__list--ticks">
-              <li>Récupération et vitalité</li>
-              <li>Soutien à l’allaitement sur demande&nbsp;: ingrédients galactogènes et collations nutritives, pour garder de l’énergie toute la journée</li>
-              <li>Une cuisine familiale</li>
-            </ul>
-          </li>
-          <li class="pledge reveal" style="--d:3">
-            <div class="pledge__head">
-              <span class="pledge__icon" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M18 10h20l10 10v34H18z"/><path d="M38 10v10h10"/><path d="M25 31h16M25 39h16M25 47h9"/></svg></span>
-              <h3>Transparence légale et confiance</h3>
-            </div>
-            <ul class="pledge__list">
-              <li><strong>Services à la Personne</strong>&nbsp;: une conformité administrative totale, pour bénéficier en toute sécurité de votre crédit d’impôt de 50&nbsp;%.</li>
-              <li><strong>Tarifs clairs</strong>&nbsp;: aucun frais caché, tout est transparent dès la signature du devis.</li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ===================== Formules ===================== -->
-    <section class="section" id="formules" aria-labelledby="formules-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="section-title section-title--caps" id="formules-title">Formules</h2>
+          <h2 class="section-title section-title--caps" id="accueil-formules-title">Formules</h2>
           <p class="lead">Quelques heures de répit ou un mois entier de douceur : choisissez le rythme qui vous ressemble.</p>
         </div>
-
-        <ul class="formulas formulas--main">
+        <ul class="formulas formulas--main formulas--teaser">
           <li class="reveal" style="--d:0">
-            <div class="jar">
-              <div class="jar__inner">
+            <a class="jar-link" href="formules.html">
+              <div class="jar jar--teaser">
+                <div class="jar__inner">
                 <div class="jar__face jar__face--front">
                   <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
                     <use href="#jar-glass"/><g clip-path="url(#jar-clip)"><g transform="translate(0 282)"><g class="jar__fill"><use class="jar__wave" href="#jar-wave"/></g></g></g><use href="#jar-outline"/><use href="#jar-oval"/>
@@ -368,29 +226,18 @@
                   <p class="visually-hidden">À partir de 180&nbsp;€, soit 90&nbsp;€ après crédit d’impôt.</p>
                   <p class="jar__net" aria-hidden="true"><strong>90&nbsp;€</strong><span>après crédit d’impôt</span></p>
                 </div>
-                <div class="jar__face jar__face--back" id="formule-2-detail">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false"><use href="#jar-glass"/><use href="#jar-outline"/></svg>
-                  <div class="jar__sheet">
-                    <p class="jar__kicker">Première lueur</p>
-                    <ul class="jar__list">
-                      <li><strong>4 repas</strong> (entrée&nbsp;+&nbsp;plat)</li>
-                      <li>Le nettoyage</li>
-                      <li>Durée moyenne : 2 à 3&nbsp;h</li>
-                      <li class="jar__option"><a href="#option-bocaux"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#bocal-mini"/></svg>Option bocaux à&nbsp;15&nbsp;€</a></li>
-                    </ul>
-                    <a class="jar__cta" href="#reserver" data-reserve="Première lueur">Réserver<span class="visually-hidden"> – Première lueur</span></a>
-                  </div>
                 </div>
+                <span class="jar__toggle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
+                  <span class="jar__toggle-text">Voir le détail</span>
+                </span>
               </div>
-              <button class="jar__toggle" type="button" aria-expanded="false" aria-controls="formule-2-detail">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4.5v4.6h-4.6"/></svg>
-                <span class="jar__toggle-text"><span class="t-front">Voir le détail</span><span class="t-back">Revenir</span></span><span class="visually-hidden"> – Première lueur</span>
-              </button>
-            </div>
+            </a>
           </li>
           <li class="reveal" style="--d:1">
-            <div class="jar">
-              <div class="jar__inner">
+            <a class="jar-link" href="formules.html">
+              <div class="jar jar--teaser">
+                <div class="jar__inner">
                 <div class="jar__face jar__face--front">
                   <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
                     <use href="#jar-glass"/><g clip-path="url(#jar-clip)"><g transform="translate(0 209)"><g class="jar__fill"><use class="jar__wave" href="#jar-wave"/></g></g></g><use href="#jar-outline"/><use href="#jar-oval"/>
@@ -401,30 +248,18 @@
                   <p class="visually-hidden">À partir de 250&nbsp;€, soit 125&nbsp;€ après crédit d’impôt.</p>
                   <p class="jar__net" aria-hidden="true"><strong>125&nbsp;€</strong><span>après crédit d’impôt</span></p>
                 </div>
-                <div class="jar__face jar__face--back" id="formule-3-detail">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false"><use href="#jar-glass"/><use href="#jar-outline"/></svg>
-                  <div class="jar__sheet jar__sheet--dense">
-                    <p class="jar__kicker">Semaine allégée</p>
-                    <ul class="jar__list">
-                      <li><strong>6 repas</strong> (entrée&nbsp;+&nbsp;plat)</li>
-                      <li><strong>1 collation</strong><span class="jar__hint">un des <span class="nowrap">en-cas</span> de Douces&nbsp;énergies</span></li>
-                      <li>Le nettoyage</li>
-                      <li>Environ 4&nbsp;h</li>
-                      <li class="jar__option"><a href="#option-bocaux"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#bocal-mini"/></svg>Option bocaux incluse</a></li>
-                    </ul>
-                    <a class="jar__cta" href="#reserver" data-reserve="Semaine allégée">Réserver<span class="visually-hidden"> – Semaine allégée</span></a>
-                  </div>
                 </div>
+                <span class="jar__toggle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
+                  <span class="jar__toggle-text">Voir le détail</span>
+                </span>
               </div>
-              <button class="jar__toggle" type="button" aria-expanded="false" aria-controls="formule-3-detail">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4.5v4.6h-4.6"/></svg>
-                <span class="jar__toggle-text"><span class="t-front">Voir le détail</span><span class="t-back">Revenir</span></span><span class="visually-hidden"> – Semaine allégée</span>
-              </button>
-            </div>
+            </a>
           </li>
           <li class="reveal" style="--d:2">
-            <div class="jar">
-              <div class="jar__inner">
+            <a class="jar-link" href="formules.html">
+              <div class="jar jar--teaser">
+                <div class="jar__inner">
                 <div class="jar__face jar__face--front">
                   <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
                     <use href="#jar-glass"/><g clip-path="url(#jar-clip)"><g transform="translate(0 161)"><g class="jar__fill"><use class="jar__wave" href="#jar-wave"/></g></g></g><use href="#jar-outline"/><use href="#jar-oval"/>
@@ -435,374 +270,21 @@
                   <p class="visually-hidden">À partir de 900&nbsp;€, soit 450&nbsp;€ après crédit d’impôt.</p>
                   <p class="jar__net" aria-hidden="true"><strong>450&nbsp;€</strong><span>après crédit d’impôt</span></p>
                 </div>
-                <div class="jar__face jar__face--back" id="formule-4-detail">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false"><use href="#jar-glass"/><use href="#jar-outline"/></svg>
-                  <div class="jar__sheet jar__sheet--dense jar__sheet--denser">
-                    <p class="jar__kicker">Cocon mois d’or</p>
-                    <ul class="jar__list">
-                      <li><strong>4 prestations</strong> d’environ 4&nbsp;h chacune</li>
-                      <li class="jar__each">À chaque prestation&nbsp;:</li>
-                      <li><strong>6 repas</strong> (entrée&nbsp;+&nbsp;plat)</li>
-                      <li><strong>1 collation</strong><span class="jar__hint">un des <span class="nowrap">en-cas</span> de Douces&nbsp;énergies</span></li>
-                      <li>Le nettoyage</li>
-                      <li class="jar__option"><a href="#option-bocaux"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#bocal-mini"/></svg>Option bocaux incluse</a></li>
-                    </ul>
-                    <a class="jar__cta" href="#reserver" data-reserve="Cocon mois d’or">Réserver<span class="visually-hidden"> – Cocon mois d’or</span></a>
-                  </div>
                 </div>
+                <span class="jar__toggle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M14 7l5 5-5 5"/></svg>
+                  <span class="jar__toggle-text">Voir le détail</span>
+                </span>
               </div>
-              <button class="jar__toggle" type="button" aria-expanded="false" aria-controls="formule-4-detail">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4.5v4.6h-4.6"/></svg>
-                <span class="jar__toggle-text"><span class="t-front">Voir le détail</span><span class="t-back">Revenir</span></span><span class="visually-hidden"> – Cocon mois d’or</span>
-              </button>
-            </div>
+            </a>
           </li>
         </ul>
-
-        <p class="formulas__group reveal"><span aria-hidden="true">+</span> Pour compléter votre formule</p>
-        <ul class="formulas formulas--extras">
-          <li class="reveal" style="--d:0">
-            <div class="jar">
-              <div class="jar__inner">
-                <div class="jar__face jar__face--front">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
-                    <use href="#jar-glass"/><g clip-path="url(#jar-clip)"><g transform="translate(0 401)"><g class="jar__fill"><use class="jar__wave" href="#jar-wave"/></g></g></g><use href="#jar-outline"/><use href="#jar-oval"/>
-                    <text class="jar__arc"><textPath href="#jar-arc" startOffset="50%" text-anchor="middle">À PARTIR DE 60 €</textPath></text>
-                  </svg>
-                  <span class="jar__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 32h44c0 11-9.5 18-22 18S10 43 10 32z"/><path d="M24 53h16"/><path d="M24 25c-3-3 3-6 0-10M32 25c-3-3 3-6 0-10M40 25c-3-3 3-6 0-10"/></svg></span>
-                  <div class="jar__label"><h3 class="jar__name">Douces énergies</h3></div>
-                  <p class="visually-hidden">À partir de 60&nbsp;€, soit 30&nbsp;€ après crédit d’impôt.</p>
-                  <p class="jar__net" aria-hidden="true"><strong>30&nbsp;€</strong><span>après crédit d’impôt</span></p>
-                </div>
-                <div class="jar__face jar__face--back" id="formule-1-detail">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false"><use href="#jar-glass"/><use href="#jar-outline"/></svg>
-                  <div class="jar__sheet jar__sheet--dense">
-                    <p class="jar__kicker">Douces énergies</p>
-                    <ul class="jar__list">
-                      <li><strong>3 en-cas au choix</strong></li>
-                      <li><strong>100&nbsp;% fait maison</strong>, équilibrés, riches en nutriments essentiels</li>
-                      <li class="jar__examples">Par exemple : granola, overnight skyr, pancakes, compotes, dattes snickers, barres chocolatées saines</li>
-                    </ul>
-                    <a class="jar__cta" href="#reserver" data-reserve="Douces énergies">Réserver<span class="visually-hidden"> – Douces énergies</span></a>
-                  </div>
-                </div>
-              </div>
-              <button class="jar__toggle" type="button" aria-expanded="false" aria-controls="formule-1-detail">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4.5v4.6h-4.6"/></svg>
-                <span class="jar__toggle-text"><span class="t-front">Voir le détail</span><span class="t-back">Revenir</span></span><span class="visually-hidden"> – Douces énergies</span>
-              </button>
-            </div>
-          </li>
-          <li class="reveal" style="--d:1">
-            <div class="jar">
-              <div class="jar__inner">
-                <div class="jar__face jar__face--front">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false">
-                    <use href="#jar-glass"/><g clip-path="url(#jar-clip)"><g transform="translate(0 412)"><g class="jar__fill"><use class="jar__wave" href="#jar-wave"/></g></g></g><use href="#jar-outline"/><use href="#jar-oval"/>
-                    <text class="jar__arc"><textPath href="#jar-arc" startOffset="50%" text-anchor="middle">À PARTIR DE 50 €</textPath></text>
-                  </svg>
-                  <span class="jar__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 27h46l-6 23a4 4 0 0 1-3.9 3H18.9a4 4 0 0 1-3.9-3z"/><path d="M23 27l8-13M41 27l-8-13"/><path d="M24 35v10M32 35v10M40 35v10"/></svg></span>
-                  <div class="jar__label"><h3 class="jar__name">Les courses</h3></div>
-                  <p class="visually-hidden">À partir de 50&nbsp;€, soit 25&nbsp;€ après crédit d’impôt.</p>
-                  <p class="jar__net" aria-hidden="true"><strong>25&nbsp;€</strong><span>après crédit d’impôt</span></p>
-                </div>
-                <div class="jar__face jar__face--back" id="formule-5-detail">
-                  <svg class="jar__art" viewBox="0 0 300 480" aria-hidden="true" focusable="false"><use href="#jar-glass"/><use href="#jar-outline"/></svg>
-                  <div class="jar__sheet">
-                    <p class="jar__kicker">Les courses</p>
-                    <ul class="jar__list">
-                      <li><strong>0&nbsp;% de charge mentale</strong></li>
-                      <li>Je fais les courses à votre place : vous n’avez rien à organiser.</li>
-                    </ul>
-                    <a class="jar__cta" href="#reserver" data-reserve="Les courses">Réserver<span class="visually-hidden"> – Les courses</span></a>
-                  </div>
-                </div>
-              </div>
-              <button class="jar__toggle" type="button" aria-expanded="false" aria-controls="formule-5-detail">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4.5v4.6h-4.6"/></svg>
-                <span class="jar__toggle-text"><span class="t-front">Voir le détail</span><span class="t-back">Revenir</span></span><span class="visually-hidden"> – Les courses</span>
-              </button>
-            </div>
-          </li>
-        </ul>
-
-        <p class="formulas-note reveal"><small>Les prix indiqués sont des tarifs de départ, ajustés selon vos besoins.</small></p>
-
-        <!-- Option bocaux (consigne) : texte donné par la cuisinière -->
-        <article class="consigne" id="option-bocaux" aria-labelledby="consigne-title" tabindex="-1">
-          <div class="consigne__main reveal">
-            <svg class="consigne__jar" viewBox="0 0 300 480" aria-hidden="true" focusable="false"><use href="#jar-glass"/><use href="#jar-outline"/></svg>
-            <p class="kicker">La consigne</p>
-            <h3 class="consigne__title" id="consigne-title">L’option <em>bocaux</em></h3>
-            <p class="consigne__intro">Pour vous éviter de courir les magasins à la recherche de contenants sains et solides, j’ai créé l’option consigne.</p>
-            <h4 class="consigne__sub">Comment ça marche&nbsp;?</h4>
-            <p>C’est d’une simplicité absolue. Je viens chez vous avec mes propres contenants professionnels en verre borosilicate. Je cuisine, je dresse vos entrées, plats et douceurs dedans, et je les range dans votre frigo.</p>
-            <p>La semaine suivante, je reviens avec un nouveau kit lavé à haute température et désinfecté, prêt à accueillir de nouveaux plats.</p>
-          </div>
-          <div class="consigne__side reveal" style="--d:1">
-            <h4 class="consigne__sub">Les avantages pour vous</h4>
-            <ul class="consigne__perks">
-              <li>
-                <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M14 24h36l-3.2 27a4 4 0 0 1-4 3.5H21.2a4 4 0 0 1-4-3.5z"/><path d="M24 24v-4a8 8 0 0 1 16 0v4"/><path d="M22 34l20 12"/></svg>
-                <span><strong>Zéro achat</strong></span>
-              </li>
-              <li>
-                <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="12" y="40" width="40" height="13" rx="3"/><rect x="16" y="26" width="32" height="12" rx="3"/><rect x="20" y="13" width="24" height="11" rx="3"/></svg>
-                <span><strong>Gain de place</strong></span>
-              </li>
-              <li>
-                <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="10" y="12" width="44" height="42" rx="5"/><path d="M10 22h44"/><rect x="18" y="29" width="28" height="17" rx="3"/><path d="M17 17h.01M23 17h.01M29 17h.01"/></svg>
-                <span><strong>Du four à la table</strong>&nbsp;: mes plats passent directement du congélateur ou du frigo au four.</span>
-              </li>
-            </ul>
-            <div class="consigne__price">
-              <p><strong>Incluse</strong> dans Semaine&nbsp;allégée et Cocon&nbsp;mois&nbsp;d’or</p>
-              <p><strong>15&nbsp;€</strong> par prestation avec Première&nbsp;lueur</p>
-            </div>
-            <p class="consigne__deposit">Une caution de 80&nbsp;€ (chèque non encaissé) est demandée avant la première prestation, en cas de casse, de perte ou de non-restitution du matériel.</p>
-          </div>
-          <p class="consigne__end reveal" style="--d:2">Offrez-vous un post-partum 100&nbsp;% serein.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ===================== Crédit d'impôt ===================== -->
-    <section class="tax" id="credit-impot" aria-labelledby="tax-title">
-      <span class="tax__deco" aria-hidden="true"></span>
-      <div class="container tax__inner">
-        <p class="tax__figure reveal" aria-hidden="true">50<span>%</span></p>
-        <div class="reveal" style="--d:1">
-          <h2 id="tax-title">de crédit d’impôt immédiat, sur toutes les formules</h2>
-          <p>
-            Avec l’avance immédiate du crédit d’impôt, vous ne réglez que la moitié du prix&nbsp;:
-            une formule à 180&nbsp;€ ne vous revient qu’à 90&nbsp;€.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== Réserver ===================== -->
-    <section class="section section--linen booking" id="reserver" aria-labelledby="reserver-title">
-      <div class="container booking__grid">
-        <div class="booking__intro reveal">
-          <p class="kicker">Réserver</p>
-          <h2 class="section-title" id="reserver-title">Réservez <em>votre formule</em></h2>
-          <p class="lead">
-            Choisissez votre formule et la date à laquelle vous aimeriez commencer&nbsp;:
-            Bo’Cocon vous recontacte pour confirmer et préparer avec vous le premier échange.
-          </p>
-        </div>
-
-        <div class="booking__recap reveal" style="--d:1" aria-hidden="true">
-          <div class="booking-recap">
-            <svg class="booking-recap__sprig"><use href="#bco-sprig"/></svg>
-            <p class="booking-recap__kicker">Votre demande</p>
-            <p class="booking-recap__formula" data-book="formule">La formule de votre choix</p>
-            <p class="booking-recap__extra" data-book-extra hidden>+ Douces énergies</p>
-            <p class="booking-recap__price" data-book="price">Toutes les formules</p>
-            <p class="booking-recap__net"><strong data-book="net">50&nbsp;%</strong><span data-book="net-label">de crédit d’impôt immédiat</span></p>
-            <dl class="booking-recap__list">
-              <div><dt>Quand</dt><dd data-book="date">À définir ensemble</dd></div>
-              <div><dt>Où</dt><dd data-book="town">Chez vous, du Pic Saint-Loup à la Vaunage</dd></div>
-            </dl>
-          </div>
-        </div>
-
-        <form class="booking__form reveal" style="--d:2" id="booking-form" novalidate>
-          <fieldset class="field">
-            <legend>Votre formule</legend>
-            <div class="chips chips--3">
-                <label class="chip">
-                  <input type="radio" name="book-formule" value="Première lueur" data-price="180">
-                  <span class="chip__name">Première lueur</span>
-                  <span class="chip__price">à partir de 180&nbsp;€</span>
-                </label>
-                <label class="chip">
-                  <input type="radio" name="book-formule" value="Semaine allégée" data-price="250">
-                  <span class="chip__name">Semaine allégée</span>
-                  <span class="chip__price">à partir de 250&nbsp;€</span>
-                </label>
-                <label class="chip">
-                  <input type="radio" name="book-formule" value="Cocon mois d’or" data-price="900">
-                  <span class="chip__name">Cocon mois d’or</span>
-                  <span class="chip__price">à partir de 900&nbsp;€</span>
-                </label>
-            </div>
-            <p class="addon-title">Pour compléter votre formule</p>
-            <label class="addon">
-              <input type="checkbox" name="book-extra" value="Douces énergies" data-price="60" data-credit="1" data-price-text="à partir de 60&nbsp;€" disabled>
-              <span class="addon__box" aria-hidden="true"></span>
-              <span class="addon__text">
-                <span class="addon__name">+ Douces énergies</span>
-                <span class="addon__price">des en-cas en plus · à partir de 60&nbsp;€</span>
-              </span>
-              <span class="addon__hint">Choisissez d’abord une formule</span>
-            </label>
-            <label class="addon">
-              <input type="checkbox" name="book-courses" value="Les courses" data-price="50" data-credit="1" data-price-text="à partir de 50&nbsp;€" disabled>
-              <span class="addon__box" aria-hidden="true"></span>
-              <span class="addon__text">
-                <span class="addon__name">+ Les courses</span>
-                <span class="addon__price">faites pour vous · à partir de 50&nbsp;€</span>
-              </span>
-              <span class="addon__hint">Choisissez d’abord une formule</span>
-            </label>
-          </fieldset>
-          <a class="addon addon--gift" href="#offrir" data-gift-switch>
-            <span class="addon__gift" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="11" rx="1.5"/><path d="M2.5 9h19v-3h-19z"/><path d="M12 6v14"/><path d="M12 6c-1.5-3-5.5-3.5-5.5-.8C6.5 6.5 9 6 12 6zM12 6c1.5-3 5.5-3.5 5.5-.8 0 1.3-2.5.8-5.5.8z"/></svg></span>
-            <span class="addon__text">
-              <span class="addon__name">C’est pour offrir</span>
-              <span class="addon__price">composez la carte cadeau, avec votre petit mot</span>
-            </span>
-            <span class="addon__go" aria-hidden="true">→</span>
-          </a>
-          <div class="field-row">
-            <label class="field">
-              <span>Votre nom</span>
-              <input type="text" name="book-name" maxlength="60" autocomplete="name" placeholder="Prénom et nom">
-            </label>
-            <label class="field">
-              <span>Téléphone</span>
-              <input type="tel" name="book-tel" maxlength="20" autocomplete="tel" placeholder="Votre numéro">
-            </label>
-          </div>
-          <div class="field-row">
-            <label class="field">
-              <span>Votre commune</span>
-              <input type="text" name="book-town" maxlength="60" autocomplete="address-level2" placeholder="Ex.&nbsp;: Calvisson">
-            </label>
-            <label class="field">
-              <span>Date souhaitée</span>
-              <input type="date" name="book-date">
-            </label>
-          </div>
-          <label class="field">
-            <span>Votre message <small>(facultatif)</small></span>
-            <textarea name="book-msg" rows="3" maxlength="400" placeholder="Date du terme, nombre de personnes, allergies…"></textarea>
-          </label>
-          <a class="btn btn--primary form-submit" id="booking-send" href="mailto:bococon.contact@gmail.com?subject=R%C3%A9servation%20Bo%E2%80%99Cocon">
-            Envoyer ma demande
+        <p class="teaser-more reveal">
+          <a class="btn btn--primary" href="formules.html">
+            Voir le détail des formules
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
           </a>
-          <p class="form-note">Votre messagerie s’ouvre avec la demande déjà écrite. Vous pouvez aussi appeler le <a href="tel:+33781188607">07&nbsp;81&nbsp;18&nbsp;86&nbsp;07</a>.</p>
-        </form>
-      </div>
-    </section>
-
-    <!-- ===================== Offrir : carte cadeau ===================== -->
-    <section class="section gift" id="offrir" aria-labelledby="offrir-title">
-      <div class="container gift__grid">
-        <div class="gift__intro reveal">
-          <p class="kicker">Offrir</p>
-          <h2 class="section-title" id="offrir-title">Offrez un <em>cocon de douceur</em></h2>
-          <p class="lead">
-            Une carte cadeau pour offrir à une future ou jeune maman, ou à toute une famille,
-            des repas sur mesure et faits maison, préparés chez elle.
-          </p>
-          <ol class="gift__steps">
-            <li><span>1</span>Choisissez la formule à offrir.</li>
-            <li><span>2</span>Ajoutez votre petit mot : il apparaît sur la carte.</li>
-            <li><span>3</span>Envoyez la demande : Bo’Cocon vous recontacte pour finaliser la carte cadeau.</li>
-          </ol>
-        </div>
-
-        <div class="gift__preview reveal" style="--d:1" aria-hidden="true">
-          <div class="gift-card">
-            <span class="gift-card__arch"></span>
-            <div class="gift-card__body">
-              <p class="gift-card__kicker">Carte cadeau</p>
-              <p class="gift-card__to">Pour <span data-gift="to">vous</span></p>
-              <p class="gift-card__formula" data-gift="formule">La formule de votre choix</p>
-              <p class="gift-card__extra" data-gift-extra hidden>+ Douces énergies</p>
-              <p class="gift-card__msg" data-gift="msg">Prends soin de toi, on s’occupe du reste.</p>
-              <p class="gift-card__from">De la part de <span data-gift="from">…</span></p>
-            </div>
-          </div>
-        </div>
-
-        <form class="gift__form reveal" style="--d:2" id="gift-form" novalidate>
-          <fieldset class="field">
-            <legend>La formule à offrir</legend>
-            <div class="chips chips--3">
-                <label class="chip">
-                  <input type="radio" name="gift-formule" value="Première lueur">
-                  <span class="chip__name">Première lueur</span>
-                  <span class="chip__price">à partir de 180&nbsp;€</span>
-                </label>
-                <label class="chip">
-                  <input type="radio" name="gift-formule" value="Semaine allégée">
-                  <span class="chip__name">Semaine allégée</span>
-                  <span class="chip__price">à partir de 250&nbsp;€</span>
-                </label>
-                <label class="chip">
-                  <input type="radio" name="gift-formule" value="Cocon mois d’or">
-                  <span class="chip__name">Cocon mois d’or</span>
-                  <span class="chip__price">à partir de 900&nbsp;€</span>
-                </label>
-            </div>
-            <p class="addon-title">Pour compléter votre formule</p>
-            <label class="addon">
-              <input type="checkbox" name="gift-extra" value="Douces énergies" data-price="60" data-credit="1" data-price-text="à partir de 60&nbsp;€" disabled>
-              <span class="addon__box" aria-hidden="true"></span>
-              <span class="addon__text">
-                <span class="addon__name">+ Douces énergies</span>
-                <span class="addon__price">des en-cas en plus · à partir de 60&nbsp;€</span>
-              </span>
-              <span class="addon__hint">Choisissez d’abord une formule</span>
-            </label>
-            <label class="addon">
-              <input type="checkbox" name="gift-courses" value="Les courses" data-price="50" data-credit="1" data-price-text="à partir de 50&nbsp;€" disabled>
-              <span class="addon__box" aria-hidden="true"></span>
-              <span class="addon__text">
-                <span class="addon__name">+ Les courses</span>
-                <span class="addon__price">faites pour vous · à partir de 50&nbsp;€</span>
-              </span>
-              <span class="addon__hint">Choisissez d’abord une formule</span>
-            </label>
-          </fieldset>
-          <div class="field-row">
-            <label class="field">
-              <span>Pour qui&nbsp;?</span>
-              <input type="text" name="gift-to" maxlength="40" autocomplete="off" placeholder="Prénom">
-            </label>
-            <label class="field">
-              <span>De la part de</span>
-              <input type="text" name="gift-from" maxlength="40" autocomplete="off" placeholder="Votre prénom">
-            </label>
-          </div>
-          <label class="field">
-            <span>Votre petit mot</span>
-            <textarea name="gift-msg" rows="3" maxlength="140" placeholder="Prends soin de toi, on s’occupe du reste."></textarea>
-          </label>
-          <a class="btn btn--primary form-submit" id="gift-order" href="mailto:bococon.contact@gmail.com?subject=Carte%20cadeau%20Bo%E2%80%99Cocon">
-            Commander la carte cadeau
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
-          </a>
-          <p class="form-note">Votre messagerie s’ouvre avec la demande déjà écrite. Vous pouvez aussi appeler le <a href="tel:+33781188607">07&nbsp;81&nbsp;18&nbsp;86&nbsp;07</a>.</p>
-        </form>
-      </div>
-    </section>
-
-    <!-- ===================== Contact ===================== -->
-    <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="container reveal">
-        <div class="contact__arch" aria-hidden="true"><span class="arch-mono" aria-hidden="true"></span></div>
-        <h2 class="section-title" id="contact-title">Parlons de <em>votre cocon</em></h2>
-        <p class="lead">
-          Une naissance approche, ou bébé vient d’arriver&nbsp;? Prenons le temps d’échanger sur vos besoins
-          pour trouver la formule qui vous ressemble.
         </p>
-        <p class="contact__info">
-          <a href="tel:+33781188607">07 81 18 86 07</a> · <a href="mailto:bococon.contact@gmail.com">bococon.contact@gmail.com</a><br>
-          Du Pic Saint-Loup à la Vaunage
-        </p>
-        <div class="contact__actions">
-          <a class="btn btn--primary" href="mailto:bococon.contact@gmail.com?subject=Demande%20d%E2%80%99information%20Bo%E2%80%99Cocon">
-            Me contacter
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
-          </a>
-          <a class="btn btn--ghost" href="#formules">Voir les formules</a>
-        </div>
       </div>
     </section>
   </main>
@@ -818,11 +300,11 @@
         <div>
           <h2 class="footer__title">Navigation</h2>
           <ul class="footer__list">
-            <li><a href="#approche">Le concept</a></li>
-            <li><a href="#formules">Formules</a></li>
-            <li><a href="#reserver">Réserver</a></li>
-            <li><a href="#offrir">Offrir</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="concept.html">Le concept</a></li>
+            <li><a href="formules.html">Formules</a></li>
+            <li><a href="reserver.html">Réserver</a></li>
+            <li><a href="offrir.html">Offrir</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -837,41 +319,13 @@
       <div class="footer__bottom">
         <p>© <span id="year">2026</span> Bo’Cocon</p>
         <p class="footer__legal">
-          <a href="#cgv" data-legal="cgv">CGV</a>
+          <a href="cgv.html">CGV</a>
           <span aria-hidden="true">·</span>
-          <a href="#confidentialite" data-legal="confidentialite">Politique de confidentialité</a>
+          <a href="confidentialite.html">Politique de confidentialité</a>
         </p>
       </div>
     </div>
   </footer>
 
-  <!-- ===================== CGV et politique de confidentialité (petites fenêtres) =====================
-       Textes à recevoir de la cuisinière : en attendant, un simple message. -->
-  <dialog class="legal" id="cgv" aria-labelledby="cgv-title">
-    <div class="legal__inner">
-      <button class="legal__close" type="button" data-legal-close aria-label="Fermer">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-      <p class="kicker">Bo’Cocon</p>
-      <h2 class="legal__title" id="cgv-title">Conditions générales de vente</h2>
-      <div class="legal__body">
-        <p>Les conditions générales de vente seront bientôt disponibles ici.</p>
-        <p>Pour toute question&nbsp;: <a href="mailto:bococon.contact@gmail.com">bococon.contact@gmail.com</a></p>
-      </div>
-    </div>
-  </dialog>
-  <dialog class="legal" id="confidentialite" aria-labelledby="confidentialite-title">
-    <div class="legal__inner">
-      <button class="legal__close" type="button" data-legal-close aria-label="Fermer">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-      <p class="kicker">Bo’Cocon</p>
-      <h2 class="legal__title" id="confidentialite-title">Politique de confidentialité</h2>
-      <div class="legal__body">
-        <p>La politique de confidentialité sera bientôt disponible ici.</p>
-        <p>Pour toute question&nbsp;: <a href="mailto:bococon.contact@gmail.com">bococon.contact@gmail.com</a></p>
-      </div>
-    </div>
-  </dialog>
 </body>
 </html>

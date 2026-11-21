@@ -1307,6 +1307,22 @@ fieldset.field { container-type: inline-size; }
   .formulas--main > li:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: 100%; max-width: 280px; }
 }
 .formulas--extras { margin-top: 18px; }
+/* Accueil : aperçu des formules (face avant des bocaux, lien vers la page Formules) */
+.jar-link {
+  display: block;
+  border-radius: 40px;
+  color: inherit;
+  text-decoration: none;
+}
+.jar-link .jar { transition: transform .45s var(--ease-out); }
+.jar-link:hover .jar { transform: translateY(-6px); }
+.jar-link:focus-visible { outline: 2px solid var(--brown); outline-offset: 6px; }
+.jar--teaser .jar__toggle-text { text-decoration-color: rgba(116, 69, 55, .35); }
+.jar-link:hover .jar__toggle svg { transform: translateX(3px); }
+.jar--teaser .jar__toggle svg { transition: transform .3s ease; }
+/* Accueil : lien « Découvrir le concept » / « Voir le détail des formules » */
+.teaser-more { margin: clamp(28px, 4vw, 44px) 0 0; text-align: center; }
+.section-head .teaser-more { margin-top: 30px; }
 .formulas__group {
   display: flex;
   align-items: center;
@@ -1595,8 +1611,10 @@ fieldset.field { container-type: inline-size; }
   .js .jar__fill { transform: none; transition: none; }
 }
 
-#formules .section-head { margin-bottom: clamp(32px, 4.5vw, 52px); }
-#formules .lead {
+#formules .section-head,
+.formules-teaser .section-head { margin-bottom: clamp(32px, 4.5vw, 52px); }
+#formules .lead,
+.formules-teaser .lead {
   max-width: 46ch;
   text-wrap: balance;
   margin-top: 18px;
@@ -1936,56 +1954,14 @@ fieldset.field { container-type: inline-size; }
 }
 .footer__legal a:hover { color: var(--cream); text-decoration-color: currentColor; }
 
-/* Petites fenêtres des textes légaux */
-.legal {
-  width: min(720px, calc(100vw - 32px));
-  max-height: min(86vh, 86dvh);
-  padding: 0;
-  border: 0;
-  border-radius: 24px;
-  background: var(--cream);
-  color: var(--ink);
-  box-shadow: 0 30px 80px -30px rgba(81, 40, 20, .55);
-  overflow: hidden;
-}
-.legal::backdrop { background: rgba(81, 40, 20, .5); }
-.legal__inner {
-  position: relative;
-  max-height: inherit;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding: clamp(30px, 5vw, 52px) clamp(22px, 5vw, 52px);
-}
-.legal .kicker { margin-bottom: 10px; }
-.legal__title {
-  margin: 0 48px 18px 0;
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
-  line-height: 1.1;
-  color: var(--brown);
-}
-.legal__body { line-height: 1.65; }
-.legal__body p { margin: 0 0 12px; }
-.legal__body a { color: var(--brown); }
-.legal__close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 1px solid rgba(116, 69, 55, .35);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--brown);
-  cursor: pointer;
-  transition: background-color .25s ease;
-}
-.legal__close:hover { background: var(--linen); }
-.legal__close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+/* Pages CGV / politique de confidentialité */
+/* page courte : le pied de page reste en bas de l’écran */
+.legal-page { min-height: min(70vh, 640px); }
+.legal-page .container { max-width: 760px; }
+.legal-page .kicker { margin-bottom: 12px; }
+.legal-page__body { margin-top: 24px; line-height: 1.7; }
+.legal-page__body p { margin: 0 0 12px; }
+.legal-page__body a { color: var(--brown); }
 
 /* ==========================================================================
    Responsive

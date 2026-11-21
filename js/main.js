@@ -69,6 +69,15 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* le site est-il intégré dans Streamlit (iframe « srcdoc ») ? */
+  var embedded = location.protocol === "about:";
+  /* « concept.html » vise-t-il la page en cours ? (« / », « /concept » et « /concept.html ») */
+  function samePage(path) {
+    if (!path) return true;
+    var bare = function (p) { return p.replace(/^\.?\//, "").replace(/\.html$/, "").replace(/^index$/, ""); };
+    return bare(path) === bare(location.pathname.split("/").pop() || "");
+  }
+
   /* la section atteinte par un lien interne reçoit le focus (sans faire défiler) :
      au clavier, on continue depuis elle */
   function focusSection(target) {
@@ -114,10 +123,13 @@
          même si la souris reste dessus */
       var item = link.closest(".nav__list > li");
       if (item && item.querySelector(".nav__sub")) item.classList.add("is-folded");
-      /* au clavier (Entrée) : on continue depuis la section choisie */
-      var href = link.getAttribute("href");
-      if (e.detail === 0 && href && href.charAt(0) === "#" && href.length > 1) {
-        focusSection(document.querySelector(href));
+      /* au clavier (Entrée), vers une partie de la page en cours : on continue depuis elle
+         (dans Streamlit, c'est l'aiguillage des pages plus bas qui s'en occupe) */
+      var href = link.getAttribute("href") || "";
+      var cut = href.indexOf("#");
+      if (e.detail === 0 && !embedded && cut !== -1 && href.length > cut + 1 &&
+          samePage(href.slice(0, cut))) {
+        focusSection(document.getElementById(href.slice(cut + 1)));
       }
     });
     /* le petit menu replié se rouvre au prochain survol ou au prochain passage au clavier */
@@ -158,19 +170,40 @@
     }
   }
 
-  /* ---------- Liens internes quand le site est intégré (iframe Streamlit) ----------
-     Dans une iframe « srcdoc », un lien « #section » rechargerait la page parente :
-     on fait défiler la page nous-mêmes. On n'utilise pas scrollIntoView(), qui
-     ferait aussi défiler la page Streamlit autour du site et cacherait l'en-tête. */
-  if (location.protocol === "about:") {
+  /* ---------- Site intégré (iframe Streamlit) : aiguillage des pages ----------
+     app.py met toutes les pages dans le même document, chacune dans un bloc .st-page.
+     Un lien vers une autre page affiche son bloc ; un lien « #partie » fait défiler la
+     page nous-mêmes (un lien normal rechargerait la page Streamlit). On n'utilise pas
+     scrollIntoView(), qui ferait aussi défiler la page Streamlit autour du site. */
+  if (embedded) {
+    var stPages = [].slice.call(document.querySelectorAll(".st-page"));
+    var MENU = { concept: "concept", formules: "formules", reserver: "reserver", offrir: "offrir", contact: "contact" };
+    var shownPage = function () {
+      var p = stPages.filter(function (x) { return !x.hidden; })[0];
+      return p ? p.getAttribute("data-page") : "index";
+    };
+    var showPage = function (name) {
+      stPages.forEach(function (p) { p.hidden = p.getAttribute("data-page") !== name; });
+      document.querySelectorAll("[data-nav]").forEach(function (a) {
+        if (a.getAttribute("data-nav") === MENU[name]) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+      });
+    };
     document.addEventListener("click", function (e) {
-      var link = e.target.closest('a[href^="#"], a[href="./"]');
-      if (!link || link.hasAttribute("data-legal")) return;
+      var link = e.target.closest("a[href]");
+      if (!link || e.defaultPrevented) return;
       var href = link.getAttribute("href");
-      var target = href === "./" || href === "#" ? null : document.querySelector(href);
-      if (href !== "./" && href !== "#" && !target) return;
+      /* « ./ », « formules.html », « reserver.html?formule=… », « concept.html#parcours », « #partie » */
+      var m = /^(?:\.\/)?(?:([\w-]+)\.html)?(\?[^#]*)?(#[\w-]*)?$/.exec(href);
+      if (!m) return;
+      var name = m[1] || (href.charAt(0) === "#" ? shownPage() : "index");
+      if (stPages.length && !stPages.some(function (p) { return p.getAttribute("data-page") === name; })) return;
       e.preventDefault();
-      var smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var changed = stPages.length > 0 && name !== shownPage();
+      if (changed) showPage(name);
+      if (m[2]) prefillForms(new URLSearchParams(m[2].slice(1)));
+      var target = m[3] && m[3].length > 1 ? document.getElementById(m[3].slice(1)) : null;
+      var smooth = !changed && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       var top = 0;
       if (target) {
         var offset = (parseFloat(getComputedStyle(root).scrollPaddingTop) || 0) +
@@ -182,30 +215,11 @@
     });
   }
 
-  /* ---------- CGV et politique de confidentialité : petites fenêtres ----------
-     Fermeture : la croix, Échap, ou un clic sur le fond sombre. */
-  document.addEventListener("click", function (e) {
-    var opener = e.target.closest("[data-legal]");
-    if (opener) {
-      var dialog = document.getElementById(opener.getAttribute("data-legal"));
-      if (dialog && typeof dialog.showModal === "function") {
-        e.preventDefault();
-        dialog.showModal();
-      }
-      return;
-    }
-    if (e.target.closest("[data-legal-close]")) {
-      e.target.closest("dialog").close();
-      return;
-    }
-    if (e.target.matches && e.target.matches("dialog.legal")) e.target.close();
-  });
-
   /* ---------- Formules : les bocaux se retournent ----------
      Survol = retournement seulement avec une vraie souris ;
      clic / toucher / Entrée / Espace = bascule partout. */
   var fine = window.matchMedia("(hover: hover) and (pointer: fine)");
-  document.querySelectorAll(".jar").forEach(function (jar) {
+  document.querySelectorAll(".jar:not(.jar--teaser)").forEach(function (jar) {
     var btn = jar.querySelector(".jar__toggle");
     var front = jar.querySelector(".jar__face--front");
     var back = jar.querySelector(".jar__face--back");
@@ -263,6 +277,15 @@
     return chosen;
   }
   var addonNames = function (chosen) { return chosen.map(function (x) { return x.value; }); };
+  function pickRadio(form, value) {
+    return value ? [].slice.call(form.querySelectorAll('input[type="radio"]'))
+      .filter(function (x) { return x.value === value; })[0] : null;
+  }
+  function checkAddons(form, names) {
+    form.querySelectorAll(".addon input").forEach(function (x) {
+      if (!x.disabled && names.indexOf(x.value) !== -1) x.checked = true;
+    });
+  }
 
   /* ---------- Réserver : récapitulatif en direct et e-mail prérempli ---------- */
   var bookForm = document.getElementById("booking-form");
@@ -270,6 +293,7 @@
     var bookSend = document.getElementById("booking-send");
     var bookExtraLine = document.querySelector("[data-book-extra]");
     var wantedAddon = "";   /* « Réserver » au dos de Douces énergies / Les courses */
+    var giftSwitch = document.querySelector("[data-gift-switch]");
     var recap = {};
     document.querySelectorAll("[data-book]").forEach(function (el) {
       recap[el.getAttribute("data-book")] = { el: el, fallback: el.textContent };
@@ -357,18 +381,25 @@
       bookSend.href = "mailto:bococon.contact@gmail.com?subject=" +
         encodeURIComponent("Réservation Bo’Cocon" + (v.formule ? " – " + v.formule : "") + extras.map(function (n) { return " + " + n; }).join("")) +
         "&body=" + encodeURIComponent(body);
+      /* « C'est pour offrir » emmène à la page Offrir avec les mêmes choix */
+      if (giftSwitch) {
+        var q = [];
+        if (v.formule) q.push("formule=" + encodeURIComponent(v.formule));
+        if (extras.length) q.push("extras=" + encodeURIComponent(extras.join(",")));
+        giftSwitch.setAttribute("href", "offrir.html" + (q.length ? "?" + q.join("&") : ""));
+      }
     };
-    /* « Réserver » au dos d'un bocal : la formule (ou le complément) est déjà choisie */
-    document.querySelectorAll("[data-reserve]").forEach(function (cta) {
-      cta.addEventListener("click", function () {
-        var name = cta.getAttribute("data-reserve");
-        var radio = [].slice.call(bookForm.querySelectorAll('input[name="book-formule"]'))
-          .filter(function (x) { return x.value === name; })[0];
-        if (radio) radio.checked = true;
-        else wantedAddon = name;
-        bookUpdate();
-      });
-    });
+    /* arrivée depuis le dos d'un bocal : reserver.html?formule=… ou ?complement=… */
+    bookForm.prefill = function (params) {
+      var extras = (params.get("extras") || "").split(",").filter(Boolean);
+      if (params.get("complement")) extras.push(params.get("complement"));
+      var radio = pickRadio(bookForm, params.get("formule"));
+      if (radio) radio.checked = true;
+      else if (extras.length) wantedAddon = extras[0];   /* coché dès qu'une formule est choisie */
+      bookUpdate();
+      checkAddons(bookForm, extras);
+      bookUpdate();
+    };
     bookForm.addEventListener("input", bookUpdate);
     bookForm.addEventListener("change", bookUpdate);
     bookForm.addEventListener("submit", function (e) { e.preventDefault(); });
@@ -418,28 +449,27 @@
         encodeURIComponent("Carte cadeau Bo’Cocon" + (values.formule ? " – " + values.formule : "") + extras.map(function (n) { return " + " + n; }).join("")) +
         "&body=" + encodeURIComponent(body);
     };
+    /* arrivée depuis « C'est pour offrir » : offrir.html?formule=…&extras=… */
+    giftForm.prefill = function (params) {
+      var radio = pickRadio(giftForm, params.get("formule"));
+      if (radio) radio.checked = true;
+      giftUpdate();
+      checkAddons(giftForm, (params.get("extras") || "").split(",").filter(Boolean));
+      giftUpdate();
+    };
     giftForm.addEventListener("input", giftUpdate);
     giftForm.addEventListener("change", giftUpdate);
     giftForm.addEventListener("submit", function (e) { e.preventDefault(); });
     giftUpdate();
   }
 
-  /* ---------- Réserver → « C'est pour offrir » : on passe à Offrir avec les mêmes choix ---------- */
-  var giftSwitch = document.querySelector("[data-gift-switch]");
-  if (giftSwitch && bookForm && giftForm) {
-    giftSwitch.addEventListener("click", function () {
-      var picked = bookForm.querySelector('input[name="book-formule"]:checked');
-      var extras = [].slice.call(bookForm.querySelectorAll(".addon input:checked")).map(function (x) { return x.value; });
-      if (picked) {
-        giftForm.querySelectorAll('input[name="gift-formule"]').forEach(function (x) { x.checked = x.value === picked.value; });
-      }
-      giftForm.dispatchEvent(new Event("change", { bubbles: true }));   /* active les compléments */
-      giftForm.querySelectorAll(".addon input").forEach(function (x) {
-        if (!x.disabled && extras.indexOf(x.value) !== -1) x.checked = true;
-      });
-      giftForm.dispatchEvent(new Event("change", { bubbles: true }));   /* met à jour la carte */
+  /* ---------- Choix transmis d'une page à l'autre (?formule=…&extras=…) ---------- */
+  function prefillForms(params) {
+    [bookForm, giftForm].forEach(function (form) {
+      if (form && form.prefill && !form.closest("[hidden]")) form.prefill(params);
     });
   }
+  if (location.search) prefillForms(new URLSearchParams(location.search));
 
   /* ---------- Apparitions au défilement ---------- */
   var items = document.querySelectorAll(".reveal");
