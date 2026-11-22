@@ -210,10 +210,35 @@
         if (e.target === p) p.classList.remove("is-entering");
       });
     });
+    /* E-mail (mailto:), téléphone (tel:) et liens vers un nouvel onglet : le cadre de
+       Streamlit n'a pas le droit de les ouvrir sur beaucoup de téléphones et de
+       navigateurs (on clique, rien ne se passe). On les ouvre donc depuis la page qui
+       contient le site (même adresse que le cadre, donc accessible). */
+    var hostDocument = function () {
+      try { if (window.top !== window && window.top.document.body) return window.top.document; } catch (err) { /* autre site */ }
+      try { if (window.parent !== window && window.parent.document.body) return window.parent.document; } catch (err) { /* autre site */ }
+      return null;
+    };
+    var openFromHost = function (url, newTab) {
+      var doc = hostDocument();
+      if (!doc) return false;
+      var a = doc.createElement("a");
+      a.href = url;
+      if (newTab) { a.target = "_blank"; a.rel = "noopener"; }
+      a.style.display = "none";
+      doc.body.appendChild(a);
+      a.click();
+      a.remove();
+      return true;
+    };
     document.addEventListener("click", function (e) {
       var link = e.target.closest("a[href]");
       if (!link || e.defaultPrevented) return;
       var href = link.getAttribute("href");
+      if (/^(mailto|tel):/i.test(href) || link.target === "_blank") {
+        if (openFromHost(link.href, link.target === "_blank")) e.preventDefault();
+        return;
+      }
       /* « ./ », « formules.html », « reserver.html?formule=… », « concept.html#parcours », « #partie » */
       var m = /^(?:\.\/)?(?:([\w-]+)\.html)?(\?[^#]*)?(#[\w-]*)?$/.exec(href);
       if (!m) return;
@@ -316,6 +341,19 @@
     });
   }
 
+  /* e-mail prérempli : le bouton ouvre la messagerie (mailto:) ; sur ordinateur, le lien
+     « Écrire depuis Gmail » ouvre le même e-mail dans Gmail (utile quand on lit ses
+     e-mails sur le site de Gmail : l'ordinateur n'a alors aucune messagerie à ouvrir) */
+  function setMail(form, button, subject, body) {
+    button.href = "mailto:bococon.contact@gmail.com?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+    var gmail = form.querySelector("[data-gmail]");
+    if (gmail) {
+      gmail.href = "https://mail.google.com/mail/?view=cm&fs=1&to=bococon.contact%40gmail.com&su=" +
+        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    }
+  }
+
   /* ---------- Réserver : récapitulatif en direct et e-mail prérempli ---------- */
   var bookForm = document.getElementById("booking-form");
   if (bookForm) {
@@ -407,9 +445,9 @@
         "",
         "Merci de me recontacter pour confirmer la réservation."
       ].join("\n");
-      bookSend.href = "mailto:bococon.contact@gmail.com?subject=" +
-        encodeURIComponent("Réservation Bo’Cocon" + (v.formule ? " – " + v.formule : "") + extras.map(function (n) { return " + " + n; }).join("")) +
-        "&body=" + encodeURIComponent(body);
+      setMail(bookForm, bookSend,
+        "Réservation Bo’Cocon" + (v.formule ? " – " + v.formule : "") + extras.map(function (n) { return " + " + n; }).join(""),
+        body);
       /* « C'est pour offrir » emmène à la page Offrir avec les mêmes choix */
       if (giftSwitch) {
         var q = [];
@@ -474,9 +512,9 @@
         "",
         "Merci de me recontacter pour finaliser la commande."
       ].join("\n");
-      giftOrder.href = "mailto:bococon.contact@gmail.com?subject=" +
-        encodeURIComponent("Carte cadeau Bo’Cocon" + (values.formule ? " – " + values.formule : "") + extras.map(function (n) { return " + " + n; }).join("")) +
-        "&body=" + encodeURIComponent(body);
+      setMail(giftForm, giftOrder,
+        "Carte cadeau Bo’Cocon" + (values.formule ? " – " + values.formule : "") + extras.map(function (n) { return " + " + n; }).join(""),
+        body);
     };
     /* arrivée depuis « C'est pour offrir » : offrir.html?formule=…&extras=… */
     giftForm.prefill = function (params) {

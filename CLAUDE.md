@@ -129,8 +129,9 @@
   (pas de trait d’union insécable U+2011, absent de la police Cormorant).
 - Le concept (`#approche`) : 3 points « Fait maison, chez vous », « Pour le post-partum »
   (au lieu de « Pensé pour le post-partum », demande de la cuisinière), « Pour toute la
-  famille ». Le déroulé : 01 « On fait connaissance » (la cuisinière veut le changer :
-  nouveau texte à demander), 02 « Un menu sur-mesure », 03 « Je cuisine chez vous ».
+  famille ». Le déroulé : 01 « Faisons connaissance » (au lieu de « On fait connaissance »,
+  demande de la cuisinière, mot choisi par le propriétaire), 02 « Un menu sur-mesure »,
+  03 « Je cuisine chez vous ».
 - CSS : le bloc `@media (max-width: 900px)` contient aussi `.pillars, .steps`, `.tax__inner`
   et `.footer__grid` (une colonne sur tablette / téléphone) ; en ajoutant des règles,
   ne pas le refermer avant elles (erreur faite puis corrigée le 22/11/2026).
@@ -147,8 +148,17 @@
   direct + e-mail prérempli vers bococon.contact@gmail.com (`js/main.js`), pas de paiement
   en ligne. Sous le bouton (`.form-note`) : « En cliquant, un e-mail déjà rempli s’ouvre
   dans votre messagerie : vous n’avez plus qu’à l’envoyer. » (demande de la cuisinière,
-  22/11/2026 : dire clairement que l’e-mail est prérempli). Styles de formulaire partagés :
+  22/11/2026 : dire clairement que l’e-mail est prérempli), puis, sur ordinateur seulement,
+  « Rien ne s’ouvre ? Écrire depuis Gmail » (`[data-gmail]`, même e-mail dans Gmail, nouvel
+  onglet : quand on lit ses e-mails sur le site de Gmail, l’ordinateur n’a pas de
+  messagerie à ouvrir). Fonction `setMail` dans js/main.js. Styles de formulaire partagés :
   `.field`, `.field-row`, `.chips`, `.chip`.
+- E-mail et téléphone dans Streamlit : « rien ne se passe » quand on cliquait (signalé le
+  22/11/2026, téléphone et ordinateur) : le cadre de Streamlit n’a pas le droit d’ouvrir
+  la messagerie. Correction (js/main.js, `openFromHost`) : les liens `mailto:`, `tel:` et
+  « nouvel onglet » sont ouverts depuis la page qui contient le site (window.top, sinon
+  window.parent, même adresse que le cadre). Tests : la demande `mailto:` doit partir de
+  la page, pas du cadre `about:srcdoc`.
 - Barre du haut (`.site-header`) : couleur crème « comme avant » (transparente en haut de
   page, crème une fois défilé ; le propriétaire n’a pas voulu de taupe ni d’autre couleur)
   et un fin trait dessous, toujours visible, pour la séparer de la page (accueil compris).

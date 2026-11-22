@@ -1286,6 +1286,10 @@ fieldset.field { container-type: inline-size; }
   .chip:has(input:checked) .chip__price { color: HighlightText; }
 }
 .form-submit { justify-self: start; }
+/* « Rien ne s'ouvre ? Écrire depuis Gmail » : seulement sur ordinateur (sur téléphone,
+   l'appli de messagerie s'ouvre) */
+.form-note__gmail { display: none; }
+@media (hover: hover) and (pointer: fine) { .form-note__gmail { display: inline; } }
 .form-note { margin: -4px 0 0; font-size: .88rem; }
 .form-note a { color: var(--brown); }
 
