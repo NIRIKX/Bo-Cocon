@@ -1982,7 +1982,22 @@ fieldset.field { container-type: inline-size; }
 .legal-page .kicker { margin-bottom: 12px; }
 .legal-page__body { margin-top: 24px; line-height: 1.7; }
 .legal-page__body p { margin: 0 0 12px; }
-.legal-page__body a { color: var(--brown); }
+.legal-page__body a { color: var(--brown); overflow-wrap: anywhere; }
+/* textes juridiques (politique de confidentialité, CGV) : parties numérotées et listes */
+.legal-page__intro { font-size: 1.05rem; }
+.legal-page__body h2 {
+  margin: 40px 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1.2rem + .8vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--brown);
+}
+.legal-page__body ul { margin: 0 0 16px; padding-left: 1.2em; }
+.legal-page__body li { margin-bottom: 10px; padding-left: .2em; }
+.legal-page__body li::marker { color: var(--caramel); }
+.legal-page__body strong { font-weight: 500; color: var(--brown); }
+.legal-page__body .legal-page__aim { margin: 4px 0 0; padding-left: 14px; border-left: 2px solid rgba(116, 69, 55, .18); }
 
 /* ==========================================================================
    Responsive

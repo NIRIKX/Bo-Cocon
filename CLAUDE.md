@@ -30,8 +30,15 @@
    enregistrements e-mail lors du transfert.
 
 ## À faire avant la mise en ligne (à la fin, avec le propriétaire)
+- Infos de l’entreprise (données par la cuisinière dans sa politique de confidentialité,
+  22/11/2026) : Entreprise Individuelle (EI) Shannon Gaidoz, nom commercial BO’COCON,
+  SIREN 131 507 774, adresse postale 47 rue de Vivienne, 75002 Paris.
+- Site et RGPD : aucun cookie, aucun suivi, rien d’enregistré chez le visiteur ; les
+  formulaires préparent seulement un e-mail. Seule sortie : les polices chargées depuis
+  Google Fonts (pages/_gabarit.html) ; proposé au propriétaire de les mettre sur le site
+  (assets/, et les intégrer aussi dans app.py pour Streamlit) : réponse attendue.
 - Mentions légales (obligatoires pour un site professionnel) : la cuisinière a fait ses
-  démarches (INPI) ; attendre son SIRET (et, si elle en a un, son numéro de déclaration
+  démarches (INPI) ; SIREN et adresse reçus (voir plus haut) ; attendre son SIRET (et, si elle en a un, son numéro de déclaration
   Services à la Personne), son nom ou celui de l’entreprise, une adresse (ou domiciliation),
   et les coordonnées de l’hébergeur (Cloudflare). Rien à inventer : demander chaque info.
 - Nom de domaine bococon.fr : pas encore réservé par le propriétaire ; la cuisinière est
@@ -183,8 +190,10 @@
   pas de lieu).
 - Bas de page : à droite, à la place de la phrase sur le crédit d’impôt (demande de la
   cuisinière), deux liens discrets « CGV · Politique de confidentialité » (`.footer__legal`)
-  vers les pages `cgv.html` et `confidentialite.html` (`.legal-page`). Textes pas encore
-  reçus : un simple message « bientôt disponibles ». Bas de page resserré à la demande de
+  vers les pages `cgv.html` et `confidentialite.html` (`.legal-page`). Politique de
+  confidentialité : texte RGPD donné par la cuisinière le 22/11/2026, mis tel quel
+  (7 parties, styles `.legal-page__body h2 / ul / .legal-page__aim`) ; CGV pas encore
+  reçues (message « bientôt disponibles »). Bas de page resserré à la demande de
   la cuisinière (22/11/2026) : moins de marges, « Navigation » sur deux colonnes
   (`.footer__list--nav`) ; sur l’accueil, la barre fait 46 px (50 sur téléphone, 62 sous
   380 px de large, sur deux lignes). Une partie des CGV est
