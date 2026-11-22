@@ -18,9 +18,9 @@ ROOT = Path(__file__).parent
 
 
 def data_uri(match: re.Match) -> str:
-    """Remplace un chemin « assets/... » par l'image elle-même (data URI)."""
+    """Remplace un chemin « assets/... » par le fichier lui-même (image ou police, data URI)."""
     path = ROOT / "assets" / match.group(1)
-    mime = "image/svg+xml" if path.suffix == ".svg" else f"image/{path.suffix[1:]}"
+    mime = {".svg": "image/svg+xml", ".woff2": "font/woff2"}.get(path.suffix, f"image/{path.suffix[1:]}")
     return f"data:{mime};base64,{base64.b64encode(path.read_bytes()).decode()}"
 
 
@@ -41,6 +41,9 @@ def build_site(start: str = "index") -> str:
     html = MAIN.sub(lambda m: m.group(1) + "".join(blocks) + "\n  " + m.group(3), html, count=1)
     html = html.replace('<body data-page="index">', f'<body data-page="{start}">', 1)
     css = (ROOT / "css" / "style.css").read_text(encoding="utf-8")
+    # polices : dans Streamlit, seulement les lettres du français (« latin ») pour alléger
+    # la page (les lettres « latin-ext » ne servent qu'aux autres langues)
+    css = re.sub(r"@font-face \{[^}]*latin-ext[^}]*\}\n?", "", css)
     js = (ROOT / "js" / "main.js").read_text(encoding="utf-8")
 
     html = html.replace('<link rel="stylesheet" href="css/style.css">', f"<style>\n{css}\n</style>")
@@ -48,7 +51,7 @@ def build_site(start: str = "index") -> str:
     html = re.sub(r'\s*<link rel="preload"[^>]*>', "", html)
     html = html.replace("</body>", f"<script>\n{js}\n</script>\n</body>")
     # dans Streamlit, la page est servie seule : on y intègre aussi les images
-    return re.sub(r"(?:\.\./)?assets/([\w.-]+\.(?:png|jpg|svg))", data_uri, html)
+    return re.sub(r"(?:\.\./)?assets/((?:fonts/)?[\w.-]+\.(?:png|jpg|svg|woff2))", data_uri, html)
 
 
 st.set_page_config(

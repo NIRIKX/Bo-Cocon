@@ -33,10 +33,13 @@
 - Infos de l’entreprise (données par la cuisinière dans sa politique de confidentialité,
   22/11/2026) : Entreprise Individuelle (EI) Shannon Gaidoz, nom commercial BO’COCON,
   SIREN 131 507 774, adresse postale 47 rue de Vivienne, 75002 Paris.
-- Site et RGPD : aucun cookie, aucun suivi, rien d’enregistré chez le visiteur ; les
-  formulaires préparent seulement un e-mail. Seule sortie : les polices chargées depuis
-  Google Fonts (pages/_gabarit.html) ; proposé au propriétaire de les mettre sur le site
-  (assets/, et les intégrer aussi dans app.py pour Streamlit) : réponse attendue.
+- Site et RGPD : aucun cookie, aucun suivi, rien d’enregistré chez le visiteur, aucun
+  site extérieur contacté ; les formulaires préparent seulement un e-mail. Les polices
+  (Cormorant Garamond 400/500/600 + italique 400/500, Jost 300/400/500/600 ; licence libre
+  SIL OFL, fichiers LICENCE-*.txt) sont rangées dans `assets/fonts/` (`@font-face` en tête
+  de css/style.css, lettres « latin » et « latin-ext ») au lieu de Google Fonts (accord du
+  propriétaire, 22/11/2026). app.py les intègre dans la page Streamlit (seulement
+  « latin », pour alléger). Ne pas remettre de lien vers Google Fonts.
 - Mentions légales (obligatoires pour un site professionnel) : la cuisinière a fait ses
   démarches (INPI) ; SIREN et adresse reçus (voir plus haut) ; attendre son SIRET (et, si elle en a un, son numéro de déclaration
   Services à la Personne), son nom ou celui de l’entreprise, une adresse (ou domiciliation),
