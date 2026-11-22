@@ -115,9 +115,12 @@
 - Pages et menu : Accueil (`./`, ajouté le 21/11/2026 : sans lui, le propriétaire croyait
   que la première page — titre et grand « B » — avait disparu), Le concept (`concept.html` : `#approche`, `#parcours`, `#deroule` fond
   taupe clair, `#engagements` fond lin), Formules (`formules.html` : `#formules`,
-  `#option-bocaux`, `#credit-impot`), Réserver, Offrir, Contact (choix du propriétaire),
+  `#option-bocaux`, `#credit-impot`), Commander (lien vers `reserver.html`,
+  `data-nav="commander"`, marqué sur les pages Réserver et Offrir : regroupe Réserver et
+  Offrir, essai demandé par la cuisinière le 22/11/2026, mot proposé par Claude), Contact,
   avec des sous-parties (`.nav__sub`) : sous Le concept « Mon parcours, Le déroulé, Mes
-  engagements », sous Formules « L’option bocaux, Le crédit d’impôt » (séparées par un
+  engagements », sous Formules « L’option bocaux, Le crédit d’impôt », sous Commander
+  « Réserver, Offrir » (séparées par un
   simple espace sur téléphone, sans point). Sur téléphone, elles sont écrites en petit sous
   le titre dans le menu ; sur ordinateur, un petit menu apparaît au survol de la souris (ou au clavier), avec une
   petite flèche ; il se replie après un choix ou avec Échap (`.is-folded`, js/main.js) et
