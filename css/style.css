@@ -1292,6 +1292,9 @@ fieldset.field { container-type: inline-size; }
 @media (hover: hover) and (pointer: fine) { .form-note__gmail { display: inline; } }
 .form-note { margin: -4px 0 0; font-size: .88rem; }
 .form-note a { color: var(--brown); }
+/* consentement (politique de confidentialité, données de santé : allergies) */
+.form-consent { margin: -6px 0 0; font-size: .82rem; line-height: 1.55; }
+.form-consent a { color: var(--brown); white-space: nowrap; }
 
 @media (max-width: 900px) {
   .booking__grid { grid-template-columns: 1fr; grid-template-areas: "intro" "recap" "form"; }

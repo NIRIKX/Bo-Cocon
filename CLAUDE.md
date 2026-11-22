@@ -161,7 +161,12 @@
   22/11/2026 : dire clairement que l’e-mail est prérempli), puis, sur ordinateur seulement,
   « Rien ne s’ouvre ? Écrire depuis Gmail » (`[data-gmail]`, même e-mail dans Gmail, nouvel
   onglet : quand on lit ses e-mails sur le site de Gmail, l’ordinateur n’a pas de
-  messagerie à ouvrir). Fonction `setMail` dans js/main.js. Styles de formulaire partagés :
+  messagerie à ouvrir). Fonction `setMail` dans js/main.js. Dessous, en petit
+  (`.form-consent`, accord du propriétaire le 22/11/2026, pour le « consentement explicite »
+  de la politique de confidentialité) : Réserver « En envoyant cette demande, j’accepte que
+  mes informations (y compris mes allergies) servent à préparer ma prestation. », Offrir
+  « … servent à préparer la carte cadeau. », plus un lien « Politique de confidentialité ».
+  Styles de formulaire partagés :
   `.field`, `.field-row`, `.chips`, `.chip`.
 - E-mail et téléphone dans Streamlit : « rien ne se passe » quand on cliquait (signalé le
   22/11/2026, téléphone et ordinateur) : le cadre de Streamlit n’a pas le droit d’ouvrir
