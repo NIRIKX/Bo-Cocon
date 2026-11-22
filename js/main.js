@@ -187,6 +187,13 @@
       var p = stPages.filter(function (x) { return !x.hidden; })[0];
       return p ? p.getAttribute("data-page") : "index";
     };
+    /* le menu souligne la page affichée */
+    var markNav = function (name) {
+      document.querySelectorAll("[data-nav]").forEach(function (a) {
+        if (a.getAttribute("data-nav") === MENU[name]) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+      });
+    };
     var showPage = function (name) {
       document.body.setAttribute("data-page", name);
       stPages.forEach(function (p) {
@@ -194,11 +201,10 @@
         /* la nouvelle page apparaît en fondu : on voit bien qu'on a changé de page */
         p.classList.toggle("is-entering", !p.hidden);
       });
-      document.querySelectorAll("[data-nav]").forEach(function (a) {
-        if (a.getAttribute("data-nav") === MENU[name]) a.setAttribute("aria-current", "page");
-        else a.removeAttribute("aria-current");
-      });
+      markNav(name);
     };
+    /* ouverture directe d'une page (?page=reserver dans l'adresse Streamlit) */
+    markNav(shownPage());
     stPages.forEach(function (p) {
       p.addEventListener("animationend", function (e) {
         if (e.target === p) p.classList.remove("is-entering");

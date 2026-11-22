@@ -127,6 +127,13 @@
   « Accueil » est caché, le logo juste au-dessus y mène) ; sous 300 px de large, les
   sous-parties passent l’une sous l’autre. Mot à ne pas couper : `<span class="nowrap">`
   (pas de trait d’union insécable U+2011, absent de la police Cormorant).
+- Le concept (`#approche`) : 3 points « Fait maison, chez vous », « Pour le post-partum »
+  (au lieu de « Pensé pour le post-partum », demande de la cuisinière), « Pour toute la
+  famille ». Le déroulé : 01 « On fait connaissance » (la cuisinière veut le changer :
+  nouveau texte à demander), 02 « Un menu sur-mesure », 03 « Je cuisine chez vous ».
+- CSS : le bloc `@media (max-width: 900px)` contient aussi `.pillars, .steps`, `.tax__inner`
+  et `.footer__grid` (une colonne sur tablette / téléphone) ; en ajoutant des règles,
+  ne pas le refermer avant elles (erreur faite puis corrigée le 22/11/2026).
 - « Mes engagements » : charte éthique et professionnelle envoyée par la cuisinière,
   condensée à sa demande en 4 cartes (`.pledges` / `.pledge`) : Respect et bienveillance
   (intimité, sans jugement, écoute ; carte large, 3 colonnes), Sécurité alimentaire et
@@ -138,7 +145,10 @@
   reprenant la formule et les compléments déjà choisis.
 - Sections « Réserver » (demande de réservation) et « Offrir » (carte cadeau) : aperçu en
   direct + e-mail prérempli vers bococon.contact@gmail.com (`js/main.js`), pas de paiement
-  en ligne. Styles de formulaire partagés : `.field`, `.field-row`, `.chips`, `.chip`.
+  en ligne. Sous le bouton (`.form-note`) : « En cliquant, un e-mail déjà rempli s’ouvre
+  dans votre messagerie : vous n’avez plus qu’à l’envoyer. » (demande de la cuisinière,
+  22/11/2026 : dire clairement que l’e-mail est prérempli). Styles de formulaire partagés :
+  `.field`, `.field-row`, `.chips`, `.chip`.
 - Barre du haut (`.site-header`) : couleur crème « comme avant » (transparente en haut de
   page, crème une fois défilé ; le propriétaire n’a pas voulu de taupe ni d’autre couleur)
   et un fin trait dessous, toujours visible, pour la séparer de la page (accueil compris).
@@ -161,7 +171,10 @@
 - Bas de page : à droite, à la place de la phrase sur le crédit d’impôt (demande de la
   cuisinière), deux liens discrets « CGV · Politique de confidentialité » (`.footer__legal`)
   vers les pages `cgv.html` et `confidentialite.html` (`.legal-page`). Textes pas encore
-  reçus : un simple message « bientôt disponibles ». Une partie des CGV est
+  reçus : un simple message « bientôt disponibles ». Bas de page resserré à la demande de
+  la cuisinière (22/11/2026) : moins de marges, « Navigation » sur deux colonnes
+  (`.footer__list--nav`) ; sur l’accueil, la barre fait 46 px (50 sur téléphone, 62 sous
+  380 px de large, sur deux lignes). Une partie des CGV est
   prête chez elle ; l’autre attend les infos de l’hébergeur (Cloudflare, Inc., 101
   Townsend Street, San Francisco, CA 94107, États-Unis, +1 (650) 319-8930).
 - Ouverture (intro) : les battants au « B » s’ouvrent (à garder absolument : le propriétaire
