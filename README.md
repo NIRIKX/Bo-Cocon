@@ -129,7 +129,7 @@ personne pour finaliser.
 | Expresso        | `#512814` |
 | Texte           | `#63584d` |
 
-Typographies : Cormorant Garamond (titres) et Jost (textes), via Google Fonts.
+Typographies : Cormorant Garamond (titres) et Jost (textes), rangées dans le site (`assets/fonts/`, licence libre SIL OFL) : aucune visite ne passe par Google.
 
 ## Coordonnées affichées
 
