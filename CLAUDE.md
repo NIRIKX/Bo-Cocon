@@ -142,9 +142,12 @@
   (pas de trait d’union insécable U+2011, absent de la police Cormorant).
 - Le concept (`#approche`) : 3 points « Fait maison, chez vous », « Pour le post-partum »
   (au lieu de « Pensé pour le post-partum », demande de la cuisinière), « Pour toute la
-  famille ». Le déroulé : 01 « Faisons connaissance » (au lieu de « On fait connaissance »,
-  demande de la cuisinière, mot choisi par le propriétaire), 02 « Un menu sur-mesure »,
-  03 « Je cuisine chez vous ».
+  famille ». Le déroulé : 01 « Un premier échange » (« On fait connaissance », puis
+  « Faisons connaissance » le 22/11/2026 ; changé encore le 25/11/2026 « au cas où » à la
+  demande du propriétaire, mot proposé par Claude, sans « connaissance » ; texte dessous :
+  « Pour comprendre vos besoins, vos envies et le rythme de votre foyer. »), 02 « Un menu
+  sur-mesure », 03 « Je cuisine chez vous ». Le texte du haut de la page dit encore
+  « faire connaissance avec bébé » (pas touché).
 - CSS : le bloc `@media (max-width: 900px)` contient aussi `.pillars, .steps`, `.tax__inner`
   et `.footer__grid` (une colonne sur tablette / téléphone) ; en ajoutant des règles,
   ne pas le refermer avant elles (erreur faite puis corrigée le 22/11/2026).
